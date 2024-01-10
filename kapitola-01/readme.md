@@ -109,7 +109,7 @@ Zkusíme si teď vytvořit nový "poznámkový blok", ve kterém si vyřešíme 
 
 V levé části okna (viz obrázek) dvakrát rychle po sobě klikni na `kapitola-01`, aby ses do adresáře přepnul.
 
-![exit](./imgs/09-jupyter.png)
+![folder](./imgs/09-folder.png)
 
 Pokud by ses potřeboval "vrátit zpátky, slouží k tomu ikonka složky, které je na obrázku obtažená červeným kroužkem.
 
