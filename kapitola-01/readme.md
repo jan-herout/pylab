@@ -156,10 +156,10 @@ Program napsaný v jazyce C může vypadat zhruba nějak takto:
 #include <stdio.h>
 
 int main() {
-    char hello[] = "Hello";
-    char world[] = "World";
+    char hello[] = "Hello";             // nová proměnná, pole znaků, a její inicializace
+    char world[] = "World";             // nová proměnná, pole znaků, a její inicializace
 
-    printf("%s, %s!\n", hello, world);
+    printf("%s, %s!\n", hello, world);  // vypiš "Hello World!"
 
     return 0;
 }
@@ -208,9 +208,9 @@ V určitých situacích mohou tyto vlastnosti být výhodné, ale také nevýhod
 Program napsaný v jazyce Python může vypadat například takto:
 
 ```python
-hello = "hello"
-world = "world"
-print (hello + " " + world)
+hello = "hello"                 # nová proměnná, string
+world = "world"                 # nová proměnná, string
+print (hello + " " + world)     # vypiš hello world
 ```
 
 ## Python je dynamický, interpretovaný programovací jazyk
