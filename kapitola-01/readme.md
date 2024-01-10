@@ -71,21 +71,21 @@ sys_exit  equ 60
 sys_write  equ 1
 
 section .text
-  global _start  		;must be declared for using gcc
-_start:  				;tell linker entry point
-  mov  edx, len  		;message length
-  mov  esi, msg  		;message to write
-  mov  edi, 1  		    ;file descriptor (stdout)
-  mov  eax, sys_write	;system call number (sys_write)
-  syscall  				;call kernel
-  xor edi, edi
-  mov  eax, sys_exit    ;system call number (sys_exit)
-  syscall  				;call kernel
+  global _start               ;must be declared for using gcc
+_start:                       ;tell linker entry point
+  mov  edx, len               ;message length
+  mov  esi, msg               ;message to write
+  mov  edi, 1                 ;file descriptor (stdout)
+  mov  eax, sys_write         ;system call number (sys_write)
+  syscall                     ;call kernel
+  xor edi, edi     
+  mov  eax, sys_exit          ;system call number (sys_exit)
+  syscall                     ;call kernel
 
 section .data
 
 msg  db  'Hello, world!',0xa  ;our dear string
-len  equ  $ - msg  ;length of our dear string
+len  equ  $ - msg             ;length of our dear string
 ```
 
 Takhle nějak vypadá tento program přeložený do strojového kódu.
@@ -95,14 +95,14 @@ Takhle nějak vypadá tento program přeložený do strojového kódu.
     Disassembly of section .text:
 
     00000000004000b0 <.text>:
-      4000b0:  ba 0e 00 00 00  	mov  edx,0xe
-      4000b5:  be d0 00 60 00  	mov  esi,0x6000d0
-      4000ba:  bf 01 00 00 00  	mov  edi,0x1
-      4000bf:  b8 01 00 00 00  	mov  eax,0x1
-      4000c4:  0f 05  				syscall
-      4000c6:  31 ff  				xor  edi,edi
-      4000c8:  b8 3c 00 00 00  	mov  eax,0x3c
-      4000cd:  0f 05  				syscall
+      4000b0:  ba 0e 00 00 00      mov  edx,0xe
+      4000b5:  be d0 00 60 00      mov  esi,0x6000d0
+      4000ba:  bf 01 00 00 00      mov  edi,0x1
+      4000bf:  b8 01 00 00 00      mov  eax,0x1
+      4000c4:  0f 05               syscall
+      4000c6:  31 ff               xor  edi,edi
+      4000c8:  b8 3c 00 00 00      mov  eax,0x3c
+      4000cd:  0f 05               syscall
 
     Contents of section .data:
      6000d0 48656c6c 6f2c2077 6f726c64 210a  Hello, world!.
