@@ -30,10 +30,10 @@ Python je vyvíjený v [open source](https://cs.wikipedia.org/wiki/Otev%C5%99en%
 - zdrojové kódu samotného jazyka jsou veřejně dostupné
 - v podstatě _kdokoliv_ může k údržbě a k vývoji jazyka přispět
 - neexistuje žádná firma, ani žádný jednotlivec, který by ručil za "správnost" tohoto jazyka
-- pro kritické komponenty (jako je Python) však fakt, že je zdrojový kód otevřený, zpravidla přispývá k vyšší bezpečnosti a menšímu počtu chyb,
+- pro kritické komponenty (jako je Python) však fakt, že je zdrojový kód otevřený, zpravidla přispívá k vyšší bezpečnosti a menšímu počtu chyb,
   než by tomu bylo u programů, které nemají otevřený zdrojový kód
 
-Python se neustále rozvíjí. Psát programy v jazyce Python znamená neustále se vzdělávat, a sledovat (postatné) změny.
+Python se neustále rozvíjí. Psát programy v jazyce Python znamená neustále se vzdělávat, a sledovat (podstatné) změny.
 
 ## Python je interpretovaný jazyk
 
@@ -52,7 +52,7 @@ a do tohoto strojového jazyka je nutné **přeložit** každý počítačový p
 
 ### Strojový kód a assembler
 
-První počítačové programy byly zapisováný přímo ve strojovém kódu. "Programátor" tedy musel do detailu znát instrukční sadu
+První počítačové programy byly zapisovány přímo ve strojovém kódu. "Programátor" tedy musel do detailu znát instrukční sadu
 daného typu procesoru, a musel ji (s pomocí převodových tabulek) dokázat převést do takové podoby, kterou bylo možné
 do počítače zadat. Jako jedna z prvních technologií, které se pro to používala, byl [děrný štítek](https://cs.wikipedia.org/wiki/D%C4%9Brn%C3%BD_%C5%A1t%C3%ADtek),
 což byla papírová kartička, do které se pomocí speciálních kleští zaznamenal program přímo v číselném zápisu (ve strojovém kódu).
@@ -138,16 +138,16 @@ Program napsaný v **kompilovaném programovací jazyce** je přímo překládá
 
 Výhody:
 
-- tyto programy jsou zpravidla rychlé. Tím, že jsou přeloženy do strojového kódu, je možné je přímo spustit na CPU bez nutnosti nějakých doplňujících kroků.
-- díky tomu, že je program nutné přeložit do strojového kódu, dochází při překladu k jeho kontrole.
+- **Tyto programy jsou zpravidla rychlé.** Tím, že jsou přeloženy do strojového kódu, je možné je přímo spustit na CPU bez nutnosti nějakých doplňujících kroků.
+- díky tomu, že je program nutné přeložit do strojového kódu, **dochází při překladu k jeho kontrole.**
   Určité typy chyb je možné během této kontroly odhalit, a upozornit na ně (zastavit překlad).
 
 Nevýhody:
 
 - Díky tomu, že existuje několik různých CPU architektur, a díky existenci různých operačních systémů, nejsou zpravidla tyto kompilované programy
-  mezi nimi navzájem přenositelné. Například, ten samý program, pokud má běžet na Microsoft Windows, a na počítači Macointosh (Mac), musí být pro
+  mezi nimi navzájem přenositelné. Například, ten samý program, pokud má běžet na Microsoft Windows, a na počítači Macintosh (Mac), musí být pro
   každý z těchto operačních systémů (a CPU architektur) přeložen zvlášť.
-- Poskytují zpravidla menší flexibilitu, než intrerpretované programovací jazyky (jako je například Python)
+- Poskytují zpravidla menší flexibilitu, než interpretované programovací jazyky (jako je například Python)
 - Obtížné odhalování chyb za běhu
 
 Program napsaný v jazyce C může vypadat zhruba nějak takto:
@@ -171,38 +171,38 @@ int main() {
 - V 70-tých letech 20. století se objevil další významný interpretovaný jazyk, [BASIC](https://cs.wikipedia.org/wiki/BASIC).
   Používá se dodnes.
 - V 80-tých letech 20. století se objevily programovací jazyky `Perl` a `Python`. Oba se používají dodnes.
-- Později se objevily další. Ruby, Tcl, JAVA (která se dá zařadit jak mezi kompilované, tak mezi interpretované programovací jazyky), JavaScript.
+- Později se objevily další. `Ruby`, `Tcl`, `JAVA` (která se dá zařadit jak mezi kompilované, tak mezi interpretované programovací jazyky), `JavaScript`, ...
 
-Základním rozdílem oproti **kompilovaným** programovacím jazykům je existence **interpretru**. **Interpretr** je počítačový program,
-který dokáže načíst kód daného jazyka, a _interpretovat_ ho, tj porozumět "co se po něm chce" a "instrukce vykonat". U některých programovacích
+Základním rozdílem oproti **kompilovaným** programovacím jazykům je existence **interpreteru**. **Interpreter** je počítačový program,
+který dokáže načíst kód daného jazyka, a _interpretovat_ ho, tj. porozumět "co se po něm chce" a "instrukce vykonat". U některých programovacích
 jazyků tohoto typu navíc vzniká jakýsi "virtuální počítač", který tyto instrukce vykonává. Mezi tyto jazyky patří například JAVA, a právě Python.
 
 Interpretované programovací jazyky ve srovnání s kompilovanými mají odlišné vlastnosti.
 V určitých situacích mohou tyto vlastnosti být výhodné, ale také nevýhodné.
 
-- **Portabilita:**
+- **Přenositelnost:**
   - zpravidla je možné ten samý program spustit na různých operačních systémech bez úprav kódu
   - neplatí to 100% vždy, zejména u složitějších programů; ale v ideálním případě to platí
 - **Rychlost**
   - stejný program napsaný v interpretovaném jazyce bude zpravidla pomalejší (někdy **řádově** pomalejší)
     než stejný program napsaný v jazyce kompilovaném.
 - **Flexibilita:**
-  - tyto jazyky zpravidla podporují koncept tzv. _duck typing_; co to znamená: u proměnných není nutné uvádět dopředu
+  - tyto jazyky zpravidla podporují koncept tzv. _duck_ _typing_; co to znamená: u proměnných není nutné uvádět dopředu datový typ
   - proměnná může za běhu měnit datový typ
-  - _duck typing_: "když to kváká jako kachna, tak to je kachna" - tj když do proměnné uložíš číslo, datový typ je číslo; když tam uložíš text, datový typ je text.
+  - "když to kváká jako kachna, tak to je kachna" - tj. když do proměnné uložíš číslo, datový typ je číslo; když tam uložíš text, datový typ je text.
 - **Jednoduchost, čitelnost:**
   - interpretované programovací jazyky zpravidla poskytují "mocnější nástroje" než jazyky kompilované
   - to znamená, že "stejného efektu" dosáhneme zapsáním menšího počtu instrukcí v daném programu
   - napsat stejný program v interpretovaném programovacím jazyce bude zpravidla jednodušší, než v jazyce kompilovaném
 - **Udržovatelnost:** - níže uvedené je můj názor, založený na osobní zkušenosti (může jít o chybný názor)
   - jednodušší/kratší programy v interpretovaném jazyku jsou na údržbu zpravidla jednodušší, než stejný program v jazyku kompilovaném
-  - důvodem je fakt, že intepretované jazyky bývají "jednodušší" než ty kompilované
+  - důvodem je fakt, že interpretované jazyky bývají "jednodušší" než ty kompilované
   - od určité složitosti programu to ale přestává platit
     - daní za vyšší flexibilitu interpretovaného programovacího jazyka jsou naopak vyšší nároky na údržbu
     - například, v Pythonu není nutné deklarovat u proměnných datové typy, a to může vést v programu k různým těžko odhalitelným chybám
     - existují nástroje, které se tento problém snaží odstranit, ale způsobují přitom řadu jiných typů problémů
 - **Odhalování chyb za běhu:**
-  - intepretr je možné za běhu pozastavit, a "podívat se dovnitř co se tam děje"
+  - interpreter je možné za běhu pozastavit, a "podívat se dovnitř co se tam děje"
   - proto je zpravidla jednodušší v těchto jazycích za běhu program ladit, a hledat v něm chyby
 
 Program napsaný v jazyce Python může vypadat například takto:
@@ -213,7 +213,7 @@ world = "world"
 print (hello + " " + world)
 ```
 
-### Python je dynamický, interpretovaný proramovací jazyk
+## Python je dynamický, interpretovaný programovací jazyk
 
 Co to znamená:
 
@@ -222,7 +222,7 @@ Co to znamená:
 - od určité složitosti může být tento program těžké udržovat, doplňovat do něj nové funkce
 - "ten samý" program bude fungovat na počítači s Windows, ale také na serveru na Linuxu, nebo na Macu
 
-### Filozofie Pythonu
+## Filozofie Pythonu
 
 Principy, na kterých je založený Python, jsou shrnuty v tak zvaném [Zen of Python](https://cs.wikipedia.org/wiki/Filozofie_Pythonu).
 
