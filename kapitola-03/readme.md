@@ -54,6 +54,7 @@ Nebo ještě jinak a možná lépe.
   │  PAMĚŤ (RAM) jako skladiště            │
   │  ---------------------------------     │
   │  Každý box je papírová krabice.        │
+  │  Představuje určitou část paměti.      │
   │                                        │
   │  ┌────────┐  ┌────────┐  ┌────────┐    │
   │  │ 128    │  │ ....   │  │ ....   │    │
@@ -81,6 +82,11 @@ Počítačová paměť je skladiště, které máš na skladišti. Ty, skladník
 a ten papírový štítek s nápisem *pirátů* *celkem* je proměnná.
 
 Proměnná je vlastně štítek, je to název, který dáváš nějaké hodnotě.
+
+
+#### Co je to proměnná: hodnotu chceme získat zpět z paměti
+
+
 
 
 #### Všechno je objekt
