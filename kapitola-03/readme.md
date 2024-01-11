@@ -84,6 +84,33 @@ a ten papírový štítek s nápisem *pirátů* *celkem* je proměnná.
 Proměnná je vlastně štítek, je to název, který dáváš nějaké hodnotě.
 
 
+#### Pojďme si to vyzkoušet v praxi
+
+V tomto okamžiku si budeme chtít vyzkoušet věci, o kterých si budeš číst, v praxi.
+Udělej proto následující:
+
+- spusť příkazovou řádku
+- v ní zadej a spusť tento příkaz: `cd \git\pylab`
+- následně v ní spusť Jupyter: `jupyter lab`
+
+Pokud nevíš co a jak, můžeš se podívat na návod do první kapitoly, konkrétně, na návod jak
+[spustit příkazový řádek](../kapitola-01/readme.md#spuštění-příkazové-řádky-a-pythonu),
+a na návod jak [spustit Jupyter](../kapitola-01/readme.md#https://github.com/jan-herout/pylab/blob/main/kapitola-01/readme.md#spu%C5%A1t%C4%9Bn%C3%AD-jupyter-notebooku)
+
+Až se ti spustí Jupyter, přepni se v něm do adresáře `kapitola-03`, a otevři
+si v něm soubor s názvem `kapitola-03.ipynb`, pokud nevíš jak, je na čase se podívat 
+do [návodu](../kapitola-01/readme.md#https://github.com/jan-herout/pylab/blob/main/kapitola-01/readme.md#spu%C5%A1t%C4%9Bn%C3%AD-jupyter-notebooku).
+
+K otevření souboru stačí na něj "dvakrát rychle kliknout".
+
+Spusť celý notebook, buď můžeš použít ikonku se dvěma šipkami v horní liště, nebo klikni na první buňku, a postupně 
+je všechny spusť (`Shift+Enter`).
+
+Uspořádej si nějak okna na obrazovce, abys pokud možno vedle sebe viděl tento 
+text (vlevo) a notebook který jsi otevřel (vpravo).
+
+**V dalším textu budeme již pracovat s tímto notebookem.**
+
 #### Co je to proměnná: hodnotu chceme získat zpět z paměti
 
 
