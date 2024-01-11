@@ -144,7 +144,7 @@ Pokud jsi udělal všechno "správně", Jupyter by ti měl pod poslední operac�
 
 Mohlo by to vypadat například nějak takhle:
 
-![cysledek](./imgs/vysledek.png)
+![vysledek](./imgs/01-vysledek.png)
 
 Současně do Notebooku zapiš odpovědi na otázky, které jsou v něm uvedené (podívej se do něj). Současně s tím ti
 dám několik dalších užitečných informací.
