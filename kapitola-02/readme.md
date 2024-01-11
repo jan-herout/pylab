@@ -1,4 +1,4 @@
-# Kapitola 01: Co je to Python?
+# Kapitola 02: Co je to Python?
 
 ## Nejdůležitější poznatky
 

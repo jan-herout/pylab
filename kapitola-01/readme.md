@@ -1,5 +1,14 @@
 # První spuštění, jednoduchá kalkulačka
 
+## Nejdůležitější poznatky
+
+Čtenář tohoto textu by si z něj měl odnést zejména následující poznatky:
+
+- jak spustit Python interpretr
+- jak spustit Jupyter, jak v něm založit nový notebook
+
+Tyto poznatky budou užitečné již v následující kapitole.
+
 ## Spuštění příkazové řádky a Pythonu
 
 Pokud chceš spustit Python, je několik způsobů jak to udělat. Jedním z nich je spustit ho pomocí
@@ -23,7 +32,7 @@ Pokud se ti to podařilo, mělo by tě přivítat "černé okno". Vypadá nějak
 ![cmd](./imgs/02-cmd.png)
 
 V tomto černém okně můžeš nyní zadávat příkazy, kterém rozumí tvůj počítač.
-Jedním z nich může být například spuštěnní Python interpreteru.
+Jedním z nich může být například spuštěnní Python interpretru.
 
 Napiš do příkazové řádky příkaz `python`, a stiskni klávesu Enter. Pokud se vše podařilo, 
 měl bys vidět okno, které vypadá zhruba takhle. Všimni si "tří zobáčků" ve spodní části 
@@ -31,7 +40,7 @@ obrazovky.
 
 ![python](./imgs/03-python.png)
 
-Tyto tři zobáčky jsou výzvou, abys zadal instrukci, kterému Python rozumí.
+Tyto tři zobáčky jsou výzvou, abys zadal instrukci, které Python rozumí.
 
 Zkusíme si teď spočítat jednoduchý příklad.
 
@@ -52,7 +61,7 @@ Mohlo by to vypadat nějak takhle:
 ![python](./imgs/04-python-calc.png)
 
 - na jednu loď potřebujeme 14 námořníků, plus kormidelníka, plus kapitána, to je `(14 + 1 + 1)` pirátů
-- 128 pirátů dokáže tedy `128 / (14 + 1 + 1)` lodí, což je 8 lodí
+- 128 pirátů dokáže tedy obsadit `128 / (14 + 1 + 1)` lodí, což je 8 lodí
 
 Python interpretr dokáže tíhle způsobem přijmout jakýkoliv příkaz z jazyku Python. 
 Pochopitelně, tímto způsobem nebudeš psát složitější programy - ale pro jednoduché úlohy to může stačit,
@@ -193,7 +202,7 @@ Chvilku to trvá, ale nakonec se dozvíš správný výsledek.
 Nakonec si notebook uložíme. Nejrychlejší způsob, jak to udělat, je stisknout `Ctrl+S`. Alternativně můžeš 
 v menu v horní liště zvolit `File`, a potom `Save notebook` (což znamená něco jako Soubor / Uložit notebook).
 
-Jupyter tě vyzvá k zadání názvu tohoto notebooku. Nazvi ho `pyráti.ipynb`.
+Jupyter tě vyzvá k zadání názvu tohoto notebooku. Nazvi ho `piráti.ipynb`.
 Ta koncovka, `.ipynb`, je docela důležitá, a **každý notebook který založíš by ji měl obsahovat**.
 
 Potvrď nové jméno stisknutím modrého tlačítka `Rename`.
@@ -210,20 +219,3 @@ Mohlo by to vypadat nějak takhle:
 ![rename](./imgs/18-exit.png)
 
 Zkus si ho takhle ukončit, a spustit znovu (`jupyter lab`).
-
-
-
-## Vysvětlení
-
-### Proměnné
-
-
-
-### Operace s proměnnými
-
-| symbol | význam                              |
-| ------ | ----------------------------------- |
-| `+`    | přidání dvou hodnot k sobě (součet) |
-| `-`    | odečtení dvou hodnot                |
-| `*`    | násobení                            |
-| `/`    | dělení                              |
