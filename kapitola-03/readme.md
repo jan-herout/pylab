@@ -78,10 +78,10 @@ Co v takové situaci jako dobrý skladník uděláš?
 - na krabici nalepíš papírový štítek, a na něj napíšeš něco jako *soška*, *dřevěná*: *pirátů* *celkem*
 
 Ta dřevěná soška je v téhle analogii hodnota, která se ukládá do paměti počítače.
-Počítačová paměť je skladiště, které máš na skladišti. Ty, skladník, jsi počítačový program,
+Počítačová paměť je skladiště, které máš na starosti. Ty, skladník, jsi počítačový program,
 a ten papírový štítek s nápisem *pirátů* *celkem* je proměnná.
 
-Proměnná je vlastně štítek, je to název, který dáváš nějaké hodnotě.
+**Proměnná je vlastně štítek, je to název, který dáváš nějaké hodnotě.**
 
 
 #### Pojďme si to vyzkoušet v praxi
@@ -95,7 +95,7 @@ Udělej proto následující:
 
 Pokud nevíš co a jak, můžeš se podívat na návod do první kapitoly, konkrétně, na návod jak
 [spustit příkazový řádek](../kapitola-01/readme.md#spuštění-příkazové-řádky-a-pythonu),
-a na návod jak [spustit Jupyter](../kapitola-01/readme.md#https://github.com/jan-herout/pylab/blob/main/kapitola-01/readme.md#spu%C5%A1t%C4%9Bn%C3%AD-jupyter-notebooku)
+a na návod jak [spustit Jupyter](../kapitola-01/readme.md#https://github.com/jan-herout/pylab/blob/main/kapitola-01/readme.md#spuštění-jupyter-notebooku)
 
 Až se ti spustí Jupyter, přepni se v něm do adresáře `kapitola-03`, a otevři
 si v něm soubor s názvem `kapitola-03.ipynb`, pokud nevíš jak, je na čase se podívat 
