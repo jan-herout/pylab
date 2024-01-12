@@ -213,6 +213,77 @@ Podívej se na následující obrázek, a potom na text který jsem pod něj nap
 | zelená       | **nový** soubor                                      |
 | červená      | **smazaný** soubor                                   |
 
+Rozebereme si jaké změny v repository mám.
+
+Zaprvé: na obrázku je vidět, že v souboru `kapitola-01/readme.md` se objevil **nový řádek**.
+Je to ten text na zeleném pozadí, kde je napsáno, že to je chyba, kterou nechci přijmout.
+
+Jak poznám, že je to nový řádek? Podle toho zeleného pozadí. Zelená barva - nový, červená barva - smazaný, žlutá barva - změna.
+
+Tuhle změnu nechci přijmout, je to chyba, chci se jí zbavit. Jak se jí zbavím? Na soubor kliknu "pravým myšítkem", a zvolím 
+`Discard changes`. Pozor, je to nevratná operace, buď si jistý že se té změny opravdu chceš zbavit!
+
+![stage](./imgs/12-discard.png)
+
+Za druhé: vidím, že další změna je výmaz souboru `README.md`. Je vedle něj červená ikonka s mínusem.
+Ani tuhle změnu nechci přijmout, je to chyba, a provedu pro ní `Discard changes` úplně stejným způsobem.
+
+Za třetí - vidím tam sadu zelených ikonek s pluskem. Je to sada nových souborů (zelená = nový).
+Podívám se, že **opravdu** všechny tyto soubory chci potvrdit a uložit. Pokud by mezi nimi byl nějaký,
+který vznikl omylem, mám možnost se ho zbavit, smazat ho (`Discard changes`).
+
+V tomto okamžiku tedy mám sadu nových souborů, které (všechny) chci uložit. Přesunu je do `Stage`.
+
+Jak?
+
+Můžu na ně jeden po druhém dvakrát kliknout. Přesunou se do spodní části obrazovky. Vypadalo by to nějak takhle:
+
+![stage](./imgs/13-stage.png)
+
+Všimni si také toho tlačítka *Unstage*. Kdybych si to rozmyslel, můžu soubor "vrátit nahoru". **Jenom to, co Staged, bude v commitu.**
+
+Nebo můžu nahoře označit všechny soubory, které chci do commitu přidat, a kliknout na tlačítko Stage.
+
+Když mám ve Stage oblasti všechny změny, které chci poslat do commitu, tak vyplním krátkou zprávu k commitu, a stisknu tlačítko Commit.
+
+![stage](./imgs/14-commit.png)
+
+Potom se podívám, že se commit objevil v síťovém grafu - v levé části obrazovky kliknu na `All commits`. Může to potom vypadat nějak takhle:
+
+![stage](./imgs/15-all-commits.png)
+
+Všimni si, že se tam můj commit objevil.
+
+### Zveřejnění změn
+
+Když usoudím, že přišel čas změny "zveřejnit a pustit do světa", provedu dvě další operace.
+
+- první z nich bude `Pull` - pokud by někdo jiný v repository (na mojí branchi)¨udělal nějaké změny, tak je tím k sobě zapracuji
+- druhá z nich bude `Push` - tím všechny změny uveřejním
+
+Na liště na obě tyhle operace má Fork docela velká tlačítka. Nejdřív provedu Pull, a potom Push.
+
+U obou operací mi Fork dá možnost z nich "vycouvat". Vypadá to nějak takhle. Tohle je pro Pull.
+Dej si pozor, aby **nebyla** zatržená možnost "Rebase instead of merge". Proč? O tom možná něco později.
+
+![stage](./imgs/16-pull.png)
+
+Push vypadá nějak takhle. Dej si pozor, aby **nebyla** zatržená možnost `Forced push`. Proč? O tom možná něco později.
+
+![stage](./imgs/17-push.png)
+
+
+## A to je všechno
+
+Tak, jak půjdeš tímto kurze, budeš pravidelně - podle svého uvážení - commitovat a uveřejňovat svojí práci.
+A proč to všechno děláš?
+
+Protože potom bude vidět, co všechno jsi udělal, a kdy. Zhruba nějak takhle:
+
+- [na tvém profilu](https://github.com/tom-herout)
+- [v repository](https://github.com/jan-herout/pylab/commits/main/)
+
+
 ## Zdroje
 
 ### Česky
