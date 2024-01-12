@@ -272,3 +272,12 @@ Toto je takzvaná **výjimka** (**Exception**). Nastala neočekávaná, výjime�
 Typ této výjimky je `NameError` - pokoušíš se použít název (proměnné), která neexistuje, a Python si na to stěžuje.
 
 O tom, co to jsou výjimky, si povíme víc příště.
+
+# Přišel čas na první commit
+
+Přečti si [text o Gitu](../kapitola-git/readme.md) a připrav nyní svůj **první commit**.
+
+Co by v něm mělo být?
+
+- notebook z [první kapitoly](../kapitola-01/readme.md)
+- notebook z této kapitoly
