@@ -15,3 +15,6 @@ Základy práce s Gitem
 
 - [Kapitola: Git](./kapitola-git/readme.md)
 
+A nakonec, cvičení,
+
+- [Kapitola 4](./kapitola-04/readme.md)
