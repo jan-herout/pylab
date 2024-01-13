@@ -87,6 +87,33 @@ a ten papírový štítek s nápisem _pirátů_ _celkem_ je proměnná.
 
 **Proměnná je vlastně štítek, je to název, který dáváš nějaké hodnotě.**
 
+#### Pravidla pro názvy proměnných
+
+V jazyce Python musí název proměnné splňovat určitá pravidla.
+
+- název **musí** začínat písmenem, nebo znakem _podtržíko_ (`_`); je sice *možné* 
+  používat v názvu proměnné háčky a čárky (`kočička = 1`), ale prosím, **nedělej to**
+- název **nesmí** začínat číslicí
+- názvy proměnných jsou citlivé na velikost písmen; říká se tomu, že jsou **case sensitive**,
+  na tento termín narazíš ještě mockrát, a bude asi dobré si ho zapamatovat; to znamená, že
+  `cislice` a `Cislice` jsou dvě odlišné proměnné
+- název proměnné nesmí být klíčové slovo (například: `if`, `for`, a podobně) - k tomu se ještě dostaneme
+
+Kromě toho existuje ještě sada doporučení. Prosím, zvykej si je dodržovat. Tvůj program sice bude fugovat
+i když se jich držet nebudeš, ale až jednou budeš pracovat v týmu, bude se po tobě asi chtít je dodržovat.
+
+Tato doporučení jsou formulována v dokumentu [PEP-8](https://peps.python.org/pep-0008/)  anglicky - a lze je shrnout takto:
+
+- název proměnné by asi měl být v angličtině; **pro účely našich cvičení toto ddoporučení můžeš ignorovat!**
+- název proměnné by měl být pokud možno krátký, ale výstižný
+    - dobrý název proměnné: `pocet_piratu`; na prvni pohled je jasné, co to je
+    - špatný název proměnné: `l` - nic ti neříká, a na první pohled si to můžeš splést s číslicí `1`
+- žádné háčky a čárky
+- názvy proměnných budou vždy malým písmenem (_lower_ _case_) a slova oddělíš podtržítkem
+    - správně: `nasobek`
+    - špatně: `Nasobek`, `NASOBEK` (to druhé jmenované je "konstanta", o tom víc někdy jindy)
+    - špatně: `pocetCislic`, správně: `pocet_cislic`
+
 #### Pojďme si to vyzkoušet v praxi
 
 V tomto okamžiku si budeme chtít vyzkoušet věci, o kterých si budeš číst, v praxi.
@@ -98,11 +125,11 @@ Udělej proto následující:
 
 Pokud nevíš co a jak, můžeš se podívat na návod do první kapitoly, konkrétně, na návod jak
 [spustit příkazový řádek](../kapitola-01/readme.md#spuštění-příkazové-řádky-a-pythonu),
-a na návod jak [spustit Jupyter](../kapitola-01/readme.md#https://github.com/jan-herout/pylab/blob/main/kapitola-01/readme.md#spuštění-jupyter-notebooku)
+a na návod jak [spustit Jupyter](../kapitola-01/readme.md#spuštění-jupyter-notebooku)
 
 Až se ti spustí Jupyter, přepni se v něm do adresáře `kapitola-03`, a otevři
 si v něm soubor s názvem `kapitola-03.ipynb`, pokud nevíš jak, je na čase se podívat
-do [návodu](../kapitola-01/readme.md#https://github.com/jan-herout/pylab/blob/main/kapitola-01/readme.md#spu%C5%A1t%C4%9Bn%C3%AD-jupyter-notebooku).
+do [návodu](../kapitola-01/readme.md#spuštění-jupyter-notebooku).
 
 K otevření souboru stačí na něj "dvakrát rychle kliknout".
 
@@ -273,7 +300,7 @@ Typ této výjimky je `NameError` - pokoušíš se použít název (proměnné),
 
 O tom, co to jsou výjimky, si povíme víc příště.
 
-# Přišel čas na první commit
+## Přišel čas na první commit
 
 Přečti si [text o Gitu](../kapitola-git/readme.md) a připrav nyní svůj **první commit**.
 
@@ -281,3 +308,9 @@ Co by v něm mělo být?
 
 - notebook z [první kapitoly](../kapitola-01/readme.md)
 - notebook z této kapitoly
+
+# Zdroje
+
+## Anglicky
+
+- [PEP-8](https://peps.python.org/pep-0008/) 

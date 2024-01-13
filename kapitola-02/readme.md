@@ -57,7 +57,10 @@ daného typu procesoru, a musel ji (s pomocí převodových tabulek) dokázat p�
 do počítače zadat. Jako jedna z prvních technologií, které se pro to používala, byl [děrný štítek](https://cs.wikipedia.org/wiki/D%C4%9Brn%C3%BD_%C5%A1t%C3%ADtek),
 což byla papírová kartička, do které se pomocí speciálních kleští zaznamenal program přímo v číselném zápisu (ve strojovém kódu).
 
-Dalším pokrokem bylo zavedení assembleru. Assembler je symbolický programovací jazyk, který lze bez potíží s pomocí překladače
+Děrné štítky se používaly ještě před tím, než vznikl první počítač v pravém slova smyslu. Například v oblasti textilního
+průmyslu.
+
+Dalším pokrokem bylo zavedení assembleru. [Assembler](https://en.wikipedia.org/wiki/Assembly_language) je symbolický programovací jazyk, který lze bez potíží s pomocí překladače
 převést přímo do strojového kódu.
 
 Například, takhle nějak může vypadat program napsaný v assembleru, a přeložený do strojového kódu. Jde o program "hello world",
@@ -255,3 +258,4 @@ To znamená, že na čitelnosti programu, a na popisu toho co program dělá, op
 - Wikipedia:
   - [History of Python](https://en.wikipedia.org/wiki/History_of_Python)
   - [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum)
+  - [Assembly language](https://en.wikipedia.org/wiki/Assembly_language)
