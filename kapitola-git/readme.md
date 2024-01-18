@@ -134,7 +134,7 @@ Mělo by se ti otevřít okno, které vypadá podobně jako to moje (viz výše)
 
 **Pokud ne**, pokud nevidíš proužek s repository `pylab`, musíš si to repository otevřít. Jaký proužek? Tenhle proužek.
 
-![fork](./imgs/03-fork-info.png)
+![prouzek](./imgs/04-prouzek.png)
 
 ### Otevření repository
 
