@@ -104,7 +104,7 @@ Kromě toho ale existují ještě další typy operací:
     - kolik kousků o délce `13 cm` máš? Použij operátor pro celočíselné dělení.
 - zkus si do nějaké buňky napsat desetinné číslo:
   - `1.254` - **správně**
-  - `1,254` - ** ŠPATNĚ!!!** Všimni si, co ti Jupyter napsal zpátky: `(1, 254)` - to nevypadá jako číslo, že? A také to číslo není. Víc si o tom povíme někdy jindy.
+  - `1,254` - **ŠPATNĚ!!!** Všimni si, co ti Jupyter napsal zpátky: `(1, 254)` - to nevypadá jako číslo, že? A také to číslo není. Víc si o tom povíme někdy jindy.
 - notebook (až úlohy vyřešíš) ulož pod názvem `kapitola-05.ipynb`, ale zatím ho nezavírej, budeš do něj dál psát; na konci kapitoly budu chtít, abys provedl jeho commit,
   opravdu tyhle úlohy vyřeš, i když jsou triviální.
 
