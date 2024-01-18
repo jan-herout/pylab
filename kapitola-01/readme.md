@@ -163,6 +163,7 @@ lodi = piratu_celkem / piratu_na_lod
 ```
 
 Na poslední buňku zadej příkaz pro zobrazení počtu lodí ve flotile. Opět potvrď pomocí klávesy `Shift+Enter`.
+O příkazu (funkci) `print` si něco povíme později, v dalších kapitolách.
 
 ```python
 print("Ve flotile bude celkem", lodi, " lodí")

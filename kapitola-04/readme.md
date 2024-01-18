@@ -14,7 +14,7 @@ Tvůj úkol je:
     - založ vždy novou buňku, změň její typ na `Markdown`, a zkopíruj do ní text úlohy
     - následně pod ní v buňce (nebo buňkách) typu code úlohu **vyřeš**; tam, kde to dává smysl,
       použij proměnné
-- notebook **uložit** a provést **commit**, do kterého ho zahrneš, tento commit uveřejnit (push)
+- notebook **uložit** a provést **commit**, do kterého tento notebook přidáš, a tento commit uveřejnit (push)
 
 Text úloh pochází z webu [Umíme matematiku](https://www.umimematiku.cz/)
 

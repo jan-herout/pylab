@@ -5,6 +5,9 @@
 - proměnná je "štítek", který vede k nějaké hodnotě
 - jak se rychle pohybovat po notebooku, a zakládat/rušit buňky
 - v notebooku existují buňky dvou typů: buňky typu `Code`, které obsahují tvůj program, a `Markdown`, které obsahují dokumentaci
+- v Pythonu je možné použít příkaz (vestavěnou funkci) `print`, který "vypíše" na výstup to, co jsi mu předal jako parametr (nebo parametry)
+- příkaz `print` není jediný způsob, jak se na nějakou proměnnou podívat
+- názvy proměnných: `snake_case`, nikoliv `PascalCase` ani `camelCase`; tohle je `KONSTANTA`
 
 ## Proměnné: přiřazení hodnoty do proměnné
 
@@ -102,17 +105,33 @@ V jazyce Python musí název proměnné splňovat určitá pravidla.
 Kromě toho existuje ještě sada doporučení. Prosím, zvykej si je dodržovat. Tvůj program sice bude fugovat
 i když se jich držet nebudeš, ale až jednou budeš pracovat v týmu, bude se po tobě asi chtít je dodržovat.
 
-Tato doporučení jsou formulována v dokumentu [PEP-8](https://peps.python.org/pep-0008/)  anglicky - a lze je shrnout takto:
+Tato doporučení jsou formulována v dokumentu [PEP-8](https://peps.python.org/pep-0008/) - anglicky. 
+Ten text si teď nečti - je opravdu dlouhý - ale **je dobré vědět, že existuje**, a **každý programátor v Pythonu**
+**by se s jeho obsahem měl seznámit**. To ale opravdu počká.
 
-- název proměnné by asi měl být v angličtině; **pro účely našich cvičení toto ddoporučení můžeš ignorovat!**
+Ta doporučení, ve vztahu k názvům proměnných, lze shrnout takto:
+
+- název proměnné by asi měl být v angličtině; **pro účely našich cvičení toto doporučení můžeš ignorovat!**
 - název proměnné by měl být pokud možno krátký, ale výstižný
-    - dobrý název proměnné: `pocet_piratu`; na prvni pohled je jasné, co to je
-    - špatný název proměnné: `l` - nic ti neříká, a na první pohled si to můžeš splést s číslicí `1`
-- žádné háčky a čárky
+    - dobrý název proměnné: `pocet_piratu`; na první pohled je jasné, co to je
+    - špatný název proměnné: `l` - nic ti neříká, a na první pohled si to můžeš splést s číslicí `1`;
+      jak budeš získávat jistotu, zjistíš, že tohle pravidlo se občas porušuje, konkrétně, programátoři
+      často používají proměnnou s názvem `i` (malé písmenko i) pro "index" (pořadí, počítadlo)
+- žádné háčky a čárky!
 - názvy proměnných budou vždy malým písmenem (_lower_ _case_) a slova oddělíš podtržítkem
-    - správně: `nasobek`
+- pokud je název proměnné složenina více slov, oddělit je podtržítkem; říká se tomu `snake_case`
+- příklady:
+    - správně: `nasobek` (malá písmena, lower case)
     - špatně: `Nasobek`, `NASOBEK` (to druhé jmenované je "konstanta", o tom víc někdy jindy)
-    - špatně: `pocetCislic`, správně: `pocet_cislic`
+    - špatně: `pocetCislic`
+    - správně: `pocet_cislic` - snake case
+
+Není tak důležité pamatovat si termíny jako camel case, snake case, a podobně. Je důležité si pamatovat
+`spravny_zapis`, a pozor, `tohle_bych_v_kodu_programu_videl_opravdu_nerad_protoze_je_to_strasne_dlouhe`.
+
+Poslední příklad může vypadat směšně, ale ... 
+Když se podíváš [sem, a pozor, není to Python, je to Java](https://github.com/zxlooong/jdk16045/blob/4965d78f878cde02ade9f7775590f915623ccda6/com/sun/java/swing/plaf/nimbus/InternalFrameInternalFrameTitlePaneInternalFrameTitlePaneMaximizeButtonWindowNotFocusedState.java#L14),
+zjistíš, že někdo něco podobného opravdu někdy použil. Není to úplně dobrý příklad toho, jak by to mohlo/mělo vypadat.
 
 #### Pojďme si to vyzkoušet v praxi
 
@@ -256,7 +275,35 @@ Zkus si to:
 
 ## Proměnné: získání hodnoty proměnné
 
-Dobře, na chvíli konec experimentů. Pojďme se zase podívat na to, co se dá dělat s proměnnými.
+Dobře, na chvíli konec experimentů. Pojďme se zase podívat na to, co se dá dělat s proměnnými. Pro začátek jedna důležitá informace.
+
+**Pokud v programu vypočítáš nějakou hodnotu, a chceš s ní dál pracovat,** musíš tuto hodnotu odložit do nějaké proměnné. Pokud to neuděláš,
+nemáš jak se na tu vypočítanou hodnotu zeptat.
+
+Jak jsem psal nahoře, proměnnou si můžeš představit jako štítek. Proměnná je symbolický název, který tě dovede
+k hodnotě uskladněné v paměti.
+
+Vem si třeba následující program (který jsi pravděpodobně napsal na základě textu nahoře).
+
+```python
+cena_cokolada = 50  
+```
+
+První řádek programu ukládá do paměti hodnotu 50. Místo, kde je ta hodnota umístěná, označí symbolickým názvem
+`cena_cokolada`. 
+
+```python
+cena_bonbonu = 0.6 * cena_cokolada
+```
+
+Druhý řádek programu říká Pythonu že má provést následující věci:
+
+- má se podívat do paměti na místo, nazvané `cena_cokolada`; tahle operace je přístup na proměnnou, zjištění hodnoty dané proměnné
+- hodnotu, kterou tam najde, má vynásobit číslem `0.6`
+- výsledek - což je 30 - má uložit do paměti, na místo, které nazveme `cena_bonbonu`
+
+
+## Co když proměnná na kterou chci přistupovat ještě neexistuje?
 
 Vzpomeň si zase na příklad s piráty, a na mojí analogii se skladníkem. Představ si, že jsi skladník
 (což je moje analogie pro počítačový program), a "zeshora" přijde instrukce, že máš vyskladnit - poslat
@@ -298,11 +345,59 @@ Je to jeho ekvivalent zvednutí telefonu. Všimni si, že dole je napsáno:
 Toto je takzvaná **výjimka** (**Exception**). Nastala neočekávaná, výjimečná situace. 
 Typ této výjimky je `NameError` - pokoušíš se použít název (proměnné), která neexistuje, a Python si na to stěžuje.
 
-O tom, co to jsou výjimky, si povíme víc příště.
+O tom, co to jsou výjimky, a jak číst chybová hlášení tohoto typu, si povíme víc někdy příště.
+
+## Jak se podívat na hodnotu na kterou proměnná odkazuje?
+
+### Print
+
+Pokud se chceš podívat, na jakou hodnotu proměnná odkazuje, je spousta možností jak to udělat. Povíme si teď něco o dvou základních možnostech:
+
+V Pythonu existuje vestavěná funkce [print](https://docs.python.org/3/library/functions.html#print). Schválně, klikni si na ten odkaz,
+zběžně se na stránku na kterou vede podívej (zkus si přečíst co se tam píše o příkazu print), ale potom se zase vrať zpátky sem.
+
+**TIP** 
+
+- Pokud zápasíš s angličtinou, můžeš si nechat sestavit **strojový překlad**. Jak?
+- Jedna možnost je jít na stránku služby [Google Translate](https://translate.google.cz), a do formuláře si vložit text, kterému nerozumíš - a stisknout tlačítko "translate".
+- Druhá možnost je nechat si na [Google Translate](https://translate.google.cz) přeložit **celou** webovou stránku, které nerozumíš. Klikneš na tlačítko `Weby`, 
+  a do formuláře vložíš odkaz na stránku, kterou si chceš nechat přeložit - a stiskneš tlačítko translate. Výsledek může vypadat třeba nějak [takhle](https://docs-python-org.translate.goog/3/library/functions.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=cs&_x_tr_pto=wapp#print)
+- Měj na paměti, že je to **strojový překlad**. Počítače měly, a stále ještě mají trochu problém porozumět psanému textu, i když v téhle oblasti byly provedeny obrovské pokroky;
+  to znamená, že ten překlad bude mírně "škobrtat", a že může být špatně srozumitelný, někdy dokonce mírně zavádějící.
+
+Jak použít tuhle funkci?
+
+Vyzkoušej si to. Pokud jsi v notebooku poctivě vyřešil úlohy popsané výše, mělo by ti to jít.
+
+- jdi na konec notebooku, a přidej do něj (na konec) další buňku
+- zadej do ní tenhle příkaz, a buňku spusť (`Shift+Enter`)
+
+```python
+print ("Cena čokolády je", cena_cokolada)
+```
+
+### Reprezentace (repr)
+
+Druhá možnost, jak se na hodnotu na kterou se proměnná odkazuje podívat, je zapsat v Jupyteru (nebo - koneckonců - v textu programu)
+název proměnné do buňky (na řádek programu), a tu buňku spustit.
+
+Je to taková **zkratka**, kterou můžeš použít, když s Pythonem experimentuješ, nebo když program ladíš (o tom víc jindy).
+
+Vyzkoušej si to.
+
+- jdi na konec notebooku, a přidej do něj (na konec) další buňku
+- zadej do ní tenhle příkaz, a buňku spusť (`Shift+Enter`)
+
+```python
+cena_cokolada
+```
+
+**Pozor** - je to opravdu **zkratka**. To znamená, že v programu, který je "myšlený vážně", to nemá co dělat.
 
 ## Přišel čas na první commit
 
-Přečti si [text o Gitu](../kapitola-git/readme.md) a připrav nyní svůj **první commit**.
+- Notebook ulož.
+- Přečti si [text o Gitu](../kapitola-git/readme.md) a připrav nyní svůj **první commit**.
 
 Co by v něm mělo být?
 
@@ -313,4 +408,7 @@ Co by v něm mělo být?
 
 ## Anglicky
 
+- [Built in functions](https://docs.python.org/3/library/functions.html)
+- [print](https://docs.python.org/3/library/functions.html#print)
 - [PEP-8](https://peps.python.org/pep-0008/) 
+- https://github.com/zxlooong/jdk16045/ - repository, ze které pochází příklad dlouhého názvu proměnné
