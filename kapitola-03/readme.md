@@ -1,3 +1,22 @@
+- [Kapitola 03: Proměnné a jednoduché datové typy](#kapitola-03-proměnné-a-jednoduché-datové-typy)
+  - [Nejdůležitější poznatky](#nejdůležitější-poznatky)
+  - [Proměnné: přiřazení hodnoty do proměnné](#proměnné-přiřazení-hodnoty-do-proměnné)
+      - [Co je to proměnná: hodnotu ukládáme do paměti](#co-je-to-proměnná-hodnotu-ukládáme-do-paměti)
+      - [Pravidla pro názvy proměnných](#pravidla-pro-názvy-proměnných)
+      - [Pojďme si to vyzkoušet v praxi](#pojďme-si-to-vyzkoušet-v-praxi)
+      - [Experiment 1](#experiment-1)
+      - [Experiment 2: editační módy notebooku](#experiment-2-editační-módy-notebooku)
+      - [Experiment 3: odlišné typy buněk](#experiment-3-odlišné-typy-buněk)
+      - [Experiment 4: přesun buňky](#experiment-4-přesun-buňky)
+  - [Proměnné: získání hodnoty proměnné](#proměnné-získání-hodnoty-proměnné)
+  - [Co když proměnná na kterou chci přistupovat ještě neexistuje?](#co-když-proměnná-na-kterou-chci-přistupovat-ještě-neexistuje)
+  - [Jak se podívat na hodnotu na kterou proměnná odkazuje?](#jak-se-podívat-na-hodnotu-na-kterou-proměnná-odkazuje)
+    - [Print](#print)
+    - [Reprezentace (repr)](#reprezentace-repr)
+  - [Přišel čas na první commit](#přišel-čas-na-první-commit)
+- [Zdroje](#zdroje)
+  - [Anglicky](#anglicky)
+
 # Kapitola 03: Proměnné a jednoduché datové typy
 
 ## Nejdůležitější poznatky
@@ -102,7 +121,7 @@ V jazyce Python musí název proměnné splňovat určitá pravidla.
   `cislice` a `Cislice` jsou dvě odlišné proměnné
 - název proměnné nesmí být klíčové slovo (například: `if`, `for`, a podobně) - k tomu se ještě dostaneme
 
-Kromě toho existuje ještě sada doporučení. Prosím, zvykej si je dodržovat. Tvůj program sice bude fugovat
+Kromě toho existuje ještě sada doporučení. Prosím, zvykej si je dodržovat. Tvůj program sice bude fungovat
 i když se jich držet nebudeš, ale až jednou budeš pracovat v týmu, bude se po tobě asi chtít je dodržovat.
 
 Tato doporučení jsou formulována v dokumentu [PEP-8](https://peps.python.org/pep-0008/) - anglicky. 
@@ -215,9 +234,9 @@ Tak například:
 
 - zkus si posunout se šipkami (kurzorovými klávesami) nahoru a dolů (šipka nahoru, šipka dolů); všimni si,
   že se po notebooku pohybuješ (pohybuje se "rámeček" kolem aktivní buňky)
-- zkus si stisknout klávesu `Enter`. Všimni si - objevil se kurzor, a vstupil jsi do editačního módu na buňce,
+- zkus si stisknout klávesu `Enter`. Všimni si - objevil se kurzor, a vstoupil jsi do editačního módu na buňce,
   na které právě stojíš. Vrať se zpátky do Command módu (`Esc`).
-- **dokud změnu nepotrvdíš,** (stiskni `Shift+Enter`), jako by se nic nestalo (změna je "neúčinná")
+- **dokud změnu nepotvrdíš,** (stiskni `Shift+Enter`), jako by se nic nestalo (změna je "neúčinná")
 - zkus stisknout klávesu `a`. Je to zkratka z anglického slova `above`, tj. nahoře, a vloží se ti nová prázdná
   buňka nad tu, na které právě "stojíš".
 - zkus stisknout klávesu `b`. Je to zkratka ze slova `below`, tj. dole, a vloží se ti nová prázdná buňka pod tu,
@@ -232,17 +251,17 @@ Zkus chvíli takhle s notebookem experimentovat.
 
 - vlož pár prázdných buněk (`a` - above, `b` - below)
 - zkus do nich něco napsat a vrátit se zpátky do command módu (`Enter` pro změnu na editaci, `Escape` pro návrat do command módu)
-- zkus pár buňek zrušit (`dd` - delete)
+- zkus pár buněk zrušit (`dd` - delete)
 - zkus tyto změny vrátit zpátky (`z` - zahodit)
 
-Potom si zkus "kliknout pravým myšítkem" do některé buňky. Všimni si, že se ti zobrazila kontextová nabídka.
+Potom si zkus "kliknout pravým _myšítkem_" do některé buňky. Všimni si, že se ti zobrazila kontextová nabídka.
 Všimni si, že některé položky, které se v ní zobrazují, jsme právě spolu zkusili z klávesnice.
 
 To znamená, že měnit obsah notebooku - přidávat nové buňky, mazat je - můžeš jak z klávesnice, tak s pomocí myši.
 
-#### Experiment 3: odlišné typy buňek
+#### Experiment 3: odlišné typy buněk
 
-Všimnul sis už, že některé buňky "vypadají" v notebooku trochu jinak? Tak například:
+Všiml sis už, že některé buňky "vypadají" v notebooku trochu jinak? Tak například:
 
 ![cmd](./imgs/04-code-vs-md.png)
 
@@ -267,9 +286,9 @@ Pokud se ti pozice nějaké buňky nelíbí, není problém ji pomocí myši "p�
 Zkus si to:
 
 - najedeš myší doleva, od buňky
-- stiskneš "levé myšítko" a držíš (chňap ...)
+- stiskneš "levé _myšítko_" a držíš (chňap ...)
 - jedeš myší nahoru, nebo dolů - všimni si, objevila se "čára" která ti ukazuje, kam tu buňku posouváš
-- pustíš levé myšítko (hotovo)
+- pustíš levé _myšítko_ (hotovo)
 
 ![cmd](./imgs/06-move.png)
 
@@ -306,7 +325,7 @@ Druhý řádek programu říká Pythonu že má provést následující věci:
 ## Co když proměnná na kterou chci přistupovat ještě neexistuje?
 
 Vzpomeň si zase na příklad s piráty, a na mojí analogii se skladníkem. Představ si, že jsi skladník
-(což je moje analogie pro počítačový program), a "zeshora" přijde instrukce, že máš vyskladnit - poslat
+(což je moje analogie pro počítačový program), a "shora" přijde instrukce, že máš vyskladnit - poslat
 do muzea - položku s názvem *kormidelník*.
 
 Co uděláš?
@@ -381,7 +400,7 @@ print ("Cena čokolády je", cena_cokolada)
 Druhá možnost, jak se na hodnotu na kterou se proměnná odkazuje podívat, je zapsat v Jupyteru (nebo - koneckonců - v textu programu)
 název proměnné do buňky (na řádek programu), a tu buňku spustit.
 
-Je to taková **zkratka**, kterou můžeš použít, když s Pythonem experimentuješ, nebo když program ladíš (o tom víc jindy).
+Je to taková **zkratka**, kterou můžeš použít, když s programovacím jazykem Python experimentuješ, nebo když program ladíš (o tom víc jindy).
 
 Vyzkoušej si to.
 

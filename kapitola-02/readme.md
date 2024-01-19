@@ -1,3 +1,17 @@
+- [Kapitola 02: Co je to Python?](#kapitola-02-co-je-to-python)
+  - [Nejdůležitější poznatky](#nejdůležitější-poznatky)
+  - [Trocha historie](#trocha-historie)
+  - [Python je interpretovaný jazyk](#python-je-interpretovaný-jazyk)
+    - [von Neumannova architektura](#von-neumannova-architektura)
+    - [Strojový kód a assembler](#strojový-kód-a-assembler)
+    - [Kompilované programovací jazyky](#kompilované-programovací-jazyky)
+    - [Interpretované programovací jazyky](#interpretované-programovací-jazyky)
+  - [Python je dynamický, interpretovaný programovací jazyk](#python-je-dynamický-interpretovaný-programovací-jazyk)
+  - [Filozofie Pythonu](#filozofie-pythonu)
+- [Zdroje](#zdroje)
+  - [Česky](#česky)
+  - [Anglicky](#anglicky)
+
 # Kapitola 02: Co je to Python?
 
 ## Nejdůležitější poznatky
@@ -6,13 +20,13 @@
 
 - co to znamená, když je program _open source_
 - co to je assembler
-- jaký je rozdíl mezi kompilovaným, a intepretovaným programovacím jazykem
+- jaký je rozdíl mezi kompilovaným, a interpretovaným programovacím jazykem
 - Python je dynamický, interpretovaný jazyk; co to přináší za výhody a nevýhody
 - proč záleží na čitelnosti programu, jaký je poměr mezi časem stráveným čtením existujícího programového kódu a psaním nového kódu
 
 ## Trocha historie
 
-Programovací jazyk Python vznikl v 80-tých letech 20. století. Původním autorem jazyka je **Guido van Rossum**.
+Programovací jazyk Python vznikl v osmdesátých letech 20. století. Původním autorem jazyka je **Guido van Rossum**.
 
 První verze jazyka (Python 1) byla zveřejněna v roce 1994. Pro kontext, v roce 1991 byla zveřejněna
 první verze specifikace protokolu `WWW` (World Wide Web), což je rok který zhruba zformoval Internet do podoby, v jaké
@@ -235,7 +249,7 @@ Z těchto principů bych vyzvedl následující (interpretace je moje vlastní):
 - na čitelnosti záleží; čitelný program je lepší než nečitelný program
 
 Existuje odhad, který tvrdí, že průměrný programátor stráví cca 60-90% času tím, že se čte existující kód programu, a snaží se ho pochopit,
-a teprve čas který zbyde stráví tím, že píše nový kód (Steve McConnell, Code Complete).
+a teprve čas který zbude stráví tím, že píše nový kód (Steve McConnell, Code Complete).
 
 To znamená, že na čitelnosti programu, a na popisu toho co program dělá, opravdu **velmi, velmi záleží**.
 

@@ -27,7 +27,7 @@ A nakonec, cvičení,
 
 Základní datové typy
 
-- [Kapitola 5: Číselné proměnné, a operace s nimi](./kapitola-05/readme.md)
+- [Kapitola 5: Číselné proměnné, a operace s nimi](./kapitola-05/readme.md); v kapitole se dočteš také něco málo o konverzích datových typů
 - [Kapitola 6: Text a práce s ním](./kapitola-06/readme.md)
 - [Kapitola 7: Seznamy - list](./kapitola-07/readme.md)
 - [Kapitola 8: Dvoustavová (booleanovská) logika](./kapitola-08/readme.md)

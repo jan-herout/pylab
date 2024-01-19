@@ -1,3 +1,22 @@
+- [Číselné proměnné, a operace s nimi; něco víc o datových typech](#číselné-proměnné-a-operace-s-nimi-něco-víc-o-datových-typech)
+  - [Nejdůležitější poznatky](#nejdůležitější-poznatky)
+  - [Číselné datové typy](#číselné-datové-typy)
+  - [Desetinná značka](#desetinná-značka)
+  - [Oddělovač tisíců](#oddělovač-tisíců)
+  - [Operátor a operand](#operátor-a-operand)
+  - [Základní operace s číselnými hodnotami](#základní-operace-s-číselnými-hodnotami)
+  - [Experiment 1](#experiment-1)
+  - [Konverze datových typů, zaokrouhlování](#konverze-datových-typů-zaokrouhlování)
+    - [Zaokrouhlování](#zaokrouhlování)
+    - [Převod na celé číslo](#převod-na-celé-číslo)
+  - [převést (`float` je desetinné číslo).](#převést-float-je-desetinné-číslo)
+  - [funkce type](#funkce-type)
+  - [Kontrolní otázky](#kontrolní-otázky)
+  - [Commit](#commit)
+- [Zdroje](#zdroje)
+  - [Česky](#česky)
+  - [Anglicky](#anglicky)
+
 # Číselné proměnné, a operace s nimi; něco víc o datových typech
 
 ## Nejdůležitější poznatky
@@ -5,7 +24,7 @@
 - existují tři číselné datové typy: `int`, `float`, a `complex` (na který příliš často nenarazíš)
 - desetinná tečka (nikoliv čárka), oddělovač tisíců
 - co je to operátor, co je to operand
-- funkce `round` slouží k zaokrouhlední (nahoru i dolů, na zadaný počet desetinných čísel)
+- funkce `round` slouží k zaokrouhlení (nahoru i dolů, na zadaný počet desetinných čísel)
 - funkce `type` ti vrátí datový typ zadané hodnoty
 - v Pythonu je možné převádět hodnoty mezi datovými typy, ale nemusí se to vždy podařit (`ValueError`)
 
@@ -25,7 +44,7 @@ Na číselné hodnoty jsme poprvé narazily ve [třetí kapitole](../kapitola-03
 ## Desetinná značka
 
 **Zapamatuj si:** v hodinách matematiky desetinná čísla zapisuješ s desetinnou _čárkou_; nejspíš to tak je protože čárku není v sešitě tak snadné přehlédnout,
-jako tečku. Ve většině programovacích jazyků se ale zapusije **desetinná tečka** - je to tak proto, že první počítače vznikly v anglosaském světě, kde se
+jako tečku. Ve většině programovacích jazyků se ale zapisuje **desetinná tečka** - je to tak proto, že první počítače vznikly v anglosaském světě, kde se
 místo čárky používá tečka. Můžeš si o tom trochu víc přečíst [tady](https://cs.wikipedia.org/wiki/Desetinn%C3%A1_zna%C4%8Dka).
 
 Nenech se tím zmást.
@@ -51,9 +70,9 @@ A přesně z toho důvodu je v pythonu možné také použít oddělovač tisíc
 Všimni si:
 
 - Najednou je to mnohem jasnější. Na první pohled vidíš, v jakém řádu to číslo je, jsou to miliony.
-- Oddelovač tisíců se dá použít i za desetinnou čárkou.
+- Oddělovač tisíců se dá použít i za desetinnou čárkou.
 
-Po pravdě řečeno, Pythonu je jedno, jestli ten oddělovač budeš používat, nebo ne. Je mu dokonce jedno, **na jakém místě v čísle** ten odělovač použiješ.
+Po pravdě řečeno, Pythonu je jedno, jestli ten oddělovač budeš používat, nebo ne. Je mu dokonce jedno, **na jakém místě v čísle** ten oddělovač použiješ.
 Python znak podtržítka v čísle prostě ignoruje.
 
 Jinými slovy, tyhle tři zápisy stejného čísla jsou prostě **ekvivalentní**, je to **pořád to samé** číslo.
@@ -62,7 +81,7 @@ Jinými slovy, tyhle tři zápisy stejného čísla jsou prostě **ekvivalentní
 - `857_39_63.5_34548` - no **fuj!** Tohle úplně ignoruje smysl použití oddělovače tisíců, jeho smyslem je **zpřehlednit** zápis toho čísla
 - `8_573_963.534548` - není tohle mnohem lepší?
 
-**Kvízová otázka** - jaký je poměr času, který průměrný programátor stráví _čtením_ kódu a _zápisem_ kódu? Je čitelnost zápisu důležitá? Viz [kapitola 2](../kapitola-02/readme.md).
+**Kontrolní otázka** - jaký je poměr času, který průměrný programátor stráví _čtením_ kódu a _zápisem_ kódu? Je čitelnost zápisu důležitá? Viz [kapitola 2](../kapitola-02/readme.md).
 
 Ne, vážně. Nad tou otázkou se zamysli, a pokud si **nepamatuješ** odpověď, tak se do textu druhé kapitoly podívej, a tu informaci si najdi.
 
@@ -100,7 +119,7 @@ Kromě toho ale existují ještě další typy operací:
   - Pokud má kostka cukru výšku `1.1 cm`, kolik řad nad sebou se vejde do krabičky, která je vysoká `16 cm`? Použij operátor pro celočíselné dělení.
   - Jaký je obsah čtverce o straně `4321 m`? Použij operátor pro výpočet mocniny.
   - Prkno má na délku `347 cm`. Když ho rozřežeš na kousky o délce `13 cm`:
-    - jak velký kus ti nakonec zbyde? Použij operátor pro zbytek po celočíselném dělení.
+    - jak velký kus ti nakonec zbude? Použij operátor pro zbytek po celočíselném dělení.
     - kolik kousků o délce `13 cm` máš? Použij operátor pro celočíselné dělení.
 - zkus si do nějaké buňky napsat desetinné číslo:
   - `1.254` - **správně**
@@ -116,13 +135,13 @@ Ve druhé kapitole jsem psal, že Python je interpretovaný programovací jazyk,
 
 Ještě na to časem narazíme, ale mnohem, mnohem později ... V tomhle okamžiku není úplně snadné vysvětlit do všech důsledků, co to znamená.
 V tomto okamžiku to pro nás znamená, že u proměnných **nemusíme** deklarovat datový typ, a i když bychom datový typ nějak deklarovali,
-Pythonu na té deklaraci vlastně vůbec nezáleží - ta samá preměnná může v jednom řádku kódu odkazovat na hodnotu, která je `int` (celé číslo),
+Pythonu na té deklaraci vlastně vůbec nezáleží - ta samá proměnná může v jednom řádku kódu odkazovat na hodnotu, která je `int` (celé číslo),
 a na dalším řádku na hodnotu, která je `float` (desetinné číslo). V Pythonu je to v pořádku, pokud bys tohle udělal v nějakém kompilovaném
 programovacím jazyce, tak se na tom nejspíš kompilátor zakucká, vynadá ti, a odmítne program přeložit.
 
 Čas od času se hodí hodnotu v jednom datovém typu převést na hodnotu v jiném datovém typu.
 
-### Zakrouhlování
+### Zaokrouhlování
 
 Například: o něco výše je uvedený tenhle příklad:
 
@@ -130,7 +149,7 @@ Například: o něco výše je uvedený tenhle příklad:
 
 Jak to vypočítat?
 
-Jedna možnost (pravděpodovně ta správnější) je použít celočíselné dělení:
+Jedna možnost (pravděpodobně ta správnější) je použít celočíselné dělení:
 
 ```python
 kolik_kostek = 16 // 1.1
@@ -212,6 +231,8 @@ Tohle Pythonu "nechutná", že? Nejspíš vidíš něco jako:
 
 `ValueError: invalid literal for int() with base 10: 'příšerně žluťoučký kůň úpěl ďábelské ódy'`
 
+Z toho textu prostě číslo udělat nejde.
+
 Pokud se pokusíš provést převod něčeho, co na ten cílový datový typ převést nejde, výsledkem je chyba, 
 a program se zastaví. Jak s tím správně naložit ... o tom si povíme něco víc příště.
 
@@ -223,6 +244,28 @@ cislo = int(text)
 ```
 
 Všimni si: tohle projde. Textová hodnota 1 vypadá jako číslo, a proto se dá na číslo převést.
+
+
+Zkus si ale ještě tohle (nová buňka na konci).
+
+```python
+text = "1.1"
+cislo = int(text)
+```
+
+Zkus si ale ještě tohle (nová buňka na konci).
+
+```python
+text = "1.1"
+cislo = float(text)
+cele_cislo = int(cislo)
+```
+
+Všimni si: oba příkazy projdou.
+
+- Textová hodnota `1.1` vypadá jako desetinné číslo, a Python ji na něj proto dokáže 
+převést (`float` je desetinné číslo).
+- 
 
 ## funkce type
 
@@ -269,3 +312,7 @@ Ulož nyní prosím svůj notebook, a proveď commit, a push.
 
 - [Wikipedia: Desetinná značka](https://cs.wikipedia.org/wiki/Desetinn%C3%A1_zna%C4%8Dka)
 - [Internetová jazyková příručka: Členění čísel, víceslovné číslovkové výrazy (typ 365, 2 582) a desetinná čísla](https://prirucka.ujc.cas.cz/?id=791)
+
+## Anglicky
+
+-  [Python Built In Functions: type](https://docs.python.org/3/library/functions.html#type)

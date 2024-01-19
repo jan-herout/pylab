@@ -1,3 +1,12 @@
+- [První spuštění, jednoduchá kalkulačka](#první-spuštění-jednoduchá-kalkulačka)
+  - [Nejdůležitější poznatky](#nejdůležitější-poznatky)
+  - [Spuštění příkazové řádky a Pythonu](#spuštění-příkazové-řádky-a-pythonu)
+  - [Spuštění Jupyter notebooku](#spuštění-jupyter-notebooku)
+  - [Nový notebook](#nový-notebook)
+  - [Jak uložit notebook?](#jak-uložit-notebook)
+  - [Jak ukončit Jupyter?](#jak-ukončit-jupyter)
+
+
 # První spuštění, jednoduchá kalkulačka
 
 ## Nejdůležitější poznatky
@@ -32,7 +41,7 @@ Pokud se ti to podařilo, mělo by tě přivítat "černé okno". Vypadá nějak
 ![cmd](./imgs/02-cmd.png)
 
 V tomto černém okně můžeš nyní zadávat příkazy, kterém rozumí tvůj počítač.
-Jedním z nich může být například spuštěnní Python interpretru.
+Jedním z nich může být například spuštění Python interpretru.
 
 Napiš do příkazové řádky příkaz `python`, a stiskni klávesu Enter. Pokud se vše podařilo, 
 měl bys vidět okno, které vypadá zhruba takhle. Všimni si "tří zobáčků" ve spodní části 
@@ -63,7 +72,7 @@ Mohlo by to vypadat nějak takhle:
 - na jednu loď potřebujeme 14 námořníků, plus kormidelníka, plus kapitána, to je `(14 + 1 + 1)` pirátů
 - 128 pirátů dokáže tedy obsadit `128 / (14 + 1 + 1)` lodí, což je 8 lodí
 
-Python interpretr dokáže tíhle způsobem přijmout jakýkoliv příkaz z jazyku Python. 
+Python interpretr dokáže tímhle způsobem přijmout jakýkoliv příkaz z jazyku Python. 
 Pochopitelně, tímto způsobem nebudeš psát složitější programy - ale pro jednoduché úlohy to může stačit,
 a v každém případě je dobré vědět, jak interpretr spustit.
 
@@ -89,7 +98,7 @@ Přesnější by vlastně asi bylo říct, že je Jupyter nadstavba nad běžný
 Na pozadí ho používá, ale nabízí ti mnohem lepší možnosti, jak s Pythonem pracovat pomocí
 jednotlivě zadávaných příkazů.
 
-Zkus v konzoli zadat následující sekvenci příkazů:
+Zkus v konzoli (na příkazovém řádku, v "černém okně") zadat následující sekvenci příkazů:
 
 Zadej `cd \git\pylab` - tímto příkazem se přepneš do adresáře `pylab`, ve kterém budeme spolu nadále pracovat.
 O tom, co to je adresář, si povíme něco víc později.
@@ -99,7 +108,7 @@ Mohlo by to vypadat nějak takhle:
 ![exit](./imgs/06-cd-pylab.png)
 
 Dále zadej příkaz `jupyter lab`, a stiskni Enter. Tím svému počítači říkáš, že chceš spustit program Jupyter.
-Zkus si tento příkad zapamatovat, budeš ho používat docela často.
+Zkus si tento příkaz zapamatovat, budeš ho používat docela často.
 
 V černém okně proběhne tajná zašifrovaná zpráva. Mohlo by to vypadat nějak takhle:
 
@@ -137,7 +146,7 @@ Spustí se ti nový, zatím nepojmenovaný notebook. Vypadá nějak takhle:
 
 Něco si o něm nyní povíme.
 
-Zaprvé, všimni si že notebook obsahuje jednu buňku, do které je možné zadat příkaz jazyku Python.
+Za prvé, všimni si že notebook obsahuje jednu buňku, do které je možné zadat příkaz jazyku Python.
 Je to takový ten modrý rámeček vpravo. Klikni na něj, a napiš do něj následující příkaz.
 
 ```python
@@ -185,7 +194,7 @@ piratu_celkem = 144
 
 Nyní máš dvě možnosti jak zopakovat celý výpočet: buď budeš potvrzovat příkazy buňku za buňkou, a necháš je postupně vykonat, nebo
 spustíš celý notebook znovu, od začátku. Jupyter na to má tlačítko, mohlo by to vypadat jako na následujícím obrázku.
-Tlačítko, které máš stisknout, jsem obtáhnul červeným kroužkem.
+Tlačítko, které máš stisknout, jsem zvýraznil červeným kroužkem.
 
 ![restart](./imgs/14-restart.png)
 
@@ -203,7 +212,7 @@ Chvilku to trvá, ale nakonec se dozvíš správný výsledek.
 Nakonec si notebook uložíme. Nejrychlejší způsob, jak to udělat, je stisknout `Ctrl+S`. Alternativně můžeš 
 v menu v horní liště zvolit `File`, a potom `Save notebook` (což znamená něco jako Soubor / Uložit notebook).
 
-Jupyter tě vyzvá k zadání názvu tohoto notebooku. Nazvi ho `piráti.ipynb`.
+Jupyter tě vyzve k zadání názvu tohoto notebooku. Nazvi ho `piráti.ipynb`.
 Ta koncovka, `.ipynb`, je docela důležitá, a **každý notebook který založíš by ji měl obsahovat**.
 
 Potvrď nové jméno stisknutím modrého tlačítka `Rename`.

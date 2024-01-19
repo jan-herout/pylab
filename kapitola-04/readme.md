@@ -1,3 +1,7 @@
+- [Cvičení](#cvičení)
+  - [Zadání úloh](#zadání-úloh)
+- [Nezapomeň](#nezapomeň)
+
 # Cvičení
 
 Přišel čas, si trochu pocvičit principy, o kterých sis něco přečetl v předchozích třech kapitolách.
