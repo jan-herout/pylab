@@ -32,6 +32,10 @@ Základní datové typy
 - [Kapitola 7: Seznamy - list](./kapitola-07/readme.md)
 - [Kapitola 8: Dvoustavová (booleanovská) logika](./kapitola-08/readme.md)
 
+Mutabilní a imutabilní hodnoty
+
+- [Bonusová kapitola: mutabilita hodnot a její důsledky](./kapitola-mutabilita/readme.md)
+
 Program a jeho "control flow".
 
 - [Kapitola 9: Struktura programu, whitespace](./kapitola-09/readme.md)

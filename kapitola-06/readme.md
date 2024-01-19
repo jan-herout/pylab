@@ -4,17 +4,21 @@
   - [str: jak text zadat do programu](#str-jak-text-zadat-do-programu)
     - [Uvozovky nebo apostrofy?](#uvozovky-nebo-apostrofy)
     - [Co když je oddělovač textu i uvnitř textu?](#co-když-je-oddělovač-textu-i-uvnitř-textu)
-    - [Experiment 1: uvozovky uvnitř](#experiment-1-uvozovky-uvnitř)
     - [Text na více řádek](#text-na-více-řádek)
-    - [Experiment 2: text na více řádek](#experiment-2-text-na-více-řádek)
     - [Escape sekvence](#escape-sekvence)
   - [Co se dá dělat s textovou hodnotou](#co-se-dá-dělat-s-textovou-hodnotou)
-    - [Základní textové operátory](#základní-textové-operátory)
+    - [Sloučení (konkatenace) a opakování textu](#sloučení-konkatenace-a-opakování-textu)
+    - [Délka](#délka)
+      - [Zadání úkolu](#zadání-úkolu)
+      - [Návod](#návod)
+      - [Úkol](#úkol)
+    - [Řezání (slicing)](#řezání-slicing)
     - [Základní metody které textová hodnota poskytuje](#základní-metody-které-textová-hodnota-poskytuje)
     - [Formátovací řetězce: f-string](#formátovací-řetězce-f-string)
   - [Kontrolní otázky](#kontrolní-otázky)
   - [Zdroje](#zdroje)
     - [Česky](#česky)
+    - [Anglicky](#anglicky)
 
 # Text a práce s ním
 
@@ -33,8 +37,6 @@ Pro práci s textem Python používá dva datové typy.
 
 Tato kapitola se zabývá pouze **prvním z nich**, a to datovým type `str`. Co je to byte string (datový typ `bytes`)
 si povíme někdy jindy.
-
-**Tato kapitola se zabývá pouze datovým typem str**.
 
 Textová hodnota může vypadat nějak takhle - oba dva zápisy jsou v pořádku, a oba dva vytvoří stejnou hodnotu.
 
@@ -60,10 +62,7 @@ v pravidlech, kterými se tenhle program řídí, a až ho jednou začneš použ
 
 Co když ale potřebuješ do textu (který jsi ohraničil uvozovkami), dostat znovu uvozovky?
 
-Například: chceš do nové proměnné dostat následující text:
-
-
-### Experiment 1: uvozovky uvnitř
+Například: chceš do nové proměnné dostat následující text: `John řekl: "Půjdeme ve dvě hodiny."`.
 
 - Zkus spustit Jupyter, a v adresáři `kapitola-06` založit nový notebook. 
 - Rovnou ho ulož, a nazvi ho `lab-kapitola-06.ipynb`
@@ -121,11 +120,7 @@ A až projde a zmizí, otočím se a podívám se, kudy šel.
 Tam, kam strach odešel, nic nezůstane. Zůstanu pouze já."
 ```
 
-Zkusme to.
-
-### Experiment 2: text na více řádek
-
-Zkus v nové buňce spustit následující příkaz.
+Zkusme to. Zkus v nové buňce spustit následující příkaz.
 
 ```python
 text = "Nesmím se bát. Strach zabíjí myšlení. 
@@ -260,7 +255,124 @@ a potom se sem vrať.
 
 ## Co se dá dělat s textovou hodnotou
 
-### Základní textové operátory
+### Sloučení (konkatenace) a opakování textu
+
+| operátor | příklad     | význam                        |
+| -------- | ----------- | ----------------------------- |
+| `+`      | `"a" + "b"` | sloučení, konkatenace; `"ab"` |
+| `*`      | `"a" * 5`   | opakování (!!); `"aaaaa"`     |
+
+Dvě textová hodnoty je možné sloučit, ale také je možné je opakovat.
+
+Pojďme si to vyzkoušet. Zadej do notebooku - na novou buňku - následující program:
+
+```python
+veta_1 = "Nesmím se bát. Strach zabíjí myšlení."
+veta_2 = "Budu svému strachu čelit. Dovolím mu, aby prošel kolem mne a skrze mne."
+
+odstavec = veta_1 + "\n" + veta_2
+print(odstavec)
+```
+
+**Všimni si:**
+
+- v programu vzniká nová hodnota, která je sloučením tří textových hodnot
+- tato hodnota je dostupná pod názvem (proměnnou) `odstavec`
+
+
+Vyzkoušej si i opakování textu. Dejme tomu, že chceme nad textem a pod textem
+zobrazit dlouhou "čáru". Chceme, aby byla tvořená z šedesáti pomlček.
+
+```python
+cara = "-" * 80
+```
+
+Zkus teď sám v notebooku program upravit tak, aby jeho výstup (to, co zobrazí `print`)
+vypadal takhle:
+
+```
+--------------------------------------------------------------------------------
+Nesmím se bát. Strach zabíjí myšlení.
+Budu svému strachu čelit. Dovolím mu, aby prošel kolem mne a skrze mne.
+--------------------------------------------------------------------------------
+```
+
+
+### Délka
+
+Pokud v jazyce Python chceš zjistit, jak je "něco" dlouhé, použiješ k tomu vestavěnou 
+funkci [len](https://docs.python.org/3/library/functions.html#len).
+
+Můžeš jí použít například nějak takhle:
+
+```
+delka = len("jak je dlouhý tenhle text?")
+```
+
+
+Dejme tomu, že chceme kolem našeho textu zobrazit rámeček. Měl by vypadat takhle:
+
+#### Zadání úkolu
+
+```
+--------------------------------------------------------------------------------
+| Nesmím se bát. Strach zabíjí myšlení.                                        |
+| Budu svému strachu čelit. Dovolím mu, aby prošel kolem mne a skrze mne.      |
+--------------------------------------------------------------------------------
+```
+
+#### Návod
+
+- víme, že ta horní čára se skládá z 80 pomlček (stejně jako ta spodní)
+- to znamená, že dokážeme spočítat, kolik mezer doplnit za každou větu tak,
+  abychom "svislítko" na konci správně umístili
+- k tomu ale potřebujeme znát **délku** první věty a délku druhé věty, a spočítat,
+  kolik mezer nám na konci každé věty chybí
+
+Pochopitelně bychom mohli ty mezery doplnit ručně. Ale o to nejde. 
+Chceme si vyzkoušet základy manipulace s textem.
+
+Jak tedy na to?
+
+```python
+# rámeček vlevo a rámeček vpravo
+ram_vlevo = "| "
+ram_vpravo = "|"
+# jak je dlouhá čára nahoře?
+delka_cary = len(cara)
+# jak je dlouhá první věta?
+delka_v1 = len(veta_1)
+# kolik mezer potřebujeme doplnit? musíme započítat délku ohraničení zleva a zprava
+mezer_v1 = delka_cary - delka_v1 - len(ram_vlevo) - len(ram_vpravo)
+print(mezer_v1)
+```
+
+Teď tedy víme, kolik mezer potřebujeme doplnit na konec, a můžeme je "přidat na konec".
+
+```python
+veta_1_ramovana = ram_vlevo + veta_1 + (" " * mezer_v1) + ram_vpravo
+```
+
+Zkusíme, jestli se nám podařilo orámovat prvni větu správně.
+
+```python
+odstavec = cara + "\n" + veta_1_ramovana
+print(odstavec)
+```
+
+Tohle bys měl teď vidět na výstupu:
+
+```
+--------------------------------------------------------------------------------
+| Nesmím se bát. Strach zabíjí myšlení.                                        |
+```
+
+#### Úkol
+
+Uprav program tak, aby jeho výstup vypadal tak, jak je popsáno v [Zadání úkolu](#zadání-úkolu).
+
+
+### Řezání (slicing)
 
 TODO
 
@@ -287,4 +399,8 @@ Polož si prosím následující kontrolní otázky, a pokud neznáš odpovědi,
 
 ### Česky
 
-- - [Escapování](https://cs.wikipedia.org/wiki/Escapov%C3%A1n%C3%AD)
+- [Escapování](https://cs.wikipedia.org/wiki/Escapov%C3%A1n%C3%AD)
+
+### Anglicky
+
+- [Built-in Functions: len](https://docs.python.org/3/library/functions.html#len)
