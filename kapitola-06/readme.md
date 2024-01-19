@@ -89,7 +89,7 @@ Co se stalo?
 To znamená, že Python vidí něco jako:
 
 - `txt = "John řekl:` - první instrukce
-- `Půjdeme ve ...` - druhá instrukce, a slovů `Půjdeme` interpretru nic neříká.
+- `Půjdeme ve ...` - druhá instrukce, a slovo `Půjdeme` interpretru nic neříká.
 
 **Správně** bys to mohl napsat nějak takhle. Zkus si to.
 
@@ -143,7 +143,7 @@ Co se stalo?
 
 - Python narazil na první znak uvozovek, a pochopil, že to co následuje, je text.
 - Potom pokračoval na řádce doprava, až na není konec, a zjistil, že na konci uvozovky nejsou.
-- Proto si stěžuje ... upozorňuje tě na to, že jsi nejspíš zapoměl text ukončit.
+- Proto si stěžuje ... upozorňuje tě na to, že jsi nejspíš zapomněl text ukončit.
 
 
 Pro tyhle případy existuje možnost místo **jedné** uvozovky (či apostrofu) použít
@@ -172,12 +172,12 @@ Takových znaků je spousta. Například tyhle (na ně narazíš nejčastěji):
 | LF        | `\n`   | _line_ _feed_, znak, který zakončuje aktuální řádek                         |
 | TAB       | `\t`   | tabulátor, znak, který znamená odskok kurzoru doprava (na začátku odstavce) |
 | BACKSLASH | `\\`   | zpětné lomitko; z těchto je jediný "tisknutelný", a vypadá takhle: `\`      |
-| uzovovky  | `\"`   | takhle můžeš dostat uvozovky do textu, který je ohraničený uvozovkami       |
+| uvozovky  | `\"`   | takhle můžeš dostat uvozovky do textu, který je ohraničený uvozovkami       |
 | apostrof  | `\'`   | takhle můžeš dostat apostrof  do textu, který je ohraničený apostrofy       |
 
 Když takový znak potřebuješ do textu vložit, musíš použít **escape** sekvenci.
 
-To znamená, že když - například - potřebuju do textu dostat TAB, nemá smysl se ho snažit 
+To znamená, že když - například - potřebuji do textu dostat TAB, nemá smysl se ho snažit 
 zapsat takhle:
 
 ```python
@@ -229,7 +229,7 @@ print(text_s_tab)
 **Všimni si:**
 
 - podívej se ještě jednou na tabulku, která je uvedená nahoře. Na tu tabulku escape sekvencí.
-- Všimnul sis, že je v ní uvedený znak `\n`, který znamená _ukončení_ _řádku_?
+- Všiml sis, že je v ní uvedený znak `\n`, který znamená _ukončení_ _řádku_?
 - Vzpomeň si, že ještě výše jsme se dívali na to, jak text rozdělit na více řádek - upozorňoval 
   jsem na možnost použít "tři páry uvozovek" místo jednoho páru uvozovek, pokud potřebuji 
   text roztáhnout na více řádek.
