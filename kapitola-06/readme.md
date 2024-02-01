@@ -16,7 +16,8 @@
     - [Délka](#délka)
       - [Zadání úkolu](#zadání-úkolu)
       - [Hrubý návod](#hrubý-návod)
-    - [Text jako objekt](#text-jako-objekt)
+    - [Text jako objekt: metody](#text-jako-objekt-metody)
+    - [Test na přítomnost hodnoty v textu](#test-na-přítomnost-hodnoty-v-textu)
     - [Formátovací řetězce: f-string](#formátovací-řetězce-f-string)
   - [Kontrolní otázky](#kontrolní-otázky)
   - [Zdroje](#zdroje)
@@ -482,7 +483,7 @@ text[1] = "B"
 ```
 
 Teď se podívej na vysvětlení toho, proč se to stalo. 
-Přečti si text na téma [imutabilita](./imutabilita.md). **Pozor** - je to opravdu velmi
+Přečti si text na téma [imutability](../kapitola-mutabilita/readme.md). **Pozor** - je to opravdu velmi
 důležitá kapitola, a jestli jí nerozumíš, přečti si jí dvakrát. Pokud ani tohle nepomohlo,
 zkus svou otázku popsat, a [formou nového issue](https://github.com/jan-herout/pylab/issues/new).
 Nenech se odstrašit, je to jednoduché. 
@@ -600,29 +601,164 @@ je popsáno v [Zadání úkolu](#zadání-úkolu).
 
 
 
-### Text jako objekt
+### Text jako objekt: metody
 
 V této kapitole ses zatím dozvěděl, že:
 
-- text se chová jako iterable
+- dva stringy je možné skládat (sčítat)
+- string má délku, a chová se jako iterable
+- string je možné "nařezat" na menší kousky (substring, slicing)
+- string je imutable, jakmile jednou nějaký text vznikne, není možné ho již změnit
+  (je možné vytvořit jeho kopii, a během její tvorby ji "mírně upravit")
 
-TODO
+Co jsme si zatím neřekli: text je **objekt**. Ve skutečnosti je **každá hodnota** v 
+jazyce Python objekt.
 
+Co je to objekt? Prozatím řekněme, že **objekt** je něco, co má:
+
+- stav, to znamená že si objekt může něco o sobě "pamatovat"
+- metody, to znamená, že objekt může něco "dělat"
+
+Pojďme si to vyzkoušet. Zkus v notebooku tohle:
+
+```python
+print("jindra hlaváček".title())
+```
+
+```python
+uzivatel = "jindra hlavacek"
+print(uzivatel.title())
+```
+
+![title](./imgs/04-title.png)
+
+**Všimni si:**
+
+- mám nějakou hodnotu, ať už je zapsaná přímo (`"jindra hlavacek"`), nebo jde o proměnnou (`jindra`)
+- za ní napíšu tečku - tím říkám, že to co následuje je **metoda**, kterou chci použít
+- název metody je `title`
+- za názvem metody jsou závorky, tím říkám, že tu metodu chci **spustit**
+
+Víc si o tom povíme později. V tomhle okamžiku bych ale chtěl uvést **některé** metody,
+které má každý string (je jich víc než zde uvádím). Prosím **vyzkoušej si** všechny zde uvedené příklady použití. 
+
+
+**Text se dá formátovat**
+
+| metoda        | co dělá                                                                             | použití                | výsledek  |
+| ------------- | ----------------------------------------------------------------------------------- | ---------------------- | --------- |
+| `.strip`      | vrátí kopii, očištěnou zleva a zprava o zadané znaky (bez zadání ořízne mezery)     | `" abc ".strip()`      | `"abc"`   |
+| `.lstrip`     | jako `strip`, ale ořízne text jenom zleva (left strip)                              | `" abc ".lstrip("a ")` | `"bc "`   |
+| `.rstrip`     | jako `strip`, ale ořízne text jenom zprava (right strip)                            | `" abc ".rstrip("c ")` | `" ab"`   |
+| `.lower`      | vrátí kopii, převedenou na malá písmena                                             | `"ABC".lower()`        | `"abc"`   |
+| `.lower`      | vrátí kopii, převedenou na velká písmena                                            | `"abc".upper()`        | `"ABC"`   |
+| `.capitalize` | vrátí kopii, a první písmeno změní na velké                                         | `"abc".capitalize()`   | `"Abc"`   |
+| `.casefold`   | vrátí kopii, upravenou tak, aby se dala porovnat bez ohledu na velká a malá písmena | `"řÁDek".casefold()`   | `"řádek"` |
+| `.center`     | vrátí kopii, vycentrovanou na střed, se zadanou délkou                              | `"a".center(3)`        | `" a "`   |
+
+
+**Text se dá testovat**
+
+| metoda        | co dělá                                                   | použití                 | výsledek |
+| ------------- | --------------------------------------------------------- | ----------------------- | -------- |
+| `.endswith`   | vrátí `True` (pravda), pokud text končí zadanou hodnotou  | `"abc".endswith("c")`   | `True`   |
+| `.startswith` | vrátí `True` (pravda), pokud text začíná zadanou hodnotou | `"abc".startswith("a")` | `True`   |
+| `.isdigit`    | vrátí `True`, pokud všechny znaky v textu jsou čísla      | `"1 2".isdigit()`       | `False`  |
+
+
+**split a join**
+
+| metoda       | co dělá                                                                                                                    | použití                  | výsledek            |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------- |
+| `.split`     | rozdělí text podle zadaného oddělovače (vrací seznam hodnot, `list`)                                                       | `"a,b,c".split(",")`     | `['a', 'b', 'c']`   |
+| `.join`      | spojí něco, co lze iterovat                                                                                                | `", ".join("abc")`       | `a, b, c`           |
+| `.partition` | rozdělí text na tři části (před oddělovačem, oddělovač, za oddělovačem) podle zadaného oddělovače, hledá jeho první výskyt | `"1,2,3".partition(",")` | `("1", ",", "2,3")` |
+
+**V textu se dá hledat**
+
+| metoda   | co dělá                                                                                      | použití             | výsledek |
+| -------- | -------------------------------------------------------------------------------------------- | ------------------- | -------- |
+| `.find`  | vrátí pozici (zleva), na které se v textu vyskytuje daná hodnota (vrací `-1` pokud tam není) | `"abc".index("Q")`  | `-1`     |
+| `.index` | jako `find`, ale pokud tam hledaná hodnota není, vyvolá chybu (`ValueError`)                 | `"abc".index("bc")` | `1`      |
+
+**V textu se dá nahrazovat**
+
+| metoda     | co dělá                                                            | použití                     | výsledek |
+| ---------- | ------------------------------------------------------------------ | --------------------------- | -------- |
+| `.replace` | vrátí kopii, ve které najde a nahradí jednu hodnotu jinou hodnotou | `"abcabc".replace("a","X")` | `XbcXbc` |
+
+
+**Metody se dají "řetězit"**
+
+```python
+print("a,b,c".upper().replace(".", " ")) # "A B C"
+```
+
+### Test na přítomnost hodnoty v textu
+
+Pokud se potřebuješ zeptat, jestli v daném textu "něco je", a nezajímá tě "kde to je", 
+zpravidla nepoužiješ metodu `.find`, ani `.index`. Použiješ místo toho operátor `in`.
+
+Je to **čitelnější**, a lépe to vystihuje, o co ti vlastně jde.
+
+```python
+print ("bc" in "abc") # True
+print ("BC" in "abc") # False - hledáme velké BC v textu který je uvedený malými písmeny
+```
 
 ### Formátovací řetězce: f-string
 
-TODO
+Občas potřebuješ na obrazovku napsat nějakou hodnotu, a potřebuješ jí přesně naformátovat.
+K tomu se dá použít takzvaný "f-string", neboli "formátovací string".
+
+Vypadá to nějak takhle:
+
+```
+cislo = 1.23456789
+print(f"hodnota v proměnné cislo je {cislo}")
+```
+
+**Všimni si:**
+
+- před uvozovkami je uvedené písmenko `f`. Tím programu říkám, že následuje f-string
+- uvnitř uvozovek je něco, co je uvedené ve "složených závorkách" (havranech): `{cislo}`;
+  tím programu říkám, že na toto místo má vložit tu hodnotu, na kterou se odkazuje proměnná `cislo`
+
+Ve skutečnosti v těch složených závorkách může být uvedený **libovolný literál**. To znamená, 
+že tam může být uvedená jakákoliv proměnná, výsledek nějakého výpočtu, a podobně.
+
+Například:
+
+```python
+print(f"tři krát čtyři je {3 * 4}")
+```
+
+Asi to teď nevypadá moc užitečně, ale s pomocí f-stringů se dají dělat různé "triky".
+Nějčastěji asi narazíš na:
+
+**Rychlý debugging**
+
+```python
+cislo_1 = 1.23456
+print(f"{cislo_1 = }")
+```
+
+**Formátování desetinných čísel** - dejme tomu, že chci float zobrazit na dvě číslice za desetinnou čárkou.
+
+```python
+cislo_1 = 1/3
+print(cislo_1)
+print(f"{cislo_1:.2f}")
+```
+
+Ale je možné také například doplnit nuly (mezery) zleva, zprava, převést číslo do šestnáctkové soustavy,
+a určitě toho jde provést mnohem víc.
 
 ## Kontrolní otázky
 
 Polož si prosím následující kontrolní otázky, a pokud neznáš odpovědi, přečti si text znovu (a vyzkoušej si příklady)
 
-- jaké číselné datové typy znáš?
-- co je to operátor, co je to operand?
-- jak zapíšeš celočíselné dělení, jak zjistíš zbytek po celočíselném dělení?
-- jak zjistíš datový typ, na který se odkazuje daná proměnná?
-- jak můžeš převést datový typ `float` na `int`, a co se s tím číslem stane?
-- co se stane, když se na `int` (nebo `float`) pokusíš převést něco, co se nechová jako číslo?
+TODO
 
 ## Zdroje
 

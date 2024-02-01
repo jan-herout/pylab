@@ -42,7 +42,7 @@ Python rozlišuje dva typy hodnot:
 
 Co to přesně znamená? čti dál.
 
-## Datové typy, které jsou imutable
+## Co to znamená, když je hodnota imutable
 
 Následující datové typy jsou imutable. Pokud některé z nich zatím nepoznáváš, 
 netrap se tím.
@@ -105,30 +105,55 @@ Znamená to ale ještě jednu věc. Dejme tomu, že máš následující program
 
 ```python
 cislo_1 = 1 # vzniká nová hodnota 1
-cislo_2 = 1 # vzniká nová hodnota 1
-cislo_2 = 2 # vzniká nová hodnota 2
-print(cislo_1, cislo_2) # vypíše: 1,2
+cislo_2 = cislo_1 # cislo_2 se odkazuje na stejnou hodnotu, jako cislo_1
+cislo_2 = cislo_2 + 1 # navýšíme cislo_2 o jedničku
+print(cislo_1, cislo_2) # ??? stane se něco s hodnotou v cislo_1 ???
 ```
 
-Do proměnné `cislo_2` jsi nejdřív přiřadil jedničku; pamatuješ se na to, jak jsme si říkali,
-že proměnná je jenom "štítek", "ukazatel" na nějakou hodnotu? 
-Kdyby hodnota `1` byla v paměti uložená jenom **jednou**, tak by řádek, který provádí
-operaci `cislo_2 = 2` musel ovlivnit také hodnotu, na kterou se odkazuje proměnná
-`cislo_1`. To znamená, že poslední instrukce, `print(cislo_1, cislo_2)`, by ti vypsala
-dvě jedničky, ne jedničku a dvojku.
+Protože číslo (`int`, `float`) je **imutabilní**, neměnný datový typ, manipulace (změna)
+s hodnotou v proměnné `cislo_2` nemá vliv na hodnotu v `cislo_1`.
 
-Když pro hodnoty, které jsou imutable, provedeš přiřazení, tak vždy vzniká **nová** hodnota,
-která je také imutable - to znamená, že proměnné, které se odkazují na imutable hodnoty, 
-spolu navzájem **nesdílí obsah**, nemůžou se **navzájem ovlivnit**. 
+- nejdřív se do proměnné `cislo_1` uloží odkaz na hodnotu `1`
+- potom se stejný odkaz uloží do proměnné `cislo_2`
+- potom na řádku `cislo_2 = cislo_2 + 1`:
+  - nejdřív se přistoupí na hodnotu, na kterou se odkazu `cislo_2` (což je 1)
+  - potom se tato hodnota zvedne o jedničku, vzniká hodnota 2, uloží se do paměti
+  - do proměnné `cislo_2` se vloží odkaz na hodnotu 2
+  - hodnota, na kterou se odkazuje `cislo_1` se **nemění**, protože `int` je imutabilní datový typ
 
-Pro mutabilní hodnoty toto neplatí - dvě proměnné se mohou odkazovat na stejnou mutabilní 
-hodnotu, a když potom tuto hodnotu změníš, tak se změna projeví pro obě proměnné!
+Pro mutabilní hodnoty toto **neplatí** - dvě proměnné se mohou odkazovat na stejnou mutabilní 
+hodnotu, a když potom tuto hodnotu změníš, tak se změna projeví pro obě proměnné. 
 
 Tenhle poslední odstavec je extrémně důležitý. Jeho pochopení - respektive nepochopení - 
 může být zdrojem nepříjemných chyb v programech, které budeš psát.
 
+Srovnej (pokud zatím nevíš co je to _list_, nezoufej, včas se to dozvíš).
 
+## Co to znamená, když je hodnota mutable
 
-## Datové typy, které jsou mutable
+Když je hodnota mutable, znamená to, že je možné její obsah přímo změnit. Tato změna se
+potom projeví **ve všech proměnných**, které s ní nějak nakládají. Toto je často zdrojem
+nepříjemných, těžko odhalitelných chyb v programech. 
 
-TODO
+Které datové typy jsou mutable? V podstatě všechy datové typy, které nejsou označené 
+jako imutable. Typicky to jsou "kontejnery", jako například `list`, `dict`, a podobně.
+
+To znamená, že **mutabilní** (mutable) hodnoty jsou **všechny**, **kromě**
+
+- čísel (`int`, `float`)
+- textů (`str`, `byte`)
+- uspořádaných n-tic (`tuple`, `collections.namedtuple`)
+
+Vyzkoušej si to. Pokud nedokážeš přesně ten zápis níže přečíst, je to protože zatím
+nevíš, co je to list - nezoufej, pochopíš.
+
+```python
+list_1 = [ "a", "b" ]
+list_2 = list_1 # obě proměnné se teď odkazují na stejnou hodnotu
+list_1 += [ "c" ]
+print(list_1, list_2)
+```
+
+![list je mutable](./imgs/01-list-je-mutable.png)
+
+Všimni si: změnila se jak hodnota `list_1`, tak i hodnota `list_2`.
