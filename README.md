@@ -44,8 +44,8 @@ A nakonec, cvičení,
     - imutabilita
     - funkce `len`
   - Dále se dotkneme toho, že text je **objekt**, a že má **metody**; detailnější vysvětlení jindy.
-- [Kapitola 7: Seznamy - list](./kapitola-07/readme.md)
-- [Kapitola 8: Dvoustavová (booleanovská) logika](./kapitola-08/readme.md)
+- [Kapitola 7: Dvoustavová (booleanovská) logika](./kapitola-07/readme.md)
+- [Kapitola 8: Seznamy - list](./kapitola-08/readme.md)
 
 ### Mutabilní a imutabilní hodnoty
 
