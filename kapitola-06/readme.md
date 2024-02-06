@@ -8,18 +8,27 @@
     - [Escape sekvence](#escape-sekvence)
   - [Co se dá dělat s textovou hodnotou](#co-se-dá-dělat-s-textovou-hodnotou)
     - [Sloučení (konkatenace) a opakování textu](#sloučení-konkatenace-a-opakování-textu)
+    - [Konverze na string](#konverze-na-string)
     - [Text se chová jako seznam jednotlivých znaků (iterable)](#text-se-chová-jako-seznam-jednotlivých-znaků-iterable)
     - [Přístup na konkrétní znak v textu (indexace)](#přístup-na-konkrétní-znak-v-textu-indexace)
     - [Imutabilita](#imutabilita)
-      - [Cvičení](#cvičení)
     - [Slicing](#slicing)
     - [Délka](#délka)
-      - [Zadání úkolu](#zadání-úkolu)
-      - [Hrubý návod](#hrubý-návod)
+      - [Cvičení 1: zadání úkolu](#cvičení-1-zadání-úkolu)
+      - [Cvičení 1: hrubý návod](#cvičení-1-hrubý-návod)
     - [Text jako objekt: metody](#text-jako-objekt-metody)
+      - [Text se dá formátovat](#text-se-dá-formátovat)
+      - [Text se dá testovat](#text-se-dá-testovat)
+      - [Text se dá rozdělit (a co bylo rozdělené se dá sloučit)](#text-se-dá-rozdělit-a-co-bylo-rozdělené-se-dá-sloučit)
+      - [V textu se dá hledat](#v-textu-se-dá-hledat)
+      - [V textu se dá nahrazovat\*\*](#v-textu-se-dá-nahrazovat)
+      - [Metody se dají "řetězit"](#metody-se-dají-řetězit)
     - [Test na přítomnost hodnoty v textu](#test-na-přítomnost-hodnoty-v-textu)
-    - [Formátovací řetězce: f-string](#formátovací-řetězce-f-string)
   - [Kontrolní otázky](#kontrolní-otázky)
+  - [Cvičení](#cvičení)
+    - [Cvičení 1](#cvičení-1)
+    - [Cvičení 2](#cvičení-2)
+    - [Cvičení 3: šifra](#cvičení-3-šifra)
   - [Zdroje](#zdroje)
     - [Česky](#česky)
     - [Anglicky](#anglicky)
@@ -176,7 +185,7 @@ zapsat takhle:
 ```python
 # ŠPATNĚ!
 # napsal jsem uvozovky, a slovo před_tab
-# stisknul jsem Tab na klávesnici
+# použil jsem Tab na klávesnici
 # napsal jsem za_tab a text jsem ukončil uvozovkami
 text_s_tab = "před_tab  za_tab" 
 ```
@@ -300,6 +309,59 @@ Budu svému strachu čelit. Dovolím mu, aby prošel kolem mne a skrze mne.
 --------------------------------------------------------------------------------
 ```
 
+### Konverze na string
+
+Co se stane, když se pokusíš sloučit string a číslo? Vyzkoušej si to:
+
+```python
+print ("tohle nejde" + 1)
+```
+
+Vyzkoušej si to.
+
+Python ti "vynadá", zhruba takto: `TypeError: can only concatenate str (not "int") to str`
+
+Říká ti, že můžeš sloučit (concatenate) pouze hodnotu typu `str` a `str`, ne `str` 
+a `int` (číslo). Je to jako kdyby ses pokusil sečíst "hrušky a jablka".
+
+Co by s tím měl Python udělat? Měl by se pokusit z textu `"tohle nejde"` udělat číslo,
+a to přičíst k jedničce? Nebo z jedničky udělat string, a ten přidat k `"tohle nejde"`?
+
+Python to neví. Neudělá tohle rozhodnutí za tebe.
+
+Takže, pokud opravdu chceš ten text **sloučit** s tím číslem, musíš nejdřív číslo
+**převést** na stejný datový typ. Takhle:
+
+```python
+print("tohle už jde" + str(1))
+```
+
+Vyzkoušej si to.
+
+Na něco podobného jsme už narazili v části [Kapitola 5: Číselné proměnné, a operace s nimi](../kapitola-05/readme.md),
+kde jsme si ukazovali konverzi z textu na číslo.
+
+Ukazovali jsme si, že tohle selže, protože opravdu není žádný způsob, jak z toho textu udělat číslo.
+
+```python
+text = "příšerně žluťoučký kůň úpěl ďábelské ódy"
+cislo = int(text)
+```
+
+Dále jsme si ukazovali, že tohle projde.
+
+```python
+text = "1"
+cislo = int(text)
+```
+
+Pochopitelně to znamená, že projde i tohle - text na číslo, a zpátky na text.
+
+```python
+text = "1"
+opet_text = str(int(text))
+```
+
 ### Text se chová jako seznam jednotlivých znaků (iterable)
 
 V jazyce Python je textová hodnota uložená jako "řetěz", nebo "šňůra" jednotlivých znaků 
@@ -401,7 +463,7 @@ pismena
 - a teď si polož otázku: o kolik pozic musíš posunout ukazovátku, aby ukazovalo na začátek 
   buňky, ve které je písmeno `a`? Nikam ho posouvat nemusíš (posun o nulu). Proto říkáme,
   že písmenko `a` je od začátku stringu `0` pozic, což je onen **index**
-- o kolik pozic od začátku stringu musíš posunout ukazovátko, aby ukazovalo na žačátek buňky,
+- o kolik pozic od začátku stringu musíš posunout ukazovátko, aby ukazovalo na začátek buňky,
   ve které je uložené písmenko `c`? Musíš ho posunout o dvě pozice. Proto říkáme, že písmenko
   `c` je v tomto stringu na indexu 2 (`pismena[2]`)
 
@@ -429,11 +491,6 @@ Víš také, že se textová hodnota dá "přiřadit" do nějaké proměnné. Al
 vlastně nepřesné. Pamatuješ si ještě pořád, že **proměnná** je vlastně jenom "štítek",
 že to je něco co se odkazuje na určité místo v paměti počítače? V případě hodnoty typu 
 `str` je proměnná něco, co odkazuje "na začátek" toho textu.
-
-Jinými slovy, tohle je funkční, platný, spustitelný program. Není na něm nic špatného.
-
-
-#### Cvičení
 
 Vyzkoušej si to. Zadej si tenhle kód do nové buňky (na konec), a spusť ho.
 
@@ -473,25 +530,19 @@ odkazuje proměnná `text`, uložit velké `B`. Zkus si to:
 text[1] = "B"
 ```
 
-**Kvízová otázka:** co znamená to, co ti Python napsal v reakci na tenhle příkaz?
+**Otázka:** co znamená to, co ti Python napsal v reakci na tenhle příkaz?
 Zkus to přeložit, a doplň to na začátek buňky s tvým příkazem, takhle:
 
 ```python
 # ___SEM__ doplň svůj překlad toho, co ti Python napsal zpátky
-# ano, za to "mřížku".... 
+# tj jako komentář
 text[1] = "B"
 ```
 
-Teď se podívej na vysvětlení toho, proč se to stalo. 
-Přečti si text na téma [imutability](../kapitola-mutabilita/readme.md). **Pozor** - je to opravdu velmi
-důležitá kapitola, a jestli jí nerozumíš, přečti si jí dvakrát. Pokud ani tohle nepomohlo,
-zkus svou otázku popsat, a [formou nového issue](https://github.com/jan-herout/pylab/issues/new).
-Nenech se odstrašit, je to jednoduché. 
-
-- do políčka `Title` napiš jednu větu, která shrnuje tvojí otázku
-- do políčka `Add a description` přidej popis, srozumitelně tu otázku zformuluj
-- a na konec stiskni tlačítko `Submit new issue`
-
+**Zapamatuj si:** datový typ `str` je **imutable**, v okamžiku kdy text sestavíš, 
+nemůžeš ho už změnit (můžeš sestavit "nový" text, který obsahuje části původního textu).
+Tohle je obrovský rozdíl oproti některým jiným programovacím jazykům, ve kterých to 
+neplatí!
 
 ### Slicing
 
@@ -541,7 +592,7 @@ delka = len("jak je dlouhý tenhle text?")
 
 Dejme tomu, že chceme kolem našeho textu zobrazit rámeček. Měl by vypadat takhle:
 
-#### Zadání úkolu
+#### Cvičení 1: zadání úkolu
 
 ```
 --------------------------------------------------------------------------------
@@ -550,7 +601,7 @@ Dejme tomu, že chceme kolem našeho textu zobrazit rámeček. Měl by vypadat t
 --------------------------------------------------------------------------------
 ```
 
-#### Hrubý návod
+#### Cvičení 1: hrubý návod
 
 - víme, že ta horní čára se skládá z 80 pomlček (stejně jako ta spodní)
 - to znamená, že dokážeme spočítat, kolik mezer doplnit za každou větu tak,
@@ -597,8 +648,7 @@ Tohle bys měl teď vidět na výstupu:
 ```
 
 **Úkol**: Uprav program tak, aby jeho výstup vypadal tak, jak 
-je popsáno v [Zadání úkolu](#zadání-úkolu).
-
+je popsáno v [Zadání úkolu](#cvičení-1-zadání-úkolu).
 
 
 ### Text jako objekt: metody
@@ -640,59 +690,70 @@ print(uzivatel.title())
 - za názvem metody jsou závorky, tím říkám, že tu metodu chci **spustit**
 
 Víc si o tom povíme později. V tomhle okamžiku bych ale chtěl uvést **některé** metody,
-které má každý string (je jich víc než zde uvádím). Prosím **vyzkoušej si** všechny zde uvedené příklady použití. 
+které má každý string (je jich o hodně víc než zde uvádím). 
+Prosím, **vyzkoušej si** všechny zde uvedené příklady použití. To znamená, že 
+si je zkusíš zadat do notebooku.
 
 
-**Text se dá formátovat**
+**Zapamatuj si:** protože je `str` _imutable_ datový typ, žádná metoda, kterou si zde
+popisujeme, ho **nemění**. Každá z metod místo toho vrací nějakou (novou) hodnotu.
+Takže, například, pokud se níže dočteš, že `"abcabc".replace("a","X")` nahrazuje písmenko
+`a` písmenkem `X`, **původní text se nemění**, místo toho vzniká **nová** hodnota typu 
+`str`, kterou můžeš přiřadit do proměnné.
 
-| metoda        | co dělá                                                                             | použití                | výsledek  |
-| ------------- | ----------------------------------------------------------------------------------- | ---------------------- | --------- |
-| `.strip`      | vrátí kopii, očištěnou zleva a zprava o zadané znaky (bez zadání ořízne mezery)     | `" abc ".strip()`      | `"abc"`   |
-| `.lstrip`     | jako `strip`, ale ořízne text jenom zleva (left strip)                              | `" abc ".lstrip("a ")` | `"bc "`   |
-| `.rstrip`     | jako `strip`, ale ořízne text jenom zprava (right strip)                            | `" abc ".rstrip("c ")` | `" ab"`   |
-| `.lower`      | vrátí kopii, převedenou na malá písmena                                             | `"ABC".lower()`        | `"abc"`   |
-| `.lower`      | vrátí kopii, převedenou na velká písmena                                            | `"abc".upper()`        | `"ABC"`   |
-| `.capitalize` | vrátí kopii, a první písmeno změní na velké                                         | `"abc".capitalize()`   | `"Abc"`   |
-| `.casefold`   | vrátí kopii, upravenou tak, aby se dala porovnat bez ohledu na velká a malá písmena | `"řÁDek".casefold()`   | `"řádek"` |
-| `.center`     | vrátí kopii, vycentrovanou na střed, se zadanou délkou                              | `"a".center(3)`        | `" a "`   |
+Já osobně jsem s tímhle konceptem velmi, velmi zápasil (protože mám zkušenosti i z jiných
+programovacích jazyků).
+
+#### Text se dá formátovat
+
+| metoda   | co dělá                                                                         | použití           | výsledek |
+| -------- | ------------------------------------------------------------------------------- | ----------------- | -------- |
+| `.strip` | vrátí kopii, očištěnou zleva a zprava o zadané znaky (bez zadání ořízne mezery) | `" abc ".strip()` | `"abc"`  |
+| `.lower` | vrátí kopii, převedenou na malá písmena                                         | `"ABC".lower()`   | `"abc"`  |
+| `.upper` | vrátí kopii, převedenou na velká písmena                                        | `"abc".upper()`   | `"ABC"`  |
 
 
-**Text se dá testovat**
+#### Text se dá testovat
 
 | metoda        | co dělá                                                   | použití                 | výsledek |
 | ------------- | --------------------------------------------------------- | ----------------------- | -------- |
 | `.endswith`   | vrátí `True` (pravda), pokud text končí zadanou hodnotou  | `"abc".endswith("c")`   | `True`   |
 | `.startswith` | vrátí `True` (pravda), pokud text začíná zadanou hodnotou | `"abc".startswith("a")` | `True`   |
-| `.isdigit`    | vrátí `True`, pokud všechny znaky v textu jsou čísla      | `"1 2".isdigit()`       | `False`  |
 
 
-**split a join**
+#### Text se dá rozdělit (a co bylo rozdělené se dá sloučit)
 
-| metoda       | co dělá                                                                                                                    | použití                  | výsledek            |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------- |
-| `.split`     | rozdělí text podle zadaného oddělovače (vrací seznam hodnot, `list`)                                                       | `"a,b,c".split(",")`     | `['a', 'b', 'c']`   |
-| `.join`      | spojí něco, co lze iterovat                                                                                                | `", ".join("abc")`       | `a, b, c`           |
-| `.partition` | rozdělí text na tři části (před oddělovačem, oddělovač, za oddělovačem) podle zadaného oddělovače, hledá jeho první výskyt | `"1,2,3".partition(",")` | `("1", ",", "2,3")` |
+| metoda   | co dělá                                                              | použití              | výsledek          |
+| -------- | -------------------------------------------------------------------- | -------------------- | ----------------- |
+| `.split` | rozdělí text podle zadaného oddělovače (vrací seznam hodnot, `list`) | `"a,b,c".split(",")` | `['a', 'b', 'c']` |
+| `.join`  | spojí něco, co lze iterovat                                          | `", ".join("abc")`   | `a, b, c`         |
 
-**V textu se dá hledat**
 
-| metoda   | co dělá                                                                                      | použití             | výsledek |
-| -------- | -------------------------------------------------------------------------------------------- | ------------------- | -------- |
-| `.find`  | vrátí pozici (zleva), na které se v textu vyskytuje daná hodnota (vrací `-1` pokud tam není) | `"abc".index("Q")`  | `-1`     |
-| `.index` | jako `find`, ale pokud tam hledaná hodnota není, vyvolá chybu (`ValueError`)                 | `"abc".index("bc")` | `1`      |
+#### V textu se dá hledat
 
-**V textu se dá nahrazovat**
+| metoda  | co dělá                                                                                      | použití            | výsledek |
+| ------- | -------------------------------------------------------------------------------------------- | ------------------ | -------- |
+| `.find` | vrátí pozici (zleva), na které se v textu vyskytuje daná hodnota (vrací `-1` pokud tam není) | `"abc".index("Q")` | `-1`     |
+
+
+#### V textu se dá nahrazovat**
 
 | metoda     | co dělá                                                            | použití                     | výsledek |
 | ---------- | ------------------------------------------------------------------ | --------------------------- | -------- |
 | `.replace` | vrátí kopii, ve které najde a nahradí jednu hodnotu jinou hodnotou | `"abcabc".replace("a","X")` | `XbcXbc` |
 
 
-**Metody se dají "řetězit"**
+#### Metody se dají "řetězit"
 
 ```python
 print("a,b,c".upper().replace(".", " ")) # "A B C"
 ```
+
+Tenhle krátký program nejdřív převede text `a,b,c` na velká písmena. Výsledkem je nová
+hodnota typu `str` (text) - a i ta má "nějaké metody". Takže můžu použít třeba metodu
+`replace` k tomu, abych v textu našel a nahradil všechny tečky mezerou.
+Výsledkem je text `A B C`.
+
 
 ### Test na přítomnost hodnoty v textu
 
@@ -706,59 +767,58 @@ print ("bc" in "abc") # True
 print ("BC" in "abc") # False - hledáme velké BC v textu který je uvedený malými písmeny
 ```
 
-### Formátovací řetězce: f-string
-
-Občas potřebuješ na obrazovku napsat nějakou hodnotu, a potřebuješ jí přesně naformátovat.
-K tomu se dá použít takzvaný "f-string", neboli "formátovací string".
-
-Vypadá to nějak takhle:
-
-```
-cislo = 1.23456789
-print(f"hodnota v proměnné cislo je {cislo}")
-```
-
-**Všimni si:**
-
-- před uvozovkami je uvedené písmenko `f`. Tím programu říkám, že následuje f-string
-- uvnitř uvozovek je něco, co je uvedené ve "složených závorkách" (havranech): `{cislo}`;
-  tím programu říkám, že na toto místo má vložit tu hodnotu, na kterou se odkazuje proměnná `cislo`
-
-Ve skutečnosti v těch složených závorkách může být uvedený **libovolný literál**. To znamená, 
-že tam může být uvedená jakákoliv proměnná, výsledek nějakého výpočtu, a podobně.
-
-Například:
-
-```python
-print(f"tři krát čtyři je {3 * 4}")
-```
-
-Asi to teď nevypadá moc užitečně, ale s pomocí f-stringů se dají dělat různé "triky".
-Nějčastěji asi narazíš na:
-
-**Rychlý debugging**
-
-```python
-cislo_1 = 1.23456
-print(f"{cislo_1 = }")
-```
-
-**Formátování desetinných čísel** - dejme tomu, že chci float zobrazit na dvě číslice za desetinnou čárkou.
-
-```python
-cislo_1 = 1/3
-print(cislo_1)
-print(f"{cislo_1:.2f}")
-```
-
-Ale je možné také například doplnit nuly (mezery) zleva, zprava, převést číslo do šestnáctkové soustavy,
-a určitě toho jde provést mnohem víc.
-
 ## Kontrolní otázky
 
 Polož si prosím následující kontrolní otázky, a pokud neznáš odpovědi, přečti si text znovu (a vyzkoušej si příklady)
 
-TODO
+- jak zadat delší text, třeba na několik řádek?
+- co se stane, když se pokusím dva texty "sečíst"? `print("a" + "b")`
+- co se stane, když se pokusím text "vynásobit číslem"? `print("x" * 3)`
+- co je to escape sekvence? Jak s pomocí escape sekvence dostat do textu konec řádky?
+- jak z textu dostat nějakou jeho část? (slicing, nebo také substring)
+- co to znamená, že je text _imutable_ ? 
+- pamatuješ si některé metody, které text má?
+- jak převést text na malá písmena? Jak ho převést na velká písmena?
+- jak v textu nahradit nějakou jeho část jiným textem?
+
+## Cvičení
+
+### Cvičení 1
+
+Viz [Cvičení 1: zadání úkolu](#cvičení-1-zadání-úkolu).
+
+### Cvičení 2
+
+Viz [Text jako objekt: metody](#text-jako-objekt-metody).
+
+### Cvičení 3: šifra
+
+Máš za úkol rozluštit tuhle šifru. Řešení ulož do stejného notebooku, ve 
+kterém jsi doposud pracoval (a proveď jeho commit), a potom mi řekni, že máš hotovo.
+
+Proč? Protože to co jsi dešifroval, to se stane.
+
+```python
+sifra = "32*56-7*892.20631"
+```
+
+Tady je šifrovací klíč.
+
+| klíč  | hodnota |
+| ----- | ------- |
+| `"0"` | `"l"`   |
+| `"1"` | `"u"`   |
+| `"2"` | `"o"`   |
+| `"3"` | `"d"`   |
+| `"4"` | `"b"`   |
+| `"5"` | `"t"`   |
+| `"6"` | `"a"`   |
+| `"7"` | `"e"`   |
+| `"8"` | `" "`   |
+| `"9"` | `"c"`   |
+| `"-"` | `"n"`   |
+| `"*"` | `"s"`   |
+| `"."` | `"k"`   |
 
 ## Zdroje
 
@@ -769,3 +829,4 @@ TODO
 ### Anglicky
 
 - [Built-in Functions: len](https://docs.python.org/3/library/functions.html#len)
+- [Built-in Types: String Methods](https://docs.python.org/3/library/stdtypes.html#string-methods)

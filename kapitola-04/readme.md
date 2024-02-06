@@ -1,8 +1,8 @@
-- [Cvičení](#cvičení)
+- [Cvičení: Jupyter, Git, kalkulačka](#cvičení-jupyter-git-kalkulačka)
   - [Zadání úloh](#zadání-úloh)
 - [Nezapomeň](#nezapomeň)
 
-# Cvičení
+# Cvičení: Jupyter, Git, kalkulačka
 
 Přišel čas, si trochu pocvičit principy, o kterých sis něco přečetl v předchozích třech kapitolách.
 
