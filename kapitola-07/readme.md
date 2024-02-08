@@ -1,35 +1,31 @@
-- [Dvoustavová (booleanovská) logika](#dvoustavová-booleanovská-logika)
-  - [George Boole](#george-boole)
+- [Dvoustavová (booleovská) logika](#dvoustavová-booleovská-logika)
   - [Pravda a nepravda jako výsledek porovnání](#pravda-a-nepravda-jako-výsledek-porovnání)
-  - [Operátory logických hodnot](#operátory-logických-hodnot)
+  - [Logické spojky](#logické-spojky)
+  - [Negace](#negace)
+  - [Hodnoty, které se "chovají" jako pravdivé či nepravdivé](#hodnoty-které-se-chovají-jako-pravdivé-či-nepravdivé)
+  - [Je daná hodnota pravda?](#je-daná-hodnota-pravda)
+  - [Zkrácené vyhodnocování](#zkrácené-vyhodnocování)
+  - [Nejdůležitější poznatky](#nejdůležitější-poznatky)
   - [Zdroje](#zdroje)
     - [Anglicky](#anglicky)
 
-
-# Dvoustavová (booleanovská) logika
+# Dvoustavová (booleovská) logika
 
 Počítače vidí svět černobíle. Počítač má problém s chápáním toho, co znamená "možná". 
 Něco pro ně buď pravda je, nebo to pravda není.
 
 V jazyce Python se něco, co je pravda, označí jako `True`, a něco, co pravda není, se
-označí jako `False`. Hodnoty `True` a `False` jsou hodnoty typu `bool`. 
+označí jako `False`. Hodnoty `True` a `False` jsou hodnoty typu `bool` - `bool` je další 
+základní datový typ v jazyce Python. 
 
-## George Boole
+Proč mluvíme o booleovské logice? Je to na počet slavného matematika, který se jmenoval
+[George Boole](https://cs.wikipedia.org/wiki/George_Boole). 
 
-George Boole je slavný matematik, který je známý především pro svou práci v oblasti logiky. 
-Jeho nejvýznamnějším přínosem je vytvoření booleovské algebry, která posloužila jako základ 
-pro vývoj digitálního počítače a moderního informačního věku. Jeho práce z roku 1854, 
-"An Investigation of the Laws of Thought" (Průzkum zákonů myšlení), položila základy 
-symbolické logiky a zavedla algebraický systém pro práci s logickými hodnotami pravda a nepravda, 
-který byl klíčový pro vývoj digitálních obvodů a binárního počítačového systému. 
-
-Booleovská algebra se stala základem moderní digitální logiky, a tím i pro fungování 
-moderních počítačů a informačních systémů. Díky jeho práci se Boole stal jedním z klíčových 
-myslitelů v oblasti informatiky a jeho dědictví má trvalý dopad na technologický svět.
+[Tady](https://cs.wikipedia.org/wiki/George_Boole) si o něm můžeš něco přečíst.
 
 ## Pravda a nepravda jako výsledek porovnání
 
-Vždy, kdyř mezi sebou porovnáš dvě hodnoty (takové, které **jdou** porovnat), výsledkem 
+Vždy, když mezi sebou porovnáš dvě hodnoty (takové, které **jdou** porovnat), výsledkem 
 je buď pravda (`True`) nebo nepravda (`False`).
 
 Tak například, zkus si tohle. Založ si nový notebook v adresáři `kapitola-07`.
@@ -70,7 +66,198 @@ a_mensi_nez_b = cislo_a < cislo_b
 print(a_mensi_nez_b)
 ```
 
-## Operátory logických hodnot
+## Logické spojky
+
+Existují dvě logické spojky, `and` a `or`, které spojují dvě boolovské hodnoty, a
+výsledkem je nové boolovské hodnota.
+
+Jazyk Python je v obou případech zapisuje stejně, takto:
+
+- `podminka_1 and podminka_2` - **and** - výsledek je pravdivý tehdy, **a jen tehdy**, 
+  pokud obě podmínky současně jsou pravdivé (logická spojka _a_)
+- `podminka_1 or podminka_2` - **or** - výsledek je pravdivý tehdy, a jen tehdy, pokud 
+  **alespoň jedna podmínka je pravdivá** (logická spojka _nebo_)
+
+Jinými slovy, pokud spojuješ dvě hodnoty, výsledek bude....
+
+| `podminka_1` | `podminka_2` | `podminka_1 and podminka_2` | `podminka_1 or podminka_2` |
+| ------------ | ------------ | --------------------------- | -------------------------- |
+| `True`       | `True`       | `True`                      | `True`                     |
+| `False`      | `True`       | `False`                     | `True`                     |
+| `True`       | `False`      | `False`                     | `True`                     |
+| `False`      | `False`      | `False`                     | `False`                    |
+
+
+Příklad:
+
+```python
+x = 2
+y = 1
+podminka_1 = x > y                   # True; x je dva, a to je víc než y
+podminka_2 = (x % 2 == 0)            # True; zjistíme zbytek celočíselného dělení x dvojkou, a ten je shodný s nulou
+
+vysledek_and = podminka_1 and podminka_2 # True; obě podmínky jsou současně pravdivé
+print(vysledek)
+```
+
+Pro úplnost: jiné jazyky mohou používat odlišný zápis. Například jazyk `C` používá
+
+- `&&` pro spojku _a_, 
+- `||` pro spojku _nebo_
+
+V budoucnu se ti může hodit to vědět.
+
+## Negace
+
+V boolovské algebře existuje ještě operátor pro negaci. 
+Jazyk Python ho zapisuje slovem `not`, ale v jiných programovacích jazycích se 
+může zapisovat jinak (například: `!` v jazyce `C`)
+
+- negace pravdy je nepravda
+- negace nepravdy je pravda
+
+| výraz       | výsledek |
+| ----------- | -------- |
+| `not True`  | `False`  |
+| `not False` | `True`   |
+
+## Hodnoty, které se "chovají" jako pravdivé či nepravdivé
+
+Následující hodnoty se chovají jako `False`.
+
+- nula, ať už jde o `int` (`0`), `float` (`0.0`), nebo - pro úplnost - komplexní číslo
+- konstanty. `None`, `False`
+- prázdné "kontejnery" (o tom víc někdy jindy), tj kontejnery s délkou nula
+  - **prázdný string** - `""`
+  - prázdný `list`, `dict`, `set`, prázdná `range` (`range(0)`)
+
+Jakékoliv jiné hodnoty se chovají jako `True`, a jsou tedy "pravdivé".
+
+Spusť si Jupyter notebook v adresáři `kapitola-07`, a vyzkoušej si to konverzí 
+hodnoty na `bool`, takhle.
+
+Nejdřív "pravda".
+
+```python
+print("neprázdný string:", bool("string"))
+print("nenulové číslo:", bool(-1))
+print("neprázdný list:", bool([1,2,3]))
+```
+
+Potom "nepravda".
+
+```python
+print("prázdný string:", bool(""))
+print("nula:", bool(0))
+print("prázdný list:", bool([]))
+```
+
+Nejspíš to teď vypadá nepochopitelně, ale v budoucnu se ti to bude hodit.
+Dost to zpřehledňuje kód. Například, srovnej si dva následující "programy".
+Který ti připadá čitelnější?
+
+V obou z nich se objevuje nové klíčové slovo `if`, které můžeš přeložit jako _když_.
+_Když_ je nějaká podmínka splněná, _pak_ udělej to, "co je za dvojtečkou".
+
+**Správná varianta** - takhle by to mělo vypadat.
+
+```python
+suroviny = ["mouka", "voda", "kvásek", "sůl", "kmín"]
+
+# když suroviny je "pravdivá" hodnota, tj není to prázdný list, pečeme chleba
+if suroviny:
+    print("Pečeme chleba!")
+```
+
+**Nesprávná varianta** - dělá "to samé", ale je _zbytečně_ _delší_, a _nejednoznačná_,
+navíc v některých případech může takový podobný program "spadnout s chybou" 
+(například: pokud by v proměnné suroviny bylo `None`, program by spadnul s chybou).
+
+```python
+suroviny = ["mouka", "voda", "kvásek", "sůl", "kmín"]
+
+# když délka seznamu surovin je nenulová, tj není to prázdný list, pečeme chleba
+# NESPRÁVNÝ ZÁPIS. Dělá sice "totéž", ale takhle se to psát nemá.
+if len(suroviny) > 0:
+    print("Pečeme chleba!")
+```
+
+## Je daná hodnota pravda?
+
+Pokud potřebuješ zjistit, jestli nějaká hodnota je **právě pravda** , nebo 
+**právě nepravda**, používá se operátor `is`. 
+
+Pozor: když píšu **právě pravda**,
+tak tím nemyslím, jestli daná se daná hodnota "chová" pravdivě.
+
+```python
+jedna = 1
+if jedna:
+    print("Jednička se chová pravdivě")
+if jedna is True:
+    print("Ale protože jednička NENÍ pravda, pouze se tak chová, tohle nikdy neuvidíš.")
+```
+
+## Zkrácené vyhodnocování
+
+Logické spojky (operátory) `and` a `or` používají tzv. _short-circuit_ vyhodnocování.
+V češtině pro tenhle termín nemáme ekvivalent, ale myslí se tím to, že když mám dvě hodnoty
+spojené logickou spojkou `and` nebo `or`, tak se druhá hodnota nevyhodnocuje v situaci, 
+kdy je to **zbytečné**.
+
+Co to znamená?
+
+- když dva výrazy spojím spojkou `and`, a první výraz je `False`, je zbytečné vyhodnocovat
+  druhý výraz, a interpretr se o to ani nepokusí (protože výsledek spojení bude vždy `False`)
+- když dva výrazy spojím spojkou `or`, a první výraz je `True`, je zbytečné vyhodnocovat
+  druhý výraz, a interpretr se o to ani nepokusí (protože výsledek spojení bude vždy `True`)
+
+**Proč je důležité to vědět:** protože se toho v programech občas "zneužívá", a protože 
+to může v takových případech vést i k ošklivým logickým chybám v programu.
+
+Jak se to zneužívá? Zneužívá se toho v situaci, kdy k výsledku vedou dvě složité operace.
+Když provedu první z nich, proč plýtvat časem na spuštění té druhé operace, když je
+výsledek dopředu známý?
+
+Abych ti to ilustroval, představ si následující program (tenhle příklad ti **nepůjde**
+spustit, není to úplný kód programu).
+
+```python
+# získáme raketoplán
+mise = lunarni_mise.raketoplan(
+    posadka = ["křeček Franta", "morče Pepa"],
+    ukoly_mise = ["let na Lunární základna","následně průzkum Marsu"]
+    )
+
+mise_splnena = mise.let_na_mesic() and raketoplan.z_mesice_na_mars():
+print("mise splněna:", mise_splnena)
+```
+
+Asi chápeš, že cesta na měsíc je náročný podnik, který trvá docela dlouho, a cesta z 
+měsíce na Mars je ještě náročnější a delší.
+
+Jak s tím souvisí _short-circuit_ vyhodnocování?
+
+- dejme tomu, že v důsledku poruchy raketoplán nedokončí ani první úkol mise;
+  to znamená, že již `mise.let_na_mesic()` skončí jako `False`
+- v takovém případě se program nebude ani pokoušet o let na Mars - proč zbytečně 
+  investovat prostředky, čas, a úsilí do něčeho tak náročného, když mise jako celek
+  vlastně již selhala?
+
+**Pozor!** - dejme tomu, že opravdu **potřebujeme** provést let na Mars, protože na tom
+závisí osud lidské rasy. Pokud by tomu tak bylo, je osud lidské rasy zpečetěn, a to 
+všechno v důsledku jedné chyby v programu! Programátor si neuvědomil existenci 
+_short-circuit_ zpracování, a v důsledku této tragické chyby mise skončila dřív, než měla.
+
+
+## Nejdůležitější poznatky
+
+- pravda (`True`) a nepravda (`False`) jsou typu `bool`
+- existují logické spojky: `and` (_a_) + `or` (_nebo_), a obě dvě používají _short-circuit_ (zkrácené) vyhodnocení
+- i jiné typy hodnot než `True` a `False` mohou být pravdivé
+  - jako **nepravdivé** hodnoty se chovají: `None`, nula, prázdný string, prázdný kontejner (list, dict, set)
+  - všechny ostatní hodnoty se chovají jako **pravdivé**
+- operátor `not` neguje to co je za ním, z pravdy udělá nepravdu, a naopak
 
 
 ## Zdroje
@@ -79,3 +266,4 @@ print(a_mensi_nez_b)
 
 - [Boolean Operations — and, or, not](https://docs.python.org/3/library/stdtypes.html#boolean)
 - [Comparisons](https://docs.python.org/3/library/stdtypes.html#comparisons)
+- [Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth-value-testing)

@@ -41,11 +41,11 @@ ve verzi Python 3. Tím však výčet rozdílů zdaleka nekončí (pro účely t
 
 Python je vyvíjený v [open source](https://cs.wikipedia.org/wiki/Otev%C5%99en%C3%BD_software) modelu. To znamená, že:
 
-- zdrojové kódu samotného jazyka jsou veřejně dostupné
+- zdrojové kódy samotného jazyka jsou veřejně dostupné
 - v podstatě _kdokoliv_ může k údržbě a k vývoji jazyka přispět
 - neexistuje žádná firma, ani žádný jednotlivec, který by ručil za "správnost" tohoto jazyka
 - pro kritické komponenty (jako je Python) však fakt, že je zdrojový kód otevřený, zpravidla přispívá k vyšší bezpečnosti a menšímu počtu chyb,
-  než by tomu bylo u programů, které nemají otevřený zdrojový kód
+  než by tomu bylo u programů, které nemají otevřený zdrojový kód; větší počet lidí ten kód studuje, kdokoliv může ohlásit chyby.
 
 Python se neustále rozvíjí. Psát programy v jazyce Python znamená neustále se vzdělávat, a sledovat (podstatné) změny.
 

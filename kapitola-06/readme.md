@@ -37,7 +37,18 @@
 
 ## Nejdůležitější poznatky
 
-TODO
+- text je ohraničený uvozovkami, nebo apostrofy; preferujeme uvozovky
+- text na více řádek se dá napsat mezi tři uvozovky; `""" text na víc řádek """`
+- co je to escape sekvence - nejdůležitější escape sekvence jsou: `"\n"`, `"\t"`, `\\`
+- text (string) je **imutable**, dá se **skládat** (`+`) nebo **opakovat** (`"-" * 5`)
+- text se chová jako kontejner: `"první písmenko"[0]`, `"první slovo"[0:5]`
+- text má délku: `len("text má délku")`
+- text má metody; protože je imutable, tak tyto metody vrací nový text 
+  (nemění původní hodnotu); nejčastěji použijeme
+  - `"  odstranění mezer ".trim()`
+  - `"NA UPPERCASE".upper()`
+  - `"na lowercase".lower()`
+  - `"nÁhrada části textu".replace("Á", "á")`
 
 ## Textové datové typy
 
