@@ -1,15 +1,34 @@
+- [O tomto repozitáři](#o-tomto-repozitáři)
 - [Obsah kurzu](#obsah-kurzu)
   - [Python: co to je?](#python-co-to-je)
     - [Co to je Python a co to je Notebook](#co-to-je-python-a-co-to-je-notebook)
     - [Základy práce s Gitem](#základy-práce-s-gitem)
     - [Základní datové typy](#základní-datové-typy)
-    - [Základní konstrukce programu](#základní-konstrukce-programu)
-    - [Pokročilejší datové typu](#pokročilejší-datové-typu)
-    - [Mutabilní a imutabilní hodnoty](#mutabilní-a-imutabilní-hodnoty)
+    - [Základní konstrukce v programu](#základní-konstrukce-v-programu)
+    - [Pokročilejší datové typy](#pokročilejší-datové-typy)
+    - [Bonusový materiál](#bonusový-materiál)
 - [Poznámky "lektora"](#poznámky-lektora)
+
+# O tomto repozitáři
+
+Repository sleduje tyto základní cíle:
+
+- poskytnout materiály, použitelné pro **samostudium programování** v jazyce 
+  Python (s nulovou počáteční znalostí)
+- vysvětlit některá důležitá témata, která by programátor měl ovládat, ale která nesouvisí
+  se syntaxí jazyka (markdown, co to je HTML, kódování textu, "happy path" v programu, 
+  základy síťové komunikace, apod.); **všeobecný přehled** IT světa
+- umožnit prokazatelné sledování aktivity studenta
+  - studijní materiály na hlavní větvi (`main`)
+  - "domácí úkoly" na vedlejší větvi, commit ze [samostatného účtu](https://github.com/tom-herout), 
+    aby bylo možné sledovat aktivitu v čase
+  - "domácí úkoly" z počátku formou Jupyter notebooků, později možná přímo jako `.py` soubory
+- na závěr nějaký větší celek (zatím nevím, co to bude)
 
 
 # Obsah kurzu
+
+"work in progress"
 
 ## Python: co to je?
 
@@ -38,33 +57,33 @@ na kterých si ověříš, že problematiku chápeš.
 - [Kapitola 6: Text a práce s ním](./kapitola-06/readme.md)
 - [Kapitola 7: Dvoustavová (booleanovská) logika](./kapitola-07/readme.md)
 
-### Základní konstrukce programu
+### Základní konstrukce v programu
 
 - [Kapitola 8: Větvení programu: klíčová slova if, elif, else](./kapitola-08/readme.md)
-- [Kapitola 9: Cyklus v programu](./kapitola-09/readme.md)
-- [Kapitola 10: Definice funkcí](./kapitola-10/readme.md)
+- [Kapitola 10: Definice funkcí](./kapitola-10/readme.md) a slůvko `pass`
 
-### Pokročilejší datové typu
+### Pokročilejší datové typy
 
 - [Kapitola 8: Seznamy - list](./kapitola-08/readme.md)
-
-
-
-
-
 - [Kapitola 11: Cyklus a klíčová slova: for, break, continue](./kapitola-11/readme.md)
 - [Kapitola 12: Funkce range](./kapitola-12/readme.md)
-- [Kapitola 13: Nedělej nic, klíčové slov pass](./kapitola-13/readme.md)
+- Dict
 
-Deklarace funkcí v programu
+Vstupy a výstupy z programu (soubory, kódování textu, konzole)
 
-Datové struktury
+Podrobnější popis deklarace funkcí v programu (docstring, defaultní hodnoty, positional/named arguments)
 
-Vstupy a výstupy z programu
+Type hints
+
+IDE vs Jupyter
+
+Datové struktury (stack, queue, list of dicts, list/dict comprehension)
 
 Chyby a výjimky
 
-### Mutabilní a imutabilní hodnoty
+Třídy, základy OOP, pro a proti.
+
+### Bonusový materiál
 
 - [Bonusová kapitola: mutabilita hodnot a její důsledky](./kapitola-mutabilita/readme.md)
 
