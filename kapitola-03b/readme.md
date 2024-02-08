@@ -154,3 +154,11 @@ for i in range(len(l)):             # chyba: zde se naopak očekává odskok, al
 
 Existuje (psaná) dohoda, že pro "odskok doprava" se mají používat **čtyři mezery**.
 Ne tabulátory, a ani víc mezer než čtyři, ani méně.
+
+V praxi to nicméně znamená, že pro "odskok doprava" budeš používat **klávesu Tab**.
+Ta sice znamená "vlož tabulátor", ale drtivá většina programů, s jejichž pomocí
+budeš psát kód, místo toho vloží právě ony čtyři mezery.
+
+Nikdo tedy nečeká, že pro odsazení doprava budeš muset 4x po sobě stisknout 
+na klávesnici mezerník - to by naopak byla chyba, protože takový postup člověk snadno
+splete. Člověk není stroj, a dělá chyby.
