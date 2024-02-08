@@ -807,7 +807,7 @@ Viz [Text jako objekt: metody](#text-jako-objekt-metody).
 Máš za úkol rozluštit tuhle šifru. Řešení ulož do stejného notebooku, ve 
 kterém jsi doposud pracoval (a proveď jeho commit), a potom mi řekni, že máš hotovo.
 
-Proč? Protože to co jsi dešifroval, to se stane.
+Proč? Protože to, co jsi dešifroval, to se stane.
 
 ```python
 sifra = "32*56-7*892.20631"
