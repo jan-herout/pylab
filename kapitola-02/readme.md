@@ -8,6 +8,7 @@
     - [Interpretované programovací jazyky](#interpretované-programovací-jazyky)
   - [Python je dynamický, interpretovaný programovací jazyk](#python-je-dynamický-interpretovaný-programovací-jazyk)
   - [Filozofie Pythonu](#filozofie-pythonu)
+  - [Chestertonův plot](#chestertonův-plot)
 - [Zdroje](#zdroje)
   - [Česky](#česky)
   - [Anglicky](#anglicky)
@@ -23,6 +24,7 @@
 - jaký je rozdíl mezi kompilovaným, a interpretovaným programovacím jazykem
 - Python je dynamický, interpretovaný jazyk; co to přináší za výhody a nevýhody
 - proč záleží na čitelnosti programu, jaký je poměr mezi časem stráveným čtením existujícího programového kódu a psaním nového kódu
+- Chestertonův plot: co tento princip říká, jak mu rozumět?
 
 ## Trocha historie
 
@@ -72,12 +74,13 @@ do počítače zadat. Jako jedna z prvních technologií, které se pro to použ
 což byla papírová kartička, do které se pomocí speciálních kleští zaznamenal program přímo v číselném zápisu (ve strojovém kódu).
 
 Děrné štítky se používaly ještě před tím, než vznikl první počítač v pravém slova smyslu. Například v oblasti textilního
-průmyslu.
+průmyslu:
+[Jacquardův stroj](https://cs.wikipedia.org/wiki/Joseph_Marie_Jacquard).
 
 Dalším pokrokem bylo zavedení assembleru. [Assembler](https://en.wikipedia.org/wiki/Assembly_language) je symbolický programovací jazyk, který lze bez potíží s pomocí překladače
 převést přímo do strojového kódu.
 
-Například, takhle nějak může vypadat program napsaný v assembleru, a přeložený do strojového kódu. Jde o program "hello world",
+Například, takhle nějak může vypadat program napsaný v assembleru, a přeložený do strojového kódu. Jde o program,
 který vypíše "hello world". **Nemusí to tak vypadat**, ale "vynález" assembleru byl obrovský pokrok proti době, kdy byly počítačové
 programy zaznamenávány pomocí kleští na děrné štítky.
 
@@ -126,7 +129,7 @@ Takhle nějak vypadá tento program přeložený do strojového kódu.
 ```
 
 Assembler se v dnešní době pořád ještě pro některé úlohy používá. To znamená, že jsou programátoři, kteří jsou schopní programy
-produkovat přímo v assembleru, to znamená velmi blízko strojovému kódu. Z příkladu nahoře je ale na první ohled zřejmé, že
+produkovat přímo v assembleru, to znamená velmi blízko strojovému kódu. Z příkladu nahoře je ale na první pohled zřejmé, že
 **nejde o jednoduchý úkol**.
 
 A protože lidé - a zejména programátoři - jsou líní, hledaly cesty, jak tuto situaci dále zjednodušit.
@@ -139,7 +142,7 @@ V roce 1953 byl firmou IBM zahájen vývoj prvního kompilovaného programovací
 > programů pro výpočet dráhy raketové střely, začal jsem pracovat na programovacím systému, který mi usnadnil psát programy.“
 
 Poměrně krátce poté se začaly objevovat další programovací jazyky: [COBOL](https://cs.wikipedia.org/wiki/COBOL),
-zejména programovací jazyk [C](https://cs.wikipedia.org/wiki/The_C_Programming_Language).
+a zejména programovací jazyk [C](https://cs.wikipedia.org/wiki/The_C_Programming_Language).
 
 Všechny tyto programovací jazyky měly tu vlastnost, že zjednodušovaly zápis programů ve srovnání s assemblerem. Všechny tyto programovací jazyky
 se v nějaké podobě používají dodnes, byť - například - v jazyce COBOL pravděpodobně mnoho nových programů nevzniká. Současně se dá říci,
@@ -206,7 +209,7 @@ V určitých situacích mohou tyto vlastnosti být výhodné, ale také nevýhod
 - **Flexibilita:**
   - tyto jazyky zpravidla podporují koncept tzv. _duck_ _typing_; co to znamená: u proměnných není nutné uvádět dopředu datový typ
   - proměnná může za běhu měnit datový typ
-  - "když to kváká jako kachna, tak to je kachna" - tj. když do proměnné uložíš číslo, datový typ je číslo; když tam uložíš text, datový typ je text.
+  - "když to kváká jako kachna, tak to je kachna" - tj. když do proměnné uložíš číslo, datový typ je číslo; když tam uložíš text, datový typ je text (u kompilovaných programů taková situace končí chybou překladu, program se nepřeloží)
 - **Jednoduchost, čitelnost:**
   - interpretované programovací jazyky zpravidla poskytují "mocnější nástroje" než jazyky kompilované
   - to znamená, že "stejného efektu" dosáhneme zapsáním menšího počtu instrukcí v daném programu
@@ -247,11 +250,42 @@ Z těchto principů bych vyzvedl následující (interpretace je moje vlastní):
 
 - jednoduchý program je lepší, než složitý program
 - na čitelnosti záleží; čitelný program je lepší než nečitelný program
+- přílišná volnost škodí - jsou věci, které Python umožní udělat, ale to neznamená, že je to dobrý nápad
 
 Existuje odhad, který tvrdí, že průměrný programátor stráví cca 60-90% času tím, že se čte existující kód programu, a snaží se ho pochopit,
 a teprve čas který zbude stráví tím, že píše nový kód (Steve McConnell, Code Complete).
 
 To znamená, že na čitelnosti programu, a na popisu toho co program dělá, opravdu **velmi, velmi záleží**.
+
+## Chestertonův plot
+
+Existuje dobře známý princip, který formuloval anglický spisovatel [G. K. Chesterson](https://cs.wikipedia.org/wiki/Gilbert_Keith_Chesterton).
+Nikde jsem nenašel doslovný překlad do češtiny, ale dovolím si jej parafrázovat.
+
+> Dejme tomu, že existuje určitá instituce, nebo zákon; pro zjednodušení řekněme, 
+> že na cestě je brána, nebo plot. Existují lidé, kteří se považují za **moderní reformátory**, 
+> a kteří k tomuto plotu vesele přistoupí, a řeknou:
+> "Není mi jasné, proč tady ten plot stojí, nevidím žádný smysl jeho existence. Pojďme ho zbourat."
+
+> Moudrý člověk by na to odpověděl: "Pokud nechápeš smysl existence toho plotu, nedovolím 
+> ti ho zbourat. Bež pryč a přemýšlej. Později, až za mnou přijdeš, a řekneš mi, proč tady ten 
+> plot stojí, ti možná dovolím ho zbourat."
+
+Autor tuto poučku sice formuloval ve vztahu ke změnám katolické církve, ale ve skutečnosti
+jde o hlubokou myšlenku, která má obrovský přesah do všech oblastí lidské činnosti.
+I do oblasti psaní počítačových programů.
+
+- programování je velmi, velmi složitá činnost; počítačové systémy jsou zpravidla velmi složité
+- proto, pokud existuje nějaký zažitý postup jak věci dělat, není dobré pokoušet se jej změnit,
+  pokud člověk nerozumí tomu, co za tímto principem je
+
+Například:
+
+- Existuje poučka, která říká, kolik znaků má mít program na jednom řádku.
+- Existují poučky, která říká, jak se v programu má zacházet s chybami.
+- Existuje poučka, která říká, že programy by neměly být "příliš košaté" (velký počet odsazení)
+
+A tak by se dalo ještě dlouho, dlouho pokračovat.
 
 # Zdroje
 
@@ -266,6 +300,7 @@ To znamená, že na čitelnosti programu, a na popisu toho co program dělá, op
   - [BASIC](https://cs.wikipedia.org/wiki/BASIC)
   - [LISP](https://cs.wikipedia.org/wiki/Lisp)
   - [Zen of Python](https://cs.wikipedia.org/wiki/Filozofie_Pythonu)
+  - [Jacquardův stroj](https://cs.wikipedia.org/wiki/Joseph_Marie_Jacquard)
 
 ## Anglicky
 
@@ -273,3 +308,6 @@ To znamená, že na čitelnosti programu, a na popisu toho co program dělá, op
   - [History of Python](https://en.wikipedia.org/wiki/History_of_Python)
   - [Guido van Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum)
   - [Assembly language](https://en.wikipedia.org/wiki/Assembly_language)
+- Chesterton's fence
+  - [Chesterton’s Fence: A Lesson in Second Order Thinking](https://fs.blog/chestertons-fence/)
+  - [Chesterson university: Lecture 57: The Thing](https://www.chesterton.org/lecture-57/)
