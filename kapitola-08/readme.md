@@ -165,6 +165,15 @@ potřebovat udělat změnu.
 
 ![schody](./imgs/schody.png)
 
+Nevím jestli někde existuje nějaké obecné pravidlo, které říká kolik úroveň vnoření je
+ještě v pořádku, ale osobně si myslím, že pokud jich je **víc než dvě**, nejspíš by
+to "mělo být napsané jinak". Program by se měl zjednodušit, zpřehlednit.
+
+Jak?
+
+To je daleko nad rámec dnešní lekce (o tom možná někdy jindy).
+
+
 ## Cvičení 1
 
 - překresli [tenhle program](#zanoření-bloků-do-sebe) do vývojového diagramu
