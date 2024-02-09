@@ -250,12 +250,38 @@ Z těchto principů bych vyzvedl následující (interpretace je moje vlastní):
 
 - jednoduchý program je lepší, než složitý program
 - na čitelnosti záleží; čitelný program je lepší než nečitelný program
-- přílišná volnost škodí - jsou věci, které Python umožní udělat, ale to neznamená, že je to dobrý nápad
+- přílišná volnost škodí - jsou věci, které Python umožní udělat, ale to neznamená, 
+  že je to dobrý nápad (měl by být jeden způsob, jak věci udělat - a měl by být na 
+  první pohled jasný)
 
-Existuje odhad, který tvrdí, že průměrný programátor stráví cca 60-90% času tím, že se čte existující kód programu, a snaží se ho pochopit,
-a teprve čas který zbude stráví tím, že píše nový kód (Steve McConnell, Code Complete).
+Je to takový "seznam přání", kterým je dobré se snažit vyhovět. Ale nejspíš ne za 
+každou cenu.
 
-To znamená, že na čitelnosti programu, a na popisu toho co program dělá, opravdu **velmi, velmi záleží**.
+Existuje odhad, který tvrdí, že průměrný programátor stráví cca 60-90% času tím, že 
+čte existující kód programu, a snaží se ho pochopit, a teprve čas který zbude stráví tím, 
+že píše nový kód (Steve McConnell, Code Complete).
+
+To znamená, že na čitelnosti programu, a na popisu toho co program dělá, 
+opravdu **velmi, velmi záleží**.
+
+Pro ilustraci: [tohle](https://gist.github.com/cgoldberg/4332167) je funkční program 
+napsaný v jazyce Perl. Je napsaný záměrně tak, aby byl nečitelný, je to takové 
+"programátorské umění" (*podívejte se co jsem udělal!*)
+
+Ještě jinak: tohle je také funkční, správný, spustitelný program. Ale ani já, když se
+na to podívám, nedokážu na první pohled říct, "co to dělá". A teď si představ, 
+"že to nedělá to co má", a že je nutné tam tu chybu najít a opravit. Až jsem se s té
+představy zpotil.
+
+```python
+(lambda f, n: f(f, n))(
+    lambda f, n: [(not n % 3 and "fizz" or "") + (not n % 5 and "buzz" or "") or n]
+    + f(f, n + 1)
+    if n <= 100
+    else [],
+    1,
+)
+```
 
 ## Chestertonův plot
 

@@ -55,7 +55,7 @@ na kterých si ověříš, že problematiku chápeš.
 
 - [Kapitola 5: Číselné proměnné, a operace s nimi](./kapitola-05/readme.md); v kapitole se dočteš také něco málo o konverzích datových typů
 - [Kapitola 6: Text a práce s ním](./kapitola-06/readme.md)
-- [Kapitola 7: Dvoustavová (boolovská) logika](./kapitola-07/readme.md)
+- [Kapitola 7: Hodnota None a dvoustavová (boolovská) logika](./kapitola-07/readme.md)
 
 ### Základní konstrukce v programu
 

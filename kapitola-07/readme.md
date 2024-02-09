@@ -1,15 +1,53 @@
-- [Dvoustavová (booleovská) logika](#dvoustavová-booleovská-logika)
-  - [Pravda a nepravda jako výsledek porovnání](#pravda-a-nepravda-jako-výsledek-porovnání)
-  - [Logické spojky](#logické-spojky)
-  - [Negace](#negace)
-  - [Hodnoty, které se "chovají" jako pravdivé či nepravdivé](#hodnoty-které-se-chovají-jako-pravdivé-či-nepravdivé)
-  - [Je daná hodnota pravda?](#je-daná-hodnota-pravda)
-  - [Zkrácené vyhodnocování](#zkrácené-vyhodnocování)
+- [Kapitola 7: Hodnota None a dvoustavová (boolovská) logika](#kapitola-7-hodnota-none-a-dvoustavová-boolovská-logika)
+  - [Hodnota None](#hodnota-none)
+  - [Dvoustavová (booleovská) logika](#dvoustavová-booleovská-logika)
+    - [Pravda a nepravda jako výsledek porovnání](#pravda-a-nepravda-jako-výsledek-porovnání)
+    - [Logické spojky](#logické-spojky)
+    - [Negace](#negace)
+    - [Hodnoty, které se "chovají" jako pravdivé či nepravdivé](#hodnoty-které-se-chovají-jako-pravdivé-či-nepravdivé)
+    - [Zkrácené vyhodnocování](#zkrácené-vyhodnocování)
+  - [Test identity, operátor `is` a `is not`](#test-identity-operátor-is-a-is-not)
   - [Nejdůležitější poznatky](#nejdůležitější-poznatky)
   - [Zdroje](#zdroje)
     - [Anglicky](#anglicky)
 
-# Dvoustavová (booleovská) logika
+# Kapitola 7: Hodnota None a dvoustavová (boolovská) logika
+
+## Hodnota None
+
+Čas od času potřebuješ v programu říci, že nějaká hodnota ještě není nadefinovaná.
+V různých programovacích jazycích je tento problém řešený různě. V jazyce Python
+k tomu slouží hodnota `None`.
+
+`None` je hodnota, se kterou "nelze nic dělat" - nelze ji přičítat, odčítat, násobit ....
+
+Vyzkoušej si to:
+
+```python
+cena_rohliku = 3.50
+pocet_rohliku = None
+zaplatis = cena_rohliku * pocet_rohliku
+print("Zaplatíš:", zaplatis)
+```
+
+Na hodnotu `None` se můžeš zeptat (můžeš se ptát, jestli "něco je `None`, tj je to "neznámé",
+nenadefinované). K tomu slouží operátor `is`, a 
+[více o něm dál v textu](#test-identity-operátor-is-a-is-not).
+
+Vyzkoušej si to:
+
+```python
+cena_rohliku = 3.50
+pocet_rohliku = None
+if pocet_rohliku is not None:
+    zaplatis = cena_rohliku * pocet_rohliku
+    print("Zaplatíš:", zaplatis)
+else:
+    print("Nevíme kolik rohlíků budeme kupovat.")
+```
+
+
+## Dvoustavová (booleovská) logika
 
 Počítače vidí svět černobíle. Počítač má problém s chápáním toho, co znamená "možná". 
 Něco pro ně buď pravda je, nebo to pravda není.
@@ -23,7 +61,7 @@ Proč mluvíme o booleovské logice? Je to na počet slavného matematika, kter�
 
 [Tady](https://cs.wikipedia.org/wiki/George_Boole) si o něm můžeš něco přečíst.
 
-## Pravda a nepravda jako výsledek porovnání
+### Pravda a nepravda jako výsledek porovnání
 
 Vždy, když mezi sebou porovnáš dvě hodnoty (takové, které **jdou** porovnat), výsledkem 
 je buď pravda (`True`) nebo nepravda (`False`).
@@ -66,7 +104,7 @@ a_mensi_nez_b = cislo_a < cislo_b
 print(a_mensi_nez_b)
 ```
 
-## Logické spojky
+### Logické spojky
 
 Existují dvě logické spojky, `and` a `or`, které spojují dvě boolovské hodnoty, a
 výsledkem je nové boolovské hodnota.
@@ -107,7 +145,7 @@ Pro úplnost: jiné jazyky mohou používat odlišný zápis. Například jazyk 
 
 V budoucnu se ti může hodit to vědět.
 
-## Negace
+### Negace
 
 V boolovské algebře existuje ještě operátor pro negaci. 
 Jazyk Python ho zapisuje slovem `not`, ale v jiných programovacích jazycích se 
@@ -121,7 +159,11 @@ může zapisovat jinak (například: `!` v jazyce `C`)
 | `not True`  | `False`  |
 | `not False` | `True`   |
 
-## Hodnoty, které se "chovají" jako pravdivé či nepravdivé
+Operátor `not` vždy nejdříve vyhodnotí hodnotu, která za ním následuje, z pohledu boolovské
+logiky (tj zjistí zda se něco "chová jako pravda" či zda se to "chová jako nepravda"), 
+a potom teprve provede negaci.
+
+### Hodnoty, které se "chovají" jako pravdivé či nepravdivé
 
 Následující hodnoty se chovají jako `False`.
 
@@ -171,7 +213,7 @@ if suroviny:
 
 **Nesprávná varianta** - dělá "to samé", ale je _zbytečně_ _delší_, a _nejednoznačná_,
 navíc v některých případech může takový podobný program "spadnout s chybou" 
-(například: pokud by v proměnné suroviny bylo `None`, program by spadnul s chybou).
+(například: pokud by v proměnné suroviny bylo `None`, program by skončil s chybou).
 
 ```python
 suroviny = ["mouka", "voda", "kvásek", "sůl", "kmín"]
@@ -182,28 +224,12 @@ if len(suroviny) > 0:
     print("Pečeme chleba!")
 ```
 
-## Je daná hodnota pravda?
-
-Pokud potřebuješ zjistit, jestli nějaká hodnota je **právě pravda** , nebo 
-**právě nepravda**, používá se operátor `is`. 
-
-Pozor: když píšu **právě pravda**,
-tak tím nemyslím, jestli daná se daná hodnota "chová" pravdivě.
-
-```python
-jedna = 1
-if jedna:
-    print("Jednička se chová pravdivě")
-if jedna is True:
-    print("Ale protože jednička NENÍ pravda, pouze se tak chová, tohle nikdy neuvidíš.")
-```
-
-## Zkrácené vyhodnocování
+### Zkrácené vyhodnocování
 
 Logické spojky (operátory) `and` a `or` používají tzv. _short-circuit_ vyhodnocování.
-V češtině pro tenhle termín nemáme ekvivalent, ale myslí se tím to, že když mám dvě hodnoty
-spojené logickou spojkou `and` nebo `or`, tak se druhá hodnota nevyhodnocuje v situaci, 
-kdy je to **zbytečné**.
+V češtině pro tenhle termín nejspíš nemáme ekvivalent, ale myslí se tím to, že když mám 
+dvě hodnoty spojené logickou spojkou `and` nebo `or`, tak se druhá hodnota nevyhodnocuje
+v situaci, kdy je to **zbytečné**.
 
 Co to znamená?
 
@@ -249,6 +275,61 @@ závisí osud lidské rasy. Pokud by tomu tak bylo, je osud lidské rasy zpečet
 všechno v důsledku jedné chyby v programu! Programátor si neuvědomil existenci 
 _short-circuit_ zpracování, a v důsledku této tragické chyby mise skončila dřív, než měla.
 
+## Test identity, operátor `is` a `is not`
+
+Pokud potřebuješ zjistit, jestli nějaká hodnota je **právě pravda** , nebo 
+**právě nepravda**, nebo - **nejčastěji** - zda je `None`, používáš operátor `is`. 
+
+Vyzkoušej si to.
+
+```python
+jedna = 1
+if jedna:
+    print("Jednička se chová pravdivě")
+if jedna is True:
+    print("Ale protože jednička NENÍ PRÁVĚ pravda, pouze se tak chová, tohle nikdy neuvidíš.")
+```
+
+Ten druhý text ti Python na výstup nevypíše, zatímco ten první ano.
+
+- **Operátor** `is` je testem identity. 
+- Používá se v situaci, kdy chceš zjistit, jestli dvě hodnoty "sdílí stejné místo v paměti".
+- Hodnota `True`, `False` (a hodnota `None`) jsou takzvané "singletony", jsou v paměti 
+  uložené vždy maximálně jednou, bez ohledu na to, do kolika proměnných je přiřadíš.
+- Proto se na testování toho, zda nějaká hodnota je právě `True` nebo právě `False`, ale
+  nejčastěji zda je `None`, používá operátor `is` (test identity), a ne operátor `==` (test shody)
+
+Jak se zeptat, jestli něco **je nadefinované?**
+
+Máš dvě možnosti, obě budou fungovat, ale jenom "jedna z nich je správná", ta druhá je
+"prohřešek proti programátorské etiketě" (Chestertonův plot).
+
+**Správná varianta**
+
+```python
+# ... někde v kódu ....
+something = None
+
+# ... a někde jinde v kódu ....
+# pokud "something" NENÍ None ....
+if something is not None:
+    print("Hodnota JE nadefinovaná")
+```
+
+**Nesprávná varianta**
+
+```python
+# ... někde v kódu ....
+something = None
+
+# ... a někde jinde v kódu ....
+# pokud NENÍ PRAVDA, že "something JE None ...
+if not something is None:
+    print("Hodnota JE nadefinovaná")
+```
+
+Jak vidíš, oba zápisy budou "nejspíš" dělat to samé. **Ale správný zápis je ten první**,
+ne ten druhý.
 
 ## Nejdůležitější poznatky
 
