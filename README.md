@@ -9,27 +9,6 @@
     - [Bonusový materiál](#bonusový-materiál)
 - [Poznámky "lektora"](#poznámky-lektora)
 
-# O tomto repozitáři
-
-Repository sleduje tyto základní cíle:
-
-- poskytnout materiály, použitelné pro **samostudium programování** v jazyce 
-  Python (s nulovou počáteční znalostí)
-- vysvětlit některá důležitá témata, která by programátor měl ovládat, ale která nesouvisí
-  se syntaxí jazyka (markdown, co to je HTML, kódování textu, "happy path" v programu, 
-  základy síťové komunikace, apod.); **všeobecný přehled** IT světa
-- umožnit prokazatelné sledování aktivity studenta
-  - studijní materiály na hlavní větvi (`main`)
-  - "domácí úkoly" na vedlejší větvi, commit ze [samostatného účtu](https://github.com/tom-herout), 
-    aby bylo možné sledovat aktivitu v čase
-  - "domácí úkoly" z počátku formou Jupyter notebooků, později možná přímo jako `.py` soubory
-- na závěr nějaký větší celek (zatím nevím, co to bude)
-
-
-# Obsah kurzu
-
-"work in progress"
-
 ## Python: co to je?
 
 Tyto lekce ti vysvětlí něco málo o tom, co to je Python, a jak se s ním dá pracovat.
@@ -60,11 +39,11 @@ na kterých si ověříš, že problematiku chápeš.
 ### Základní konstrukce v programu
 
 - [Kapitola 8: Větvení programu: klíčová slova if, elif, else](./kapitola-08/readme.md)
-- [Kapitola 10: Definice funkcí](./kapitola-10/readme.md) a slůvko `pass`
+- [Kapitola 9: Definice funkcí](./kapitola-09/readme.md) a slůvko `pass`
 
 ### Pokročilejší datové typy
 
-- [Kapitola 8: Seznamy - list](./kapitola-08/readme.md)
+- [Kapitola 10: Seznamy - list](./kapitola-08/readme.md)
 - [Kapitola 11: Cyklus a klíčová slova: for, break, continue](./kapitola-11/readme.md)
 - [Kapitola 12: Funkce range](./kapitola-12/readme.md)
 - Dict
@@ -86,9 +65,33 @@ Třídy, základy OOP, pro a proti.
 ### Bonusový materiál
 
 - [Bonusová kapitola: mutabilita hodnot a její důsledky](./kapitola-mutabilita/readme.md)
+- refactoring
+- "never nesters"
 
 # Poznámky "lektora"
 
 - Issues slouží 
   - pro zpětnou vazbu - otázky, nejasnosti
   - ale také pro kontrolu toho, jak si student vede (pokud něco udělal špatně, bude mu přiděleno nové issue, které vyřeší)
+
+# O tomto repozitáři
+
+Repository sleduje tyto základní cíle:
+
+- poskytnout materiály, použitelné pro **samostudium programování** v jazyce 
+  Python (s nulovou počáteční znalostí)
+- vysvětlit některá důležitá témata, která by programátor měl ovládat, ale která nesouvisí
+  se syntaxí jazyka (markdown, co to je HTML, kódování textu, "happy path" v programu, 
+  základy síťové komunikace, apod.); **všeobecný přehled** IT světa
+- umožnit prokazatelné sledování aktivity studenta
+  - studijní materiály na hlavní větvi (`main`)
+  - "domácí úkoly" na vedlejší větvi, commit ze [samostatného účtu](https://github.com/tom-herout), 
+    aby bylo možné sledovat aktivitu v čase
+  - "domácí úkoly" z počátku formou Jupyter notebooků, později možná přímo jako `.py` soubory
+- na závěr nějaký větší celek (zatím nevím, co to bude)
+
+
+# Obsah kurzu
+
+"work in progress"
+

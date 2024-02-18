@@ -69,30 +69,35 @@ je buď pravda (`True`) nebo nepravda (`False`).
 Tak například, zkus si tohle. Založ si nový notebook v adresáři `kapitola-07`.
 
 ```python
-cislo = 10
-print("cislo < 10:", cislo < 10) # False
-print("cislo je 10:", cislo == 10) # True
+cislo = 9
+print("cislo < 10:", cislo < 10) # True
+print("cislo je 10:", cislo == 10) # False
 ```
 
 Všimni si: nejdřív do proměnné `cislo` přiřadíme hodnotu 10, a potom se na tuto hodnotu
-ptáme.
+ptáme. Porovnáváme ji s číslem 10, a výsledkem je buď pravda (`True`), nebo nepravda (`False`).
 
 V jazyce Python je možné provést následující porovnání:
 
+| operace | příklad  | význam               |
+| ------- | -------- | -------------------- |
+| `<`     | `3 < 5`  | menší než            |
+| `<=`    | `5 <= 5` | menší **nebo rovno** |
+| `==`    | `4 == 4` | přesně rovno         |
+| `>=`    | `4 >= 4` | větší **nebo rovno** |
+| `>`     | `5 > 4`  | větší než            |
+| `!=`    | `5 != 4` | **není rovno**       |
+
+Kromě toho existují ale ještě tyhle způsoby, jak se ptát na obsah.
+
 | operace  | příklad         | význam                                      |
 | -------- | --------------- | ------------------------------------------- |
-| `<`      | `3 < 5`         | menší než                                   |
-| `<=`     | `5 <= 5`        | menší **nebo rovno**                        |
-| `==`     | `4 == 4`        | přesně rovno                                |
-| `>=`     | `4 >= 4`        | větší **nebo rovno**                        |
-| `>`      | `5 > 4`         | větší než                                   |
-| `!=`     | `5 != 4`        | **není rovno**                              |
 | `in`     | `"a" in "abc"`  | `"a"` je v `"abc"`                          |
 | `is`     | `cislo is None` | platí, že je hodnota `cislo` None?          |
 | `is not` | `cislo is None` | platí, že je hodnota `cislo` **není** None? |
 
 Co je to `None`, si povíme později. Prozatím stačí říct, že `None` znamená 
-"nenadefinovanou hodnotu."
+"nenadefinovanou hodnotu".
 
 Výsledek porovnání můžeš přímo testovat, například podmínkou `if` (o tom později),
 nebo ho můžeš přiřadit do nějaké proměnné. Například:
@@ -149,7 +154,7 @@ V budoucnu se ti může hodit to vědět.
 
 V boolovské algebře existuje ještě operátor pro negaci. 
 Jazyk Python ho zapisuje slovem `not`, ale v jiných programovacích jazycích se 
-může zapisovat jinak (například: `!` v jazyce `C`)
+může zapisovat jinak (například: `!` v jazyce `C`).
 
 - negace pravdy je nepravda
 - negace nepravdy je pravda
@@ -173,7 +178,7 @@ Následující hodnoty se chovají jako `False`.
   - **prázdný string** - `""`
   - prázdný `list`, `dict`, `set`, prázdná `range` (`range(0)`)
 
-Jakékoliv jiné hodnoty se chovají jako `True`, a jsou tedy "pravdivé".
+**Jakékoliv jiné** hodnoty se chovají jako `True`, a jsou tedy "pravdivé".
 
 Spusť si Jupyter notebook v adresáři `kapitola-07`, a vyzkoušej si to konverzí 
 hodnoty na `bool`, takhle.
@@ -255,7 +260,8 @@ mise = lunarni_mise.raketoplan(
     ukoly_mise = ["let na Lunární základna","následně průzkum Marsu"]
     )
 
-mise_splnena = mise.let_na_mesic() and raketoplan.z_mesice_na_mars():
+# startujeme misi
+mise_splnena = mise.let_na_mesic() and mise.z_mesice_na_mars():
 print("mise splněna:", mise_splnena)
 ```
 
@@ -269,6 +275,9 @@ Jak s tím souvisí _short-circuit_ vyhodnocování?
 - v takovém případě se program nebude ani pokoušet o let na Mars - proč zbytečně 
   investovat prostředky, čas, a úsilí do něčeho tak náročného, když mise jako celek
   vlastně již selhala?
+- a tohle právě je _short-circuit_ vyhodnocení. Protože `mise.let_na_mesic()` je `False`,
+  Python se nebude pokoušet vyhodnotit výsledek `mise.z_mesice_na_mars()` - a let na Mars
+  neproběhne
 
 **Pozor!** - dejme tomu, že opravdu **potřebujeme** provést let na Mars, protože na tom
 závisí osud lidské rasy. Pokud by tomu tak bylo, je osud lidské rasy zpečetěn, a to 
