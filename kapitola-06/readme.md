@@ -28,7 +28,7 @@
   - [Cvičení](#cvičení)
     - [Cvičení 1](#cvičení-1)
     - [Cvičení 2](#cvičení-2)
-    - [Cvičení 3: šifra](#cvičení-3-šifra)
+    - [Cvičení 4: šifra](#cvičení-4-šifra)
   - [Zdroje](#zdroje)
     - [Česky](#česky)
     - [Anglicky](#anglicky)
@@ -268,7 +268,7 @@ a potom se sem vrať.
 Zkus si ještě další příklad:
 
 ```python
-print("zpětné uvozovky: \\")
+print("zpětné lomítko: \\")
 print("text-před-tabulátorem-\t-text-za-tabulátorem")
 ```
 
@@ -802,7 +802,14 @@ Viz [Cvičení 1: zadání úkolu](#cvičení-1-zadání-úkolu).
 
 Viz [Text jako objekt: metody](#text-jako-objekt-metody).
 
-### Cvičení 3: šifra
+Dále zkus následující:
+
+- text `"osadníci"` převeď na velká písmena
+- z textu `"  osadníci z Catanu 2"` odstraň číslici `2`, a potom odstraň mezery zleva a zprava
+- z textu `"HYEUKSLeuydjalkakaooperacddecd"` vypiš pět písmen, které následují za slovem `kakao`
+
+
+### Cvičení 4: šifra
 
 Máš za úkol rozluštit tuhle šifru. Řešení ulož do stejného notebooku, ve 
 kterém jsi doposud pracoval (a proveď jeho commit), a potom mi řekni, že máš hotovo.
@@ -830,6 +837,8 @@ Tady je šifrovací klíč.
 | `"-"` | `"n"`   |
 | `"*"` | `"s"`   |
 | `"."` | `"k"`   |
+
+
 
 ## Zdroje
 

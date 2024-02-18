@@ -180,6 +180,7 @@ To je daleko nad rámec dnešní lekce (o tom možná někdy jindy).
 - vyfoť ho, a fotku mi pošli (Whatsapp)
 - ukážu ti, jak jí uložit na Git do adresáře `kapitola-08`
 
+
 ## Zdroje
 
 ### Česky
