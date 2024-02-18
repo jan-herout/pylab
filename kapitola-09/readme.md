@@ -2,6 +2,7 @@
   - [Co je to funkce?](#co-je-to-funkce)
   - [Definice funkce](#definice-funkce)
   - [Vstupní argumenty a návratová hodnota](#vstupní-argumenty-a-návratová-hodnota)
+    - [Vstupní argumenty](#vstupní-argumenty)
     - [Vstupní argumenty předávané pozicí](#vstupní-argumenty-předávané-pozicí)
     - [Nepovinné argumenty, defaultní hodnoty](#nepovinné-argumenty-defaultní-hodnoty)
     - [Defaultní hodnoty, a argumenty předávané jako klíč a hodnota](#defaultní-hodnoty-a-argumenty-předávané-jako-klíč-a-hodnota)
@@ -117,6 +118,11 @@ def nic_nevraci():
 Pokud funkce **neobsahuje** slovo return, pak nic nevrací, a pokud se pokusíš její 
 návratovou hodnotu použít, zjistíš, že je `None` - nenadefinovaná hodnota.
 
+### Vstupní argumenty
+
+Aby funkce byla užitečná, potřebuje zpravidla dostat na vstupu ty hodnoty, které v ní
+chceš použít. Představ si je jako **proměnné**, které potom budou dostupné v těle funkce.
+
 ### Vstupní argumenty předávané pozicí
 
 Dejme tomu, že máš funkci, která akceptuje více parametrů:
@@ -126,14 +132,18 @@ def obvod_obdelniku(strana_a, strana_b):
     return ( 2 * (strana_a + strana_b) )
 ```
 
-Když takovou funkci zavoláš, musíš jí předat **právě** dva parametry, a **musíš** 
+Všimni si: jde o funkci, která očekává dva argumenty. V definici funkce jsou nazvané
+`strana_a` a `strana_b`, a pod tímto názvem jsou potom v těle funkce k dispozici.
+
+Když tuhle funkci zavoláš, musíš jí předat **právě** dva parametry, a **musíš** 
 je uvést právě v tom pořadí, jak jsou uvedené v definici funkce.
 
 Co se stane, když to neuděláš? Pojďme si to zkusit. Pokud ti ještě neběží Jupyter,
-půjdeme si ho spustit. Vytvoř nový notebook v adresáři `kapitola-09`, a výše uvedenou
-definici funkce vlož do jedné buňky, a tu spusť.
+půjdeme si ho spustit. 
 
-Potom zkus funkci spustit, ale předej jí špatný počet argumentů. Udělej to z nové buňky,
+- Vytvoř nový notebook v adresáři `kapitola-09`, 
+- výše uvedenou definici funkce vlož do jedné buňky, a tu spusť.
+- Potom zkus funkci spustit, ale předej jí špatný počet argumentů. Udělej to z nové buňky,
 takto:
 
 ```python
@@ -166,6 +176,8 @@ obvod_obdelniku(strana_1, strana_2)
     uvedený na první pozici
   - na druhé pozici jsi použil `strana_2`, takže Python předá na druhé pozici číslo 10, a
     uvnitř funkce bude tato hodnota dostupná pod názvem `strana_b`
+
+**Notebook ulož** pod názvem `experiment.ipynb`.
 
 ### Nepovinné argumenty, defaultní hodnoty
 
@@ -218,6 +230,8 @@ def tlac_nebo_tahni(rychlost_tahu=None, sila_tlaku=None):
     print("Tlačíme!", sila_tlaku)    
 ```
 
+Zkus si funci takto nadefinovat v notebooku `experiment.ipynb`.
+
 **Všimni si**:
 
 - některé argumenty mají za sebou rovnítko, a za ním nějakou hodnotu
@@ -233,7 +247,7 @@ pokud neřekneš jinak.
 - umožňuje ti to ale také definovat argumenty, které se mohou navzájem vylučovat
 
 Když funkci voláš, tak máš možnost některé - nebo klidně i **všechny** - argumenty
-předat jako dvojice klíč/hodnota. Vypadá to nějak takhle:
+předat jako dvojice klíč/hodnota. Vypadá to nějak takhle - **vyzkoušej si to**.
 
 
 ```python
@@ -254,6 +268,8 @@ Co tím vlastně říkáš:
 
 
 ## Cvičení
+
+Mám pro tebe několik úkolů, které zkusíš vyřešit.
 
 - spusť Jupyter, pokud ještě neběží, viz [kapitola-01](../kapitola-01/readme.md#spuštění-jupyter-notebooku)
 - přepni se v něm do adresáře `kapitola-09`
