@@ -13,6 +13,7 @@
     - [Přístup na konkrétní znak v textu (indexace)](#přístup-na-konkrétní-znak-v-textu-indexace)
     - [Imutabilita](#imutabilita)
     - [Slicing](#slicing)
+    - [Slicing s vynecháním jednoho limitu](#slicing-s-vynecháním-jednoho-limitu)
     - [Délka](#délka)
       - [Cvičení 1: zadání úkolu](#cvičení-1-zadání-úkolu)
       - [Cvičení 1: hrubý návod](#cvičení-1-hrubý-návod)
@@ -459,7 +460,7 @@ print(pismeno_c)
 Možná ti pomůže také následující "obrázek".
 
 ```
-  0   1   2   3   4   5   6   7   8   9 
+    0   1   2   3   4   5   6   7   8   
   +---+---+---+---+---+---+---+---+---+
   | a | b | c | d | e | f | g | h | i |
   +---+---+---+---+---+---+---+---+---+
@@ -571,23 +572,59 @@ print(pismena[2:6])
 Pokud se nepletu, měl bys na výstupu vidět `cdef`. **Proč**?
 
 ```
-| pozice :   0   1   2   3   4   5   6   7   8   9 
+| pozice :     0   1   2   3   4   5   6   7   8
 | --------   +---+---+---+---+---+---+---+---+---+
 | pismeno:   | a | b | c | d | e | f | g | h | i |
 | --------   +---+---+---+---+---+---+---+---+---+
-|                    ^               ^
-|                    |               |
-|                    |   +-----------+
-|                    |   |
-| program:  pismena[ 2 : 6 ]
+|                      ^             ^
+|                      |             |
+|                      |   +---------+
+|                      |   |
+| program:  pismena  [ 2 : 6 ]
 ```
 
 - V programu jsi napsal: `pismena[2:6]`
 - tento zápis znamená zhruba tohle:
   - přistup na hodnotu na kterou se odkazuje proměnná `pismena`
   - ... posuň "ukazovátko" na pozici 2, a vrať všechno **od teto pozice** (včetně)
-  - ... až do pozice 6 (to co je za pozicí 6 už nevracej)
+  - ... až do pozice 6, ale to co je na pozici 6 už **nevracej**, je to první písmeno které vynecháme
 
+### Slicing s vynecháním jednoho limitu
+
+Když provádíš slicing, je možné vynechat jednou, nebo druhou mez.
+Vypadá to nějak takhle.
+
+```python
+barevne_zvire = "žlutý kůň"
+barva = barevne_zvire[:5]
+zvire = barevne_zvire[6:]
+print(f"{barva=}")
+print(f"{zvire=}")
+```
+
+Jak to funguje? Rozebereme si `barva = barevne_zvire[:5]`
+
+- přistupujeme na proměnnou `barevne_zvire`, a protože Python vzápětí narazí na 
+  hranatou závorku, ví, že chceme "jenom něco" (přístup na index)
+- za hranatou závorkou není číslo. Je za ní dvojtečka. To znamená, že chybí **startovní**
+  **index** - začínáme tedy od začátku.
+- za dvojtečkou je číslo 5. Chceme tedy všechno až do páté pozice
+
+```
+pozice    0   1   2   3   4   5   6   7   8 |
+--------+---+---+---+---+---+---+---+---+---|
+text    | ž | l | u | t | ý |   | k | ů | ň |
+--------+---+---+---+---+---+---+---+---+---|
+          
+          ^                 ^
+          |                 |
+          |  +--------------+ 
+          |  |
+   text [  : 5 ]
+```
+
+Ekvivalent je vynechání **koncového indexu**: `zvire = barevne_zvire[6:]`. Tím říkáme,
+že `zvire` začíná od pozice 6, až do konce toho stringu.
 
 ### Délka
 
