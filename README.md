@@ -43,10 +43,13 @@ na kterých si ověříš, že problematiku chápeš.
 
 ### Pokročilejší datové typy
 
-- [Kapitola 10: Seznamy - list](./kapitola-08/readme.md)
-- [Kapitola 11: Cyklus a klíčová slova: for, break, continue](./kapitola-11/readme.md)
-- [Kapitola 12: Funkce range](./kapitola-12/readme.md)
-- Dict
+- [Kapitola 10: Seznamy - list](./kapitola-10/readme.md)
+- [Kapitola 11: Cyklus - while, for, range, break, continue](./kapitola-11/readme.md)
+- [Kapitola 12: Dict](./kapitola-12/readme.md)
+
+### První lab: šifrovací program
+
+- Program, který zadaný text převede do morseovky, a zpět
 
 Vstupy a výstupy z programu (soubory, kódování textu, konzole)
 
