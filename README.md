@@ -41,11 +41,12 @@ na kterých si ověříš, že problematiku chápeš.
 - [Kapitola 8: Větvení programu: klíčová slova if, elif, else](./kapitola-08/readme.md)
 - [Kapitola 9: Definice funkcí](./kapitola-09/readme.md) a slůvko `pass`
 
-### Pokročilejší datové typy
+### Cykly a pokročilejší datové typy
 
 - [Kapitola 10: Seznamy - list](./kapitola-10/readme.md)
 - [Kapitola 11: Cyklus - while, for, range, break, continue](./kapitola-11/readme.md)
-- [Kapitola 12: Dict](./kapitola-12/readme.md)
+- [Kapitola 12: Cvičení](./kapitola-12/readme.md)
+- [Kapitola 13: Dict](./kapitola-13/readme.md)
 
 ### První lab: šifrovací program
 

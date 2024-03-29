@@ -73,6 +73,11 @@ print(soucet)
 Ještě bych měl napsat jednu věc: operátor range ve skutečnosti **nevytváří** list.
 Vytváří **iterátor**, který umožňuje projít čísla v daném rozsahu od začátku do konce.
 
+Jaký je v tom rozdíl?
+
+Iterátor je něco, co ví, jak vytvořit další prvek, ale dokud ho nepotřebuješ, tak ten
+prvek neexistuje.
+
 Můžeme to demonstrovat třeba takhle (vyzkoušej si to).
 
 ```python
@@ -104,6 +109,7 @@ neobjeví, čekáme. Až se objeví, máme jí chytit do pasti.
 
 ```python
 import random
+import time
 
 def detekovana_mys():
     i = random.randint(0,10)
@@ -113,6 +119,8 @@ def detekovana_mys():
 # dokud NENÍ detekována myš, čekej
 while not detekovana_mys():
     print("čekej...")
+    # jak dlouho chceme čekat?
+    time.sleep(0.3) 
 
 # ... sklapla past ....
 print("Máme jí!")
@@ -120,5 +128,68 @@ print("Máme jí!")
 
 ## Klíčové slovo continue
 
+Občas se můžeš dostat do situace, kdy na základě splnění nějaké podmínky chceš
+přeskočit zbytek cyklu, a pokračovat další hodnotou cyklu. K tomu slouží klíčové
+slovo [continue](https://docs.python.org/3/reference/simple_stmts.html#continue).
+
+Například:
+
+- mám list, a v něm je seznam nějakých hodnot
+- chci listem projít, a na konci chci mít k dispozici součet všech čísel v listu
+
+V příkladu uvedeném níže je uvedené ještě jedna funkce, kterou jsi zatím neviděl.
+
+Jde o funkci [isinstance](https://docs.python.org/3/library/functions.html#isinstance):
+
+`isinstance(h, int)`:
+
+- první argument je testovaná hodnota (`h`)
+- druhý argument je datový typ (třída: `int`) - a pokud hodnota je tohoto typu, 
+  funkce vrací `True`
+
+
+```python
+hodnoty = [ "a", [ None ], None, 10, 11, 12 , "d"]
+soucet = 0
+for h in hodnoty:
+    if not isinstance(h, int):
+        print("Tohle není číslo:", h, "; je to", type(h))
+        # protože chceme sčítat pouze čísla, tuhle hodnotu přeskočíme
+        continue
+    soucet = soucet + h
+
+print("Součet čísel je", soucet)
+```
+
+**Pro šťouraly:** ano, existuje list comprehension, a ano, v tomto případě by bylo lepší
+použít list comprehension.
+
 ## Klíčové slovo break
 
+Někdy se můžeš dostat do situace, kdy na základě splnění nějaké podmínky chceš cyklus
+přerušit. K tomu slouží klíčové slovo 
+[break](https://docs.python.org/3/reference/simple_stmts.html#break).
+
+Například:
+
+- mám list, a v něm je seznam nějakých hodnot
+- jakmile narazím na první číslo, které je bezezbytku dělitelné dvěma, chci cyklus přerušit
+
+```python
+hodnoty = [ "a", [ None ], None, 11, 10, 12 , "d"]
+prvni = None
+
+for h in hodnoty:
+    if not isinstance(h, int):
+        continue
+    if h % 2 == 0:
+        prvni = h
+        break
+    
+if prvni:
+    print("První číslo dělitelné dvěma je", prvni)
+```
+
+**Pro šťouraly:** ano, i tohle se dá napsat s pomocí funkcí 
+[filter](https://docs.python.org/3/library/functions.html#filter) a
+[next](https://docs.python.org/3/library/functions.html#next).
