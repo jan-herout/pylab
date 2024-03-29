@@ -2,13 +2,13 @@ from IPython.display import display_markdown
 from severni_pol import vetromeric
 
 
-def vystrel(uhel: int):
+def vystrel(uhel: int, debug=False):
     if uhel == 0:
         display_markdown("# Nejdřív musíš vypočítat správný úhel.", raw=True)
         return
 
     mereni = vetromeric.mereni()
-    sm = _spravna_mereni(mereni)
+    sm = _spravna_mereni(mereni, debug)
     prumer = sum(sm) / len(sm)
 
     if uhel == prumer:
@@ -29,7 +29,7 @@ Správný výsledek je: {prumer}
     )
 
 
-def _spravna_mereni(mereni: list):
+def _spravna_mereni(mereni: list, debug=False):
     """Funkce dostane na vstupu list, a vrací správná měření.
     - jde seznamem měření řádek za řádkem
     - sečte čislici, která je na prvním místě, a číslici která je na konci
@@ -51,10 +51,12 @@ def _spravna_mereni(mereni: list):
         # na první a poslední pozici je číslo
         cislice = [c for c in m if c in "012345689"]
         prvni = int(cislice[0])
-        posledni = int(cislice[1])
-        # čísla sečtu, a pokud je výsledek <= 5, je to správné měření
-        # takové měření musím ještě násobit dvanácti
+        posledni = int(cislice[-1])
+
         soucet = prvni + posledni
+        if debug:
+            print(f"{mereni=}")
+            print(f"{cislice=}, {prvni=}, {posledni=},{soucet=}")
         if soucet <= 5:
             uhel = soucet * 12
             pouze_spravna.append(uhel)
