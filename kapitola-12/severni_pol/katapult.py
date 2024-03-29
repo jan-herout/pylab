@@ -12,7 +12,14 @@ def vystrel(uhel: int, debug=False):
     prumer = sum(sm) / len(sm)
 
     if uhel == prumer:
-        display_markdown("# To je správně!", raw=True)
+        display_markdown(
+            """
+# To je správně!
+                         
+![win.png](./imgs/win.png)                       
+""",
+            raw=True,
+        )
         return
 
     display_markdown(

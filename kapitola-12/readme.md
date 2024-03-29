@@ -1,5 +1,6 @@
 - [Kapitola 12: Cvičení](#kapitola-12-cvičení)
-  - [První cvičení: katapult?](#první-cvičení-katapult)
+  - [První cvičení: katapult](#první-cvičení-katapult)
+  - [Druhé cvičení: skleník](#druhé-cvičení-skleník)
 
 
 # Kapitola 12: Cvičení
@@ -24,6 +25,10 @@ se podívat na původní kód.
 
 Pojďme na to.
 
-## První cvičení: katapult?
+## První cvičení: katapult
 
 Vyřeš notebook [01-katapult.ipynb](./01-katapult.ipynb).
+
+## Druhé cvičení: skleník
+
+Vyřeš notebook [02-sklenik](./02-sklenik.ipynb)
