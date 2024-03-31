@@ -143,7 +143,7 @@ Všimni si, co ti Python vypsal na výstupu, nejspíš něco jako:
 `dict_keys(['a', 'b', 'c', 1, 2, 3])`
 
 Ne první pohled to trochu připomíná list, ale co se stane, když chceš získat 
-první klíř, který v tom dictionary je?
+první klíč, který v tom dictionary je?
 
 ```python
 print(abeceda.keys()[0])
@@ -178,7 +178,7 @@ for pismeno in abeceda.keys():
     print(pismeno)
 ```
 
-Výsledek bude stejný, ale - aslespoň v mých očích - má tu výhodu, že jasně říká, čeho
+Výsledek bude stejný, ale - aspoň v mých očích - má tu výhodu, že jasně říká, čeho
 chci dosáhnout: chci z dictionary nazvaného `abeceda` vzít všechny klíče, a jít přes
 ně v cyklu, a něco s nimi udělat.
 
