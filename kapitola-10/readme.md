@@ -8,7 +8,8 @@
   - [Datový typ list je MUTABLE - jeho obsah lze měnit](#datový-typ-list-je-mutable---jeho-obsah-lze-měnit)
     - [rozšíření list: metoda append (NA KONEC)](#rozšíření-list-metoda-append-na-konec)
     - [rozšíření list: metoda insert (NA VYBRANOU POZICI)](#rozšíření-list-metoda-insert-na-vybranou-pozici)
-    - [výmaz položky ze seznamu, podle indexu: metoda pop](#výmaz-položky-ze-seznamu-podle-indexu-metoda-pop)
+    - [Výmaz položky ze seznamu, podle indexu: metoda pop](#výmaz-položky-ze-seznamu-podle-indexu-metoda-pop)
+    - [Výmaz položky na indexu, funkce del](#výmaz-položky-na-indexu-funkce-del)
   - [Cvičení](#cvičení)
 
 
@@ -331,7 +332,7 @@ slova_na_n.insert(0, "nádherný")
 print("po změně:", slova_na_n[:3])
 ```
 
-### výmaz položky ze seznamu, podle indexu: metoda pop
+### Výmaz položky ze seznamu, podle indexu: metoda pop
 
 Co když potřebuješ něco z listu smazat? K tomu slouží metoda `pop`.
 
@@ -346,6 +347,22 @@ print("odstraněný prvek je: ", cisla.pop())  # poslední
 print("po změně:", cisla)
 print("odstraněný prvek je: ", cisla.pop(0))  # první
 print("po změně:", cisla)
+```
+
+### Výmaz položky na indexu, funkce del
+
+Další způsob jak něco z listu smazat, je použít klíčové slovo `del` (jako _delete_, vymazat).
+Tímhle způsobem z listu položku smažeš, ale "nedostaneš jí zpátky", narozdíl od metody 
+`pop` zmíněné výše.
+
+Vyzkoušej si to:
+
+```python
+cisla = [1,2,3,4,5]
+print("před změnou:", cisla)
+print("mažeme prvek na indexu 1")
+del cisla[1]
+print("po výmazu:", cisla)
 ```
 
 ## Cvičení

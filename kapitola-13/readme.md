@@ -8,6 +8,8 @@
   - [Seznam hodnot  - metoda values](#seznam-hodnot----metoda-values)
   - [Seznam klíčů a hodnot - metoda items](#seznam-klíčů-a-hodnot---metoda-items)
   - [Výmaz položky ze slovníku](#výmaz-položky-ze-slovníku)
+  - [Datový typ dict je mutable](#datový-typ-dict-je-mutable)
+  - [Dict a jeho kopie](#dict-a-jeho-kopie)
 
 
 # Dictionary
@@ -248,4 +250,80 @@ Pokus o smazání něčeho, co v dictionary už není, skončí chybou:
 ```python
 del abeceda["tohle tam není"]
 ```
+
+
+## Datový typ dict je mutable
+
+Ještě je důležité zmínit, že `dict` je **mutabilní** datový typ. To znamená, že jeho 
+obsah lze v programu změnit.
+
+Má to ještě jedeno důsledek, který je **extrémně důležitý**.
+
+```python
+# založíme první dictionary
+dict1 = { "a": 1, "b": 2 }
+dict2 = dict1
+dict2["c"] = 3
+
+# co myslíš že by vypsala tahle řádka, pokud bys
+# jí odkomentoval?
+#
+# ZKUS NA TUHLE OTÁZKU ODPOVĚDĚT - řekni mi to
+# a potom si ověř jestli ses trefil
+print(dict1)
+```
+
+Další příklad:
+
+```python
+def pridej(slova):
+    slova["nebezpečí"] = "danger"
+
+slovnicek = { "bezpečí" : "safety" }
+pridej(slovnicek)
+
+# co myslíš že vypíše tahle řádka, až jí odkomentuješ a spustíš?
+# řekni mi to, a potom si to ověř
+#
+# print(slovnicek)
+```
+
+**Co se to tam děje?**
+
+- pamatuješ si, jak jsme si vysvětlovali, [co je to proměnná](../kapitola-03/readme.md##co-je-to-proměnná-hodnotu-ukládáme-do-paměti)?
+
+**Pozor** - pokud nějaké funkci předáváš `dict` (nebo `list`), předáváš jí vlastně
+**odkaz** na místo v paměti, kde tento `dict` nebo `list` žije. Nepředáváš jí kopii.
+
+To znamená, že změna obsahu toho listu nebo toho slovníku se promítne do **všech**
+proměnných, které na tento `dict` nebo `list` odkazují!
+
+## Dict a jeho kopie
+
+Pokud bys z jakéhokoliv důvodu potřeboval skutečně založit **kopii** nějakého slovníku,
+nebo nějakého listu, můžeš použít metod `copy`.
+
+```python
+# vytvoříme si dict a pak ho zkopírujeme
+s1 = { "nebezpečí" : "danger" }
+s2 = s1.copy()
+print(f"{s1=}")
+print(f"{s2=}")
+
+print("-" * 40)
+
+# změníme s2
+s2["bezpečí"] = "safety"
+print(f"{s1=}")
+print(f"{s2=}")
+```
+
+**Všimni si:** 
+
+- změna kopie nezměnila originál.
+- tím neříkám, že **vždy** když do nějaké funkce budeš předávat `dict`, že ho 
+  máš zkopírovat (právě naopak ... často chceš, aby funkce ten `dict` změnila)
+- pozor ... kopírování je docela "drahá" operace; jasně, pokud kopíruješ něco, co má
+  desítky, nebo stovky položek, tak to asi ani nepoznáš (je to jedno), ale kopírovat
+  datovou strukturu, která má položek milion, nebo ještě víc, to už by nějakou dobu trvalo
 
