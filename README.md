@@ -1,22 +1,18 @@
 - [O tomto repozitáři](#o-tomto-repozitáři)
-- [Obsah kurzu](#obsah-kurzu)
-  - [Python: co to je?](#python-co-to-je)
     - [Co to je Python a co to je Notebook](#co-to-je-python-a-co-to-je-notebook)
     - [Základy práce s Gitem](#základy-práce-s-gitem)
     - [Základní datové typy](#základní-datové-typy)
     - [Základní konstrukce v programu](#základní-konstrukce-v-programu)
-    - [Pokročilejší datové typy](#pokročilejší-datové-typy)
+    - [Cykly a pokročilejší datové typy](#cykly-a-pokročilejší-datové-typy)
+    - [Co rozpracovat dál ...](#co-rozpracovat-dál-)
     - [Bonusový materiál](#bonusový-materiál)
-- [Poznámky "lektora"](#poznámky-lektora)
+- [Obsah kurzu](#obsah-kurzu)
 
-## Python: co to je?
+# O tomto repozitáři
 
-Tyto lekce ti vysvětlí něco málo o tom, co to je Python, a jak se s ním dá pracovat.
-Kromě toho si ukážeme dva nástroje, Jupyter a Git. První budeme používat pro experimentování s jazykem,
-druhý nám umožní "cestovat časem".
-
-Přečti si text na následujících odkazech, a snaž se ho pochopit. Součástí textu je také sada experimentů,
-na kterých si ověříš, že problematiku chápeš.
+Toto repository obsahuje sbírku textů použitelných pro výuku programování v jazyce Python.
+Snažil jsem se, aby obsah byl srozumitelný i lidem s minimální znalostí IT obecně.
+Texty primárně píšu pro svého syna, a myslím si, že to na obsahu bude znát.
 
 ### Co to je Python a co to je Notebook
 
@@ -41,26 +37,23 @@ na kterých si ověříš, že problematiku chápeš.
 - [Kapitola 8: Větvení programu: klíčová slova if, elif, else](./kapitola-08/readme.md)
 - [Kapitola 9: Definice funkcí](./kapitola-09/readme.md) a slůvko `pass`
 
-### Pokročilejší datové typy
+### Cykly a pokročilejší datové typy
 
-- [Kapitola 10: Seznamy - list](./kapitola-08/readme.md)
-- [Kapitola 11: Cyklus a klíčová slova: for, break, continue](./kapitola-11/readme.md)
-- [Kapitola 12: Funkce range](./kapitola-12/readme.md)
-- Dict
+- [Kapitola 10: Seznamy - list](./kapitola-10/readme.md)
+- [Kapitola 11: Cyklus - while, for, range, break, continue](./kapitola-11/readme.md)
+- [Kapitola 12: Cvičení](./kapitola-12/readme.md)
+- [Kapitola 13: Dict](./kapitola-13/readme.md)
+- [Kapitola 14: Cvičení](./kapitola-14/readme.md)
 
-Vstupy a výstupy z programu (soubory, kódování textu, konzole)
+### Co rozpracovat dál ...
 
-Podrobnější popis deklarace funkcí v programu (docstring, defaultní hodnoty, positional/named arguments)
-
-Type hints
-
-IDE vs Jupyter
-
-Datové struktury (stack, queue, list of dicts, list/dict comprehension)
-
-Chyby a výjimky
-
-Třídy, základy OOP, pro a proti.
+- Práci se soubory
+- Podrobnější popis deklarace funkcí v programu (docstring, defaultní hodnoty, positional/named arguments)
+- Type hints
+- IDE vs Jupyter
+- Datové struktury (stack, queue, list of dicts, list/dict comprehension)
+- Chyby a výjimky
+- Třídy, základy OOP, pro a proti.
 
 ### Bonusový materiál
 
@@ -68,27 +61,6 @@ Třídy, základy OOP, pro a proti.
 - refactoring
 - "never nesters"
 
-# Poznámky "lektora"
-
-- Issues slouží 
-  - pro zpětnou vazbu - otázky, nejasnosti
-  - ale také pro kontrolu toho, jak si student vede (pokud něco udělal špatně, bude mu přiděleno nové issue, které vyřeší)
-
-# O tomto repozitáři
-
-Repository sleduje tyto základní cíle:
-
-- poskytnout materiály, použitelné pro **samostudium programování** v jazyce 
-  Python (s nulovou počáteční znalostí)
-- vysvětlit některá důležitá témata, která by programátor měl ovládat, ale která nesouvisí
-  se syntaxí jazyka (markdown, co to je HTML, kódování textu, "happy path" v programu, 
-  základy síťové komunikace, apod.); **všeobecný přehled** IT světa
-- umožnit prokazatelné sledování aktivity studenta
-  - studijní materiály na hlavní větvi (`main`)
-  - "domácí úkoly" na vedlejší větvi, commit ze [samostatného účtu](https://github.com/tom-herout), 
-    aby bylo možné sledovat aktivitu v čase
-  - "domácí úkoly" z počátku formou Jupyter notebooků, později možná přímo jako `.py` soubory
-- na závěr nějaký větší celek (zatím nevím, co to bude)
 
 
 # Obsah kurzu

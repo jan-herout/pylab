@@ -771,10 +771,11 @@ programovacích jazyků).
 
 #### Text se dá rozdělit (a co bylo rozdělené se dá sloučit)
 
-| metoda   | co dělá                                                              | použití              | výsledek          |
-| -------- | -------------------------------------------------------------------- | -------------------- | ----------------- |
-| `.split` | rozdělí text podle zadaného oddělovače (vrací seznam hodnot, `list`) | `"a,b,c".split(",")` | `['a', 'b', 'c']` |
-| `.join`  | spojí něco, co lze iterovat                                          | `", ".join("abc")`   | `a, b, c`         |
+| metoda        | co dělá                                                              | použití               | výsledek          |
+| ------------- | -------------------------------------------------------------------- | --------------------- | ----------------- |
+| `.split`      | rozdělí text podle zadaného oddělovače (vrací seznam hodnot, `list`) | `"a,b,c".split(",")`  | `['a', 'b', 'c']` |
+| `.join`       | spojí něco, co lze iterovat                                          | `", ".join("abc")`    | `a, b, c`         |
+| `.splitlines` | rozdělí text na jednotlivé řádky (vrací `list`)                      | `"a\nb".splitlines()` | `[ "a", "b" ]`    |
 
 
 #### V textu se dá hledat

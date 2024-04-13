@@ -8,7 +8,8 @@
   - [Datový typ list je MUTABLE - jeho obsah lze měnit](#datový-typ-list-je-mutable---jeho-obsah-lze-měnit)
     - [rozšíření list: metoda append (NA KONEC)](#rozšíření-list-metoda-append-na-konec)
     - [rozšíření list: metoda insert (NA VYBRANOU POZICI)](#rozšíření-list-metoda-insert-na-vybranou-pozici)
-    - [výmaz položky ze seznamu, podle indexu: metoda poo](#výmaz-položky-ze-seznamu-podle-indexu-metoda-poo)
+    - [Výmaz položky ze seznamu, podle indexu: metoda pop](#výmaz-položky-ze-seznamu-podle-indexu-metoda-pop)
+    - [Výmaz položky na indexu, funkce del](#výmaz-položky-na-indexu-funkce-del)
   - [Cvičení](#cvičení)
 
 
@@ -115,7 +116,7 @@ Máš to? Fajn. Slicing se dá použít nejen na string, ale také na list. Ale 
 mohli demonstrovat, potřebujeme trochu delší list.
 
 - Pokud ještě nemáš spuštěný Jupyter, tak ho spusť
-- Pokud ještě nemáš založený notebook, tak ho založ, a to v adresáři `kapitola-09`
+- Pokud ještě nemáš založený notebook, tak ho založ, a to v adresáři `kapitola-10`
 - Notebook ulož - nazvi ho `list.ipynb`
 - A potom, na jeho konci, spusť v nové buňce tohle (netrap se tím, že nevíš, co to dělá)
 
@@ -130,9 +131,6 @@ for f in pathlib.Path(".").rglob("*.md"):
 
 Tak, a teď si (v nové buňce pod tím) pocvičíme pár operací. Vyzkoušej si to.
 Pěkně každou operaci zvlášť.
-
-```python
-```
 
 ```python
 # dej mi prvních deset slov na seznamu
@@ -242,7 +240,7 @@ se dá tedy přečíst nějak takhle:
 Zkus si to. Zadej výše uvedený kód do nové buňky, a spusť ho.
 
 **Cyklus `for` je jeden ze základních konstruktů jazyka Python**. Když budeš psát nějaký
-program, budeš ho používat skoro pořád.
+program, budeš ho používat dost často.
 
 ## Datový typ list je MUTABLE - jeho obsah lze měnit
 
@@ -252,8 +250,8 @@ datový typ `str` je **imutable**, že jeho obsah nelze změnit.
 To znamená, že následující program zhavaruje (zkus si to).
 
 ```python
-slovo = slova[3]
-slovo[0] = "A"
+slovo = slova[3] # dej mi čtvrté slovo na seznamu
+slovo[0] = "A" # jeho první písmeno změň na "A"
 ```
 
 Na výstupu bys měl dostat něco jako: `TypeError: 'str' object does not support item assignment`.
@@ -271,13 +269,21 @@ slova[0] = "JEDNOROŽEC"
 print("po změně", slova[:3])
 ```
 
-**Proč je to důležité?** Především proto, že se list dá libovolně rozšiřovat, a zkracovat.
+Kteroukoliv existující položku listu můžeš takhle změnit.
+
+Kromě toho se alel `list` dá libovolně rozšiřovat, a zkracovat.
 To znamená, že do něj můžeš postupně skládat jednotlivé položky - a často se to také dělá.
 
 ### rozšíření list: metoda append (NA KONEC)
 
 Nejčastěji se setkáš s tím, že budeš potřebovat přidat novou položku na konec 
-existujícího listu.
+existujícího listu. K tomu slouží metoda `append`, která bere jeden parametr, a to je
+prvek, který chceš do listu přidat.
+
+```python
+suroviny = [ "mouka", "vejce" ]
+suroviny.append("mléko") # přidej k surovinám mléko
+```
 
 Tak například: dejme tomu, že chceme najít všechna slova, která začínají písmenkem "n".
 
@@ -288,11 +294,12 @@ Proč? Protože **nejlépe** se učíme, když věci **děláme**. `Ctrl+C` a `C
 usnadní život, ale nic se tak nenaučíš.
 
 ```python
+# založíme nový, prázdný list
 slova_na_n = []
 
 # potom budeme procházet seznamem slov
 for slovo in slova:
-    # když slovo začíná na "m" ...
+    # když slovo (po konverzi na malá písmena) začíná na "m" ...
     if slovo.lower().startswith("n"):
         # ... tak ho přidej na konec seznamu (append)
         # VŠIMNI SI: výsledek NIKAM NEPŘIŘAZUJEME.
@@ -325,7 +332,7 @@ slova_na_n.insert(0, "nádherný")
 print("po změně:", slova_na_n[:3])
 ```
 
-### výmaz položky ze seznamu, podle indexu: metoda poo
+### Výmaz položky ze seznamu, podle indexu: metoda pop
 
 Co když potřebuješ něco z listu smazat? K tomu slouží metoda `pop`.
 
@@ -337,8 +344,25 @@ vynecháš, odstraní **poslední** prvek na seznamu.
 cisla = [1,2,3,4,5]
 print("před změnou:", cisla)
 print("odstraněný prvek je: ", cisla.pop())  # poslední
+print("po změně:", cisla)
 print("odstraněný prvek je: ", cisla.pop(0))  # první
 print("po změně:", cisla)
+```
+
+### Výmaz položky na indexu, funkce del
+
+Další způsob jak něco z listu smazat, je použít klíčové slovo `del` (jako _delete_, vymazat).
+Tímhle způsobem z listu položku smažeš, ale "nedostaneš jí zpátky", narozdíl od metody 
+`pop` zmíněné výše.
+
+Vyzkoušej si to:
+
+```python
+cisla = [1,2,3,4,5]
+print("před změnou:", cisla)
+print("mažeme prvek na indexu 1")
+del cisla[1]
+print("po výmazu:", cisla)
 ```
 
 ## Cvičení
