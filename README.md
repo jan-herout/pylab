@@ -4,6 +4,7 @@
     - [Základní datové typy](#základní-datové-typy)
     - [Základní konstrukce v programu](#základní-konstrukce-v-programu)
     - [Cykly a pokročilejší datové typy](#cykly-a-pokročilejší-datové-typy)
+    - [Práce se soubory](#práce-se-soubory)
     - [Co rozpracovat dál ...](#co-rozpracovat-dál-)
     - [Bonusový materiál](#bonusový-materiál)
 - [Obsah kurzu](#obsah-kurzu)
@@ -44,6 +45,13 @@ Texty primárně píšu pro svého syna, a myslím si, že to na obsahu bude zn�
 - [Kapitola 12: Cvičení](./kapitola-12/readme.md)
 - [Kapitola 13: Dict](./kapitola-13/readme.md)
 - [Kapitola 14: Cvičení](./kapitola-14/readme.md)
+
+### Práce se soubory
+
+- [Kapitola 15: svazek, soubor, adresář]()
+- [Kapitola 16: kódování textu]()
+- [Kapitola 17: práce se soubory a knihovna pathlib]()
+
 
 ### Co rozpracovat dál ...
 
