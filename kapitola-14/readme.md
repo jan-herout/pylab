@@ -19,7 +19,7 @@ Pojďme na to.
 
 ## Počítání karet
 
-Vyřeš notebook (01-karban)[./01-karban.ipynb].
+Vyřeš notebook [01-karban](./01-karban.ipynb).
 
 ## Fotopast
 
