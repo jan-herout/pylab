@@ -1,4 +1,5 @@
 - [Kapitola 14: Cvičení](#kapitola-14-cvičení)
+  - [Počítání karet](#počítání-karet)
   - [Fotopast](#fotopast)
   - [Druhé cvičení: skleník](#druhé-cvičení-skleník)
 
@@ -15,6 +16,10 @@ Změny budeš vždy dělat do sekce, která je tak explicitně označená, abys 
 se podívat na původní kód.
 
 Pojďme na to.
+
+## Počítání karet
+
+Vyřeš notebook [01-karban](./01-karban.ipynb).
 
 ## Fotopast
 
