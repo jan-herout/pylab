@@ -4,8 +4,7 @@
     - [Základní datové typy](#základní-datové-typy)
     - [Základní konstrukce v programu](#základní-konstrukce-v-programu)
     - [Cykly a pokročilejší datové typy](#cykly-a-pokročilejší-datové-typy)
-    - [Práce se soubory](#práce-se-soubory)
-    - [Co rozpracovat dál ...](#co-rozpracovat-dál-)
+    - [Píšeme jednoduchou textovou hru](#píšeme-jednoduchou-textovou-hru)
     - [Bonusový materiál](#bonusový-materiál)
 - [Obsah kurzu](#obsah-kurzu)
 
@@ -46,22 +45,28 @@ Texty primárně píšu pro svého syna, a myslím si, že to na obsahu bude zn�
 - [Kapitola 13: Dict](./kapitola-13/readme.md)
 - [Kapitola 14: Cvičení](./kapitola-14/readme.md)
 
-### Práce se soubory
+### Píšeme jednoduchou textovou hru
 
-- [Kapitola 15: svazek, soubor, adresář]()
-- [Kapitola 16: kódování textu]()
-- [Kapitola 17: práce se soubory a knihovna pathlib]()
+V tomto okamžiku jsme začali spolu pracovat na jednoduché textové hře.
+Cílem je připravit něco zhruba v duchu textovek na osmibitových počítačích,
+například něco jako byl [Belegost](https://www.retrogames.cz/play_1323-DOS.php) 
+na ZX Spectru.
+
+Vize je zhruba následující:
+
+- mapa popsaná jako sada místností, kdy každá místnost bude mít definované východy
+- hlavní hrdina bude mít k dispozici inventář, 
+  - předměty bude nacházet v místnostech,
+  - předměty půjdou spolu kombinovat, a půjdou v místnostech nějakým způsobem použít
+  - na mapě budou sedět nepřátelé, se kterými bude možné bojovat
 
 
-### Co rozpracovat dál ...
+- [Kapitola 15: první přískok](./kapitola-15/readme.md) - témata:
+  - Python program, `if __name__ == "__main__"`
+  - hlavní smyčka hry, vstup z klávesnice (`input`)
+  - definice místnosti jako dictionary
+  - try/except blok
 
-- Práci se soubory
-- Podrobnější popis deklarace funkcí v programu (docstring, defaultní hodnoty, positional/named arguments)
-- Type hints
-- IDE vs Jupyter
-- Datové struktury (stack, queue, list of dicts, list/dict comprehension)
-- Chyby a výjimky
-- Třídy, základy OOP, pro a proti.
 
 ### Bonusový materiál
 
